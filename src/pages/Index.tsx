@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ShoppingBag, Instagram, Youtube, Twitter, Github, Facebook } from "lucide-react";
+import { Menu, X, ShoppingBag, Instagram, Youtube, Twitter, Github, Facebook, Heart, Stethoscope, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import portraitCasual from "@/assets/portrait-casual.png";
@@ -219,8 +219,64 @@ const Index = () => {
           </div>
         </div>
 
+        {/* Featured Project - Digital Nurse */}
+        <div className={`mt-12 w-full max-w-2xl transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <a 
+            href="https://digital-nurse-buddy.lovable.app/home" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={`group relative block overflow-hidden rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] ${showIronMan ? "border-cyan-500/40 bg-gradient-to-br from-cyan-950/40 to-red-950/30" : "border-border bg-gradient-to-br from-card/80 to-muted/50"}`}
+          >
+            {/* Glow effect */}
+            <div className={`absolute -inset-1 rounded-2xl blur-xl transition-opacity duration-500 group-hover:opacity-100 ${showIronMan ? "bg-cyan-500/20 opacity-50" : "bg-lime/20 opacity-0"}`} />
+            
+            <div className="relative p-6 md:p-8">
+              {/* Header */}
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className={`p-3 rounded-xl transition-colors duration-500 ${showIronMan ? "bg-cyan-500/20" : "bg-lime/20"}`}>
+                    <Stethoscope className={`w-6 h-6 transition-colors duration-500 ${showIronMan ? "text-cyan-400" : "text-lime-foreground"}`} />
+                  </div>
+                  <div>
+                    <h3 className={`font-display text-xl md:text-2xl tracking-wide transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>
+                      Digital Nurse
+                    </h3>
+                    <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-cyan-400" : "text-muted-foreground"}`}>
+                      Clinical Reference App
+                    </p>
+                  </div>
+                </div>
+                <ExternalLink className={`w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${showIronMan ? "text-white/50 group-hover:text-cyan-400" : "text-muted-foreground group-hover:text-foreground"}`} />
+              </div>
+
+              {/* Description */}
+              <p className={`text-sm md:text-base leading-relaxed mb-6 transition-colors duration-500 ${showIronMan ? "text-white/70" : "text-muted-foreground"}`}>
+                Evidence-based nursing procedures, clinical calculators, and professional healthcare resources. Built for healthcare professionals.
+              </p>
+
+              {/* Features */}
+              <div className="flex flex-wrap gap-2">
+                {["Clinical Procedures", "Medical Calculators", "Drug References", "AI Assistant"].map((feature) => (
+                  <span 
+                    key={feature}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors duration-500 ${showIronMan ? "bg-white/10 text-white/80" : "bg-muted text-muted-foreground"}`}
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className={`mt-6 flex items-center gap-2 text-sm font-medium transition-colors duration-500 ${showIronMan ? "text-cyan-400" : "text-lime-foreground"}`}>
+                <Heart className="w-4 h-4" />
+                <span>Explore the App</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
         {/* Stats / Info cards */}
-        <div className={`flex flex-wrap justify-center gap-4 mt-8 transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className={`flex flex-wrap justify-center gap-4 mt-8 transition-all duration-1000 delay-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-red-500/30 bg-red-950/30" : "border-border bg-card/50"}`}>
             <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-red-400" : "text-muted-foreground"}`}>AI Tools</p>
             <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>🧠</p>
