@@ -174,7 +174,10 @@ const Index = () => {
             <span className="font-bold"> 𝓢𝓪𝓵𝓶𝓪𝓷</span>
           </h1>
           <p className={`text-sm md:text-base tracking-[0.3em] uppercase mt-2 transition-colors duration-500 ${showIronMan ? "text-red-400" : "text-muted-foreground"}`}>
-            {showIronMan ? "I AM IRON MAN" : "CREATIVE • DEVELOPER • VISIONARY"}
+            {showIronMan ? "I AM IRON MAN" : "AI & TECH 🧠🤖 • NURSE"}
+          </p>
+          <p className={`text-xs md:text-sm tracking-wide mt-3 max-w-md mx-auto transition-colors duration-500 ${showIronMan ? "text-white/70" : "text-muted-foreground"}`}>
+            Practical AI tools | Design | Prompts | Tutorials | Experiments
           </p>
         </div>
 
@@ -219,16 +222,16 @@ const Index = () => {
         {/* Stats / Info cards */}
         <div className={`flex flex-wrap justify-center gap-4 mt-8 transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-red-500/30 bg-red-950/30" : "border-border bg-card/50"}`}>
-            <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-red-400" : "text-muted-foreground"}`}>Projects</p>
-            <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>50+</p>
+            <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-red-400" : "text-muted-foreground"}`}>AI Tools</p>
+            <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>🧠</p>
           </div>
           <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-amber-500/30 bg-amber-950/30" : "border-border bg-card/50"}`}>
-            <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-amber-400" : "text-muted-foreground"}`}>Experience</p>
-            <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>5+ YRS</p>
+            <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-amber-400" : "text-muted-foreground"}`}>Tutorials</p>
+            <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>📚</p>
           </div>
           <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-cyan-500/30 bg-cyan-950/30" : "border-border bg-card/50"}`}>
-            <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-cyan-400" : "text-muted-foreground"}`}>Clients</p>
-            <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>100+</p>
+            <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-cyan-400" : "text-muted-foreground"}`}>Nurse</p>
+            <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>💉</p>
           </div>
         </div>
       </main>
