@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, ShoppingBag, Instagram, Youtube, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import portraitCasual from "@/assets/portrait-casual.png";
 import portraitIronman from "@/assets/portrait-ironman.jpg";
 
@@ -8,10 +9,57 @@ const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showIronMan, setShowIronMan] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isPlayingSound, setIsPlayingSound] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  const playTransformSound = async () => {
+    if (isPlayingSound) return;
+    
+    setIsPlayingSound(true);
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/iron-man-sfx`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Sound request failed: ${response.status}`);
+      }
+
+      const audioBlob = await response.blob();
+      const audioUrl = URL.createObjectURL(audioBlob);
+      
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+      
+      audioRef.current = new Audio(audioUrl);
+      audioRef.current.volume = 0.7;
+      await audioRef.current.play();
+    } catch (error) {
+      console.error("Error playing sound:", error);
+    } finally {
+      setIsPlayingSound(false);
+    }
+  };
+
+  const handleTransform = () => {
+    setShowIronMan(!showIronMan);
+    if (!showIronMan) {
+      playTransformSound();
+    }
+  };
 
   return (
     <div className={`min-h-screen overflow-hidden relative transition-all duration-700 ${showIronMan ? "bg-[#0a0a0a]" : "bg-background"}`}>
@@ -133,7 +181,7 @@ const Index = () => {
         {/* Portrait with overlay effect */}
         <div 
           className={`relative w-full max-w-md md:max-w-lg lg:max-w-xl cursor-pointer transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"} ${showIronMan ? "scale-105" : "scale-100"}`}
-          onClick={() => setShowIronMan(!showIronMan)}
+          onClick={handleTransform}
         >
           {/* Glowing ring effect for Iron Man mode */}
           <div className={`absolute -inset-4 rounded-full transition-all duration-700 ${showIronMan ? "opacity-100" : "opacity-0"}`}>
