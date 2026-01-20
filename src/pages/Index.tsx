@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ShoppingBag, Instagram, Youtube, Twitter } from "lucide-react";
+import { Menu, X, ShoppingBag, Instagram, Youtube, Twitter, Github, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import portraitCasual from "@/assets/portrait-casual.png";
@@ -240,19 +240,25 @@ const Index = () => {
       <footer className={`fixed bottom-0 left-0 right-0 p-4 md:p-6 z-30 transition-all duration-1000 delay-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <a href="#" className={`transition-colors duration-500 ${showIronMan ? "text-white/60 hover:text-red-500" : "text-muted-foreground hover:text-foreground"}`}>
+            <a href="https://instagram.com/3h0ll" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-500 ${showIronMan ? "text-white/60 hover:text-red-500" : "text-muted-foreground hover:text-foreground"}`}>
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="#" className={`transition-colors duration-500 ${showIronMan ? "text-white/60 hover:text-red-500" : "text-muted-foreground hover:text-foreground"}`}>
+            <a href="https://twitter.com/3h0ll7" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-500 ${showIronMan ? "text-white/60 hover:text-red-500" : "text-muted-foreground hover:text-foreground"}`}>
               <Twitter className="w-5 h-5" />
             </a>
-            <a href="#" className={`transition-colors duration-500 ${showIronMan ? "text-white/60 hover:text-red-500" : "text-muted-foreground hover:text-foreground"}`}>
+            <a href="https://youtube.com/@stai9" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-500 ${showIronMan ? "text-white/60 hover:text-red-500" : "text-muted-foreground hover:text-foreground"}`}>
               <Youtube className="w-5 h-5" />
+            </a>
+            <a href="https://github.com/3h0ll7" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-500 ${showIronMan ? "text-white/60 hover:text-red-500" : "text-muted-foreground hover:text-foreground"}`}>
+              <Github className="w-5 h-5" />
+            </a>
+            <a href="https://www.facebook.com/share/1SXTmx3Zcj/" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-500 ${showIronMan ? "text-white/60 hover:text-red-500" : "text-muted-foreground hover:text-foreground"}`}>
+              <Facebook className="w-5 h-5" />
             </a>
           </div>
           
           <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-white/40" : "text-muted-foreground"}`}>
-            © 2024 Hassan Salman
+            © 2025 Hassan Salman
           </p>
         </div>
       </footer>
