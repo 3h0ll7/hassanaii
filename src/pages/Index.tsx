@@ -284,10 +284,15 @@ const Index = () => {
 
         {/* Stats / Info cards */}
         <div className={`flex flex-wrap justify-center gap-4 mt-8 transition-all duration-1000 delay-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-red-500/30 bg-red-950/30" : "border-border bg-card/50"}`}>
-            <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-red-400" : "text-muted-foreground"}`}>AI Tools</p>
+          <a 
+            href="https://kidinnu.netlify.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 hover:scale-105 ${showIronMan ? "border-red-500/30 bg-red-950/30 hover:border-red-500/60" : "border-border bg-card/50 hover:border-lime/50"}`}
+          >
+            <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-red-400" : "text-muted-foreground"}`}>Kidinnu AI</p>
             <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>🧠</p>
-          </div>
+          </a>
           <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-amber-500/30 bg-amber-950/30" : "border-border bg-card/50"}`}>
             <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-amber-400" : "text-muted-foreground"}`}>Tutorials</p>
             <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>📚</p>
