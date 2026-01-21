@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, ShoppingBag, Instagram, Youtube, Twitter, Github, Facebook, Heart, Stethoscope, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useParallax } from "@/hooks/useParallax";
 import portraitCasual from "@/assets/portrait-casual.png";
 import portraitIronman from "@/assets/portrait-ironman.jpg";
 
@@ -11,6 +12,7 @@ const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isPlayingSound, setIsPlayingSound] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { scrollY, getParallaxStyle, getParallaxOpacity, getParallaxScale } = useParallax();
 
   useEffect(() => {
     setIsLoaded(true);
@@ -62,14 +64,14 @@ const Index = () => {
   };
 
   return (
-    <div className={`min-h-screen overflow-hidden relative transition-all duration-700 ${showIronMan ? "bg-[#0a0a0a]" : "bg-background"}`}>
+    <div className={`min-h-[200vh] overflow-x-hidden relative transition-all duration-700 ${showIronMan ? "bg-[#0a0a0a]" : "bg-background"}`}>
       
       {/* Dynamic background effects - changes when Iron Man is shown */}
-      <div className={`absolute inset-0 transition-opacity duration-700 ${showIronMan ? "opacity-100" : "opacity-0"}`}>
-        {/* Red glow effects for Iron Man mode */}
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-red-600/30 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-amber-500/25 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "0.5s" }} />
-        <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-red-500/20 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "1s" }} />
+      <div className={`fixed inset-0 transition-opacity duration-700 ${showIronMan ? "opacity-100" : "opacity-0"}`}>
+        {/* Red glow effects for Iron Man mode - with parallax */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-red-600/30 rounded-full blur-[120px] animate-pulse" style={getParallaxStyle(0.3)} />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-amber-500/25 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "0.5s", ...getParallaxStyle(0.2, "down") }} />
+        <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-red-500/20 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "1s", ...getParallaxStyle(0.15) }} />
         
         {/* Arc reactor glow in center */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]">
@@ -97,11 +99,11 @@ const Index = () => {
         </svg>
       </div>
 
-      {/* Normal mode decorative shapes */}
-      <div className={`transition-opacity duration-700 ${showIronMan ? "opacity-0" : "opacity-100"}`}>
-        <div className="absolute top-0 left-0 w-80 h-80 bg-muted/50 rounded-full blur-3xl animate-morph opacity-60" />
-        <div className="absolute top-20 right-0 w-96 h-96 bg-muted/40 rounded-full blur-3xl animate-morph opacity-50" style={{ animationDelay: "2s" }} />
-        <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-muted/30 rounded-full blur-3xl animate-morph opacity-40" style={{ animationDelay: "4s" }} />
+      {/* Normal mode decorative shapes - with parallax */}
+      <div className={`fixed inset-0 transition-opacity duration-700 pointer-events-none ${showIronMan ? "opacity-0" : "opacity-100"}`}>
+        <div className="absolute top-0 left-0 w-80 h-80 bg-muted/50 rounded-full blur-3xl animate-morph opacity-60" style={getParallaxStyle(0.4)} />
+        <div className="absolute top-20 right-0 w-96 h-96 bg-muted/40 rounded-full blur-3xl animate-morph opacity-50" style={{ animationDelay: "2s", ...getParallaxStyle(0.25, "down") }} />
+        <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-muted/30 rounded-full blur-3xl animate-morph opacity-40" style={{ animationDelay: "4s", ...getParallaxStyle(0.15) }} />
         
         {/* Subtle line patterns */}
         <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
@@ -160,9 +162,18 @@ const Index = () => {
 
       {/* Main content */}
       <main className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-12">
-        {/* Name above portrait */}
-        <div className={`text-center mb-6 transition-all duration-1000 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h1 className={`font-display text-5xl md:text-7xl lg:text-8xl tracking-wider transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>
+        {/* Name above portrait - with parallax fade and scale */}
+        <div 
+          className={`text-center mb-6 transition-all duration-1000 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          style={{ 
+            ...getParallaxStyle(0.5), 
+            ...getParallaxOpacity(50, 400),
+          }}
+        >
+          <h1 
+            className={`font-display text-5xl md:text-7xl lg:text-8xl tracking-wider transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}
+            style={getParallaxScale(1, 0.0003)}
+          >
             <span className="font-normal">𝓗𝓪𝓼𝓼𝓪𝓷</span>
           </h1>
           <p className={`text-sm md:text-base tracking-[0.3em] uppercase mt-2 transition-colors duration-500 ${showIronMan ? "text-red-400" : "text-muted-foreground"}`}>
@@ -173,10 +184,11 @@ const Index = () => {
           </p>
         </div>
 
-        {/* Portrait with overlay effect */}
+        {/* Portrait with overlay effect - with parallax */}
         <div 
           className={`relative w-full max-w-md md:max-w-lg lg:max-w-xl cursor-pointer transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"} ${showIronMan ? "scale-105" : "scale-100"}`}
           onClick={handleTransform}
+          style={getParallaxStyle(0.2)}
         >
           {/* Glowing ring effect for Iron Man mode */}
           <div className={`absolute -inset-4 rounded-full transition-all duration-700 ${showIronMan ? "opacity-100" : "opacity-0"}`}>
@@ -211,8 +223,11 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Featured Project - Digital Nurse */}
-        <div className={`mt-12 w-full max-w-2xl transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        {/* Featured Project - Digital Nurse - with parallax */}
+        <div 
+          className={`mt-12 w-full max-w-2xl transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          style={getParallaxStyle(-0.1, "down")}
+        >
           <a 
             href="https://digital-nurse-buddy.lovable.app/home" 
             target="_blank" 
