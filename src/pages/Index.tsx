@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ShoppingBag, Instagram, Youtube, Twitter, Github, Facebook, Heart, Stethoscope, ExternalLink } from "lucide-react";
+import { Menu, X, ShoppingBag, Instagram, Youtube, Twitter, Github, Facebook, Heart, Stethoscope, ExternalLink, Brain, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useParallax } from "@/hooks/useParallax";
@@ -282,17 +282,71 @@ const Index = () => {
           </a>
         </div>
 
-        {/* Stats / Info cards */}
-        <div className={`flex flex-wrap justify-center gap-4 mt-8 transition-all duration-1000 delay-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        {/* Featured Project - Kidinnu AI - with parallax */}
+        <div 
+          className={`mt-8 w-full max-w-2xl transition-all duration-1000 delay-800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          style={getParallaxStyle(-0.15, "down")}
+        >
           <a 
             href="https://kidinnu.netlify.app/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 hover:scale-105 ${showIronMan ? "border-red-500/30 bg-red-950/30 hover:border-red-500/60" : "border-border bg-card/50 hover:border-lime/50"}`}
+            className={`group relative block overflow-hidden rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] ${showIronMan ? "border-purple-500/40 bg-gradient-to-br from-purple-950/40 to-pink-950/30" : "border-border bg-gradient-to-br from-card/80 to-muted/50"}`}
           >
-            <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-red-400" : "text-muted-foreground"}`}>Kidinnu AI</p>
-            <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>🧠</p>
+            {/* Glow effect */}
+            <div className={`absolute -inset-1 rounded-2xl blur-xl transition-opacity duration-500 group-hover:opacity-100 ${showIronMan ? "bg-purple-500/20 opacity-50" : "bg-lime/20 opacity-0"}`} />
+            
+            <div className="relative p-6 md:p-8">
+              {/* Header */}
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className={`p-3 rounded-xl transition-colors duration-500 ${showIronMan ? "bg-purple-500/20" : "bg-lime/20"}`}>
+                    <Brain className={`w-6 h-6 transition-colors duration-500 ${showIronMan ? "text-purple-400" : "text-lime-foreground"}`} />
+                  </div>
+                  <div>
+                    <h3 className={`font-display text-xl md:text-2xl tracking-wide transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>
+                      Kidinnu AI
+                    </h3>
+                    <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-purple-400" : "text-muted-foreground"}`}>
+                      AI-Powered Assistant
+                    </p>
+                  </div>
+                </div>
+                <ExternalLink className={`w-5 h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${showIronMan ? "text-white/50 group-hover:text-purple-400" : "text-muted-foreground group-hover:text-foreground"}`} />
+              </div>
+
+              {/* Description */}
+              <p className={`text-sm md:text-base leading-relaxed mb-6 transition-colors duration-500 ${showIronMan ? "text-white/70" : "text-muted-foreground"}`}>
+                Advanced AI assistant powered by cutting-edge language models. Create, explore, and innovate with intelligent conversation.
+              </p>
+
+              {/* Features */}
+              <div className="flex flex-wrap gap-2">
+                {["Smart Conversations", "Creative Writing", "Problem Solving", "Knowledge Base"].map((feature) => (
+                  <span 
+                    key={feature}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors duration-500 ${showIronMan ? "bg-white/10 text-white/80" : "bg-muted text-muted-foreground"}`}
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className={`mt-6 flex items-center gap-2 text-sm font-medium transition-colors duration-500 ${showIronMan ? "text-purple-400" : "text-lime-foreground"}`}>
+                <Sparkles className="w-4 h-4" />
+                <span>Try Kidinnu AI</span>
+              </div>
+            </div>
           </a>
+        </div>
+
+        {/* Stats / Info cards */}
+        <div className={`flex flex-wrap justify-center gap-4 mt-8 transition-all duration-1000 delay-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-amber-500/30 bg-amber-950/30" : "border-border bg-card/50"}`}>
+            <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-amber-400" : "text-muted-foreground"}`}>Projects</p>
+            <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>🚀</p>
+          </div>
           <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-amber-500/30 bg-amber-950/30" : "border-border bg-card/50"}`}>
             <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-amber-400" : "text-muted-foreground"}`}>Tutorials</p>
             <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>📚</p>
