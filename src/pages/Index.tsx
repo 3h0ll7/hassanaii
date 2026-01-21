@@ -325,9 +325,18 @@ const Index = () => {
             </a>
           </div>
           
-          <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-white/40" : "text-muted-foreground"}`}>
-            © 2025 Hassan Salman
-          </p>
+          <div className="flex items-center gap-4">
+            <a href="https://www.tiktok.com/@3h0ll" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-500 ${showIronMan ? "text-white/60 hover:text-red-500" : "text-muted-foreground hover:text-foreground"}`}>
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+              </svg>
+            </a>
+            <a href="https://letterboxd.com/3h0ll/" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-500 ${showIronMan ? "text-white/60 hover:text-red-500" : "text-muted-foreground hover:text-foreground"}`}>
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8.29 16.752c-.18.087-.37.166-.564.237l.447-.71-.447-.709c.195.07.384.15.564.237a5.09 5.09 0 0 1 0 .945zm7.42 0a5.09 5.09 0 0 1 0-.945c.18-.087.37-.166.565-.237l-.448.71.448.709a4.46 4.46 0 0 0-.564-.237zm-3.71-1.9a4.78 4.78 0 0 1-.536.07 4.78 4.78 0 0 1-.536-.07l.536-.852.536.852zm0-3.504l-.536-.852a4.78 4.78 0 0 1 .536-.07c.18.003.36.025.536.07l-.536.852zM8.29 7.248c.18.087.37.166.564.237l-.447.71.447.709a4.46 4.46 0 0 0-.564-.237 5.09 5.09 0 0 1 0-.945zm7.42.945c-.18-.087-.37-.166-.565-.237l.448-.71-.448-.709c.195.07.384.15.565.237a5.09 5.09 0 0 1 0 .945zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-4.5 14a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm4.5 0a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm4.5 0a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </footer>
     </div>
