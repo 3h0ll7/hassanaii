@@ -118,16 +118,9 @@ const Index = () => {
           <div className={`transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}>
             <h2 className={`font-display text-2xl md:text-3xl tracking-wider transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>
               <span className="font-normal">𝓗𝓪𝓼𝓼𝓪𝓷</span>
-              <span className="font-bold"> 𝓼𝓪𝓵𝓶𝓪𝓷</span>
             </h2>
           </div>
 
-          {/* Center Logo */}
-          <div className={`absolute left-1/2 -translate-x-1/2 transition-all duration-700 delay-100 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}>
-            <div className={`text-3xl md:text-4xl font-display font-bold transition-colors duration-500 ${showIronMan ? "text-red-500" : "text-foreground"}`}>
-              HS
-            </div>
-          </div>
 
           {/* Right side buttons */}
           <div className={`flex items-center gap-3 transition-all duration-700 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}>
@@ -171,7 +164,6 @@ const Index = () => {
         <div className={`text-center mb-6 transition-all duration-1000 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <h1 className={`font-display text-5xl md:text-7xl lg:text-8xl tracking-wider transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>
             <span className="font-normal">𝓗𝓪𝓼𝓼𝓪𝓷</span>
-            <span className="font-bold"> 𝓢𝓪𝓵𝓶𝓪𝓷</span>
           </h1>
           <p className={`text-sm md:text-base tracking-[0.3em] uppercase mt-2 transition-colors duration-500 ${showIronMan ? "text-red-400" : "text-muted-foreground"}`}>
             {showIronMan ? "I AM IRON MAN" : "AI & TECH 🧠🤖 • NURSE"}
