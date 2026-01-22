@@ -232,16 +232,21 @@ const Index = () => {
             href="https://digital-nurse-buddy.lovable.app/home" 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`group relative block overflow-hidden rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] ${showIronMan ? "border-cyan-500/40 bg-gradient-to-br from-cyan-950/40 to-red-950/30" : "border-border bg-gradient-to-br from-card/80 to-muted/50"}`}
+            className={`group relative block overflow-hidden rounded-2xl transition-all duration-500 hover:scale-[1.02] ${showIronMan ? "glass-card-dark holographic-border holographic-glow" : "glass-card holographic-border"}`}
           >
-            {/* Glow effect */}
-            <div className={`absolute -inset-1 rounded-2xl blur-xl transition-opacity duration-500 group-hover:opacity-100 ${showIronMan ? "bg-cyan-500/20 opacity-50" : "bg-lime/20 opacity-0"}`} />
+            {/* Holographic glow effect */}
+            <div className={`absolute -inset-2 rounded-2xl blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100 holographic`} />
             
-            <div className="relative p-6 md:p-8">
+            {/* Glass reflection */}
+            <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+              <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent" />
+            </div>
+            
+            <div className="relative p-6 md:p-8 glass-noise">
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className={`p-3 rounded-xl transition-colors duration-500 ${showIronMan ? "bg-cyan-500/20" : "bg-lime/20"}`}>
+                  <div className={`p-3 rounded-xl backdrop-blur-md transition-colors duration-500 ${showIronMan ? "bg-cyan-500/20 holographic" : "bg-lime/20"}`}>
                     <Stethoscope className={`w-6 h-6 transition-colors duration-500 ${showIronMan ? "text-cyan-400" : "text-lime-foreground"}`} />
                   </div>
                   <div>
@@ -266,7 +271,7 @@ const Index = () => {
                 {["Clinical Procedures", "Medical Calculators", "Drug References", "AI Assistant"].map((feature) => (
                   <span 
                     key={feature}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors duration-500 ${showIronMan ? "bg-white/10 text-white/80" : "bg-muted text-muted-foreground"}`}
+                    className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm transition-colors duration-500 ${showIronMan ? "bg-white/10 text-white/80 border border-white/10" : "bg-muted/80 text-muted-foreground border border-border/50"}`}
                   >
                     {feature}
                   </span>
@@ -291,16 +296,21 @@ const Index = () => {
             href="https://kidinnu.netlify.app/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`group relative block overflow-hidden rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] ${showIronMan ? "border-purple-500/40 bg-gradient-to-br from-purple-950/40 to-pink-950/30" : "border-border bg-gradient-to-br from-card/80 to-muted/50"}`}
+            className={`group relative block overflow-hidden rounded-2xl transition-all duration-500 hover:scale-[1.02] ${showIronMan ? "glass-card-dark holographic-border holographic-glow" : "glass-card holographic-border"}`}
           >
-            {/* Glow effect */}
-            <div className={`absolute -inset-1 rounded-2xl blur-xl transition-opacity duration-500 group-hover:opacity-100 ${showIronMan ? "bg-purple-500/20 opacity-50" : "bg-lime/20 opacity-0"}`} />
+            {/* Holographic glow effect */}
+            <div className={`absolute -inset-2 rounded-2xl blur-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100 holographic`} />
             
-            <div className="relative p-6 md:p-8">
+            {/* Glass reflection */}
+            <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+              <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent" />
+            </div>
+            
+            <div className="relative p-6 md:p-8 glass-noise">
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className={`p-3 rounded-xl transition-colors duration-500 ${showIronMan ? "bg-purple-500/20" : "bg-lime/20"}`}>
+                  <div className={`p-3 rounded-xl backdrop-blur-md transition-colors duration-500 ${showIronMan ? "bg-purple-500/20 holographic" : "bg-lime/20"}`}>
                     <Brain className={`w-6 h-6 transition-colors duration-500 ${showIronMan ? "text-purple-400" : "text-lime-foreground"}`} />
                   </div>
                   <div>
@@ -325,7 +335,7 @@ const Index = () => {
                 {["Smart Conversations", "Creative Writing", "Problem Solving", "Knowledge Base"].map((feature) => (
                   <span 
                     key={feature}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors duration-500 ${showIronMan ? "bg-white/10 text-white/80" : "bg-muted text-muted-foreground"}`}
+                    className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm transition-colors duration-500 ${showIronMan ? "bg-white/10 text-white/80 border border-white/10" : "bg-muted/80 text-muted-foreground border border-border/50"}`}
                   >
                     {feature}
                   </span>
@@ -343,15 +353,15 @@ const Index = () => {
 
         {/* Stats / Info cards */}
         <div className={`flex flex-wrap justify-center gap-4 mt-8 transition-all duration-1000 delay-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-amber-500/30 bg-amber-950/30" : "border-border bg-card/50"}`}>
+          <div className={`rounded-xl p-4 text-center min-w-[140px] transition-all duration-500 hover:scale-105 ${showIronMan ? "glass-card-dark holographic-border" : "glass-card holographic-border"}`}>
             <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-amber-400" : "text-muted-foreground"}`}>Projects</p>
             <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>🚀</p>
           </div>
-          <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-amber-500/30 bg-amber-950/30" : "border-border bg-card/50"}`}>
+          <div className={`rounded-xl p-4 text-center min-w-[140px] transition-all duration-500 hover:scale-105 ${showIronMan ? "glass-card-dark holographic-border" : "glass-card holographic-border"}`}>
             <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-amber-400" : "text-muted-foreground"}`}>Tutorials</p>
             <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>📚</p>
           </div>
-          <div className={`border rounded-lg p-4 backdrop-blur-sm text-center min-w-[140px] transition-all duration-500 ${showIronMan ? "border-cyan-500/30 bg-cyan-950/30" : "border-border bg-card/50"}`}>
+          <div className={`rounded-xl p-4 text-center min-w-[140px] transition-all duration-500 hover:scale-105 ${showIronMan ? "glass-card-dark holographic-border" : "glass-card holographic-border"}`}>
             <p className={`text-xs uppercase tracking-wider transition-colors duration-500 ${showIronMan ? "text-cyan-400" : "text-muted-foreground"}`}>Nurse</p>
             <p className={`font-display text-3xl mt-1 transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>💉</p>
           </div>
