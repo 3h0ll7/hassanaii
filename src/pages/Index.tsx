@@ -177,7 +177,7 @@ const Index = () => {
             <span className="font-normal">𝓗𝓪𝓼𝓼𝓪𝓷</span>
           </h1>
           <p className={`text-sm md:text-base tracking-[0.3em] uppercase mt-2 transition-colors duration-500 ${showIronMan ? "text-red-400" : "text-muted-foreground"}`}>
-            {showIronMan ? "I AM IRON MAN" : "AI & TECH 🧠🤖 • NURSE"}
+            AI & TECH 🧠🤖 • NURSE
           </p>
           <p className={`text-xs md:text-sm tracking-wide mt-3 max-w-md mx-auto transition-colors duration-500 ${showIronMan ? "text-white/70" : "text-muted-foreground"}`}>
             Practical AI tools | Design | Prompts | Tutorials | Experiments
