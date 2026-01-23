@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Palette } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Design works imports
 import portraitWoman from "@/assets/design-works/portrait-woman.png";
@@ -70,22 +70,6 @@ const DesignGallery = ({ showIronMan }: DesignGalleryProps) => {
 
   return (
     <section className="w-full py-16 md:py-24 overflow-hidden">
-      {/* Section Header */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12">
-        <div className="flex items-center gap-4 mb-4">
-          <div className={`p-3 rounded-xl transition-colors duration-500 ${showIronMan ? "bg-amber-500/20" : "bg-lime/20"}`}>
-            <Palette className={`w-6 h-6 transition-colors duration-500 ${showIronMan ? "text-amber-400" : "text-lime-foreground"}`} />
-          </div>
-          <div>
-            <h2 className={`font-display text-3xl md:text-4xl lg:text-5xl tracking-wide transition-colors duration-500 ${showIronMan ? "text-white" : "text-foreground"}`}>
-              آخر أعمالي
-            </h2>
-            <p className={`text-sm uppercase tracking-wider mt-1 transition-colors duration-500 ${showIronMan ? "text-amber-400" : "text-muted-foreground"}`}>
-              Latest Design Works
-            </p>
-          </div>
-        </div>
-      </div>
 
       {/* Gallery Container */}
       <div className="relative">
