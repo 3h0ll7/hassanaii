@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useParallax } from "@/hooks/useParallax";
 import DesignGallery from "@/components/DesignGallery";
+import SpotlightHero from "@/components/SpotlightHero";
 import portraitCasual from "@/assets/portrait-casual.png";
 import portraitIronman from "@/assets/portrait-ironman.jpg";
-
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showIronMan, setShowIronMan] = useState(false);
@@ -65,7 +65,9 @@ const Index = () => {
   };
 
   return (
-    <div className={`min-h-[200vh] overflow-x-hidden relative transition-all duration-700 ${showIronMan ? "bg-[#0a0a0a]" : "bg-background"}`}>
+    <div className={`overflow-x-hidden relative transition-all duration-700 ${showIronMan ? "bg-[#0a0a0a]" : "bg-background"}`}>
+      {/* Spotlight Hero Section */}
+      <SpotlightHero />
       
       {/* Dynamic background effects - changes when Iron Man is shown */}
       <div className={`fixed inset-0 transition-opacity duration-700 ${showIronMan ? "opacity-100" : "opacity-0"}`}>
