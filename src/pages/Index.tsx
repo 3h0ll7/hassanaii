@@ -3,7 +3,7 @@ import { Menu, X, ShoppingBag, Instagram, Youtube, Twitter, Github, Facebook, He
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useParallax } from "@/hooks/useParallax";
-import DesignGallery from "@/components/DesignGallery";
+
 import portraitCasual from "@/assets/portrait-casual.png";
 import portraitIronman from "@/assets/portrait-ironman.jpg";
 
@@ -352,8 +352,6 @@ const Index = () => {
           </a>
         </div>
 
-        {/* Design Gallery Section */}
-        <DesignGallery showIronMan={showIronMan} />
 
         {/* Stats / Info cards */}
         <div className={`flex flex-wrap justify-center gap-4 mt-8 transition-all duration-1000 delay-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
