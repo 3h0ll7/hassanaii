@@ -35,6 +35,8 @@ const DesignGallery = ({ showIronMan }: DesignGalleryProps) => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [imageOffsets, setImageOffsets] = useState<number[]>(designWorks.map(() => 0));
 
   const checkScroll = () => {
     if (scrollRef.current) {
@@ -46,6 +48,21 @@ const DesignGallery = ({ showIronMan }: DesignGalleryProps) => {
       const itemWidth = 420;
       const newIndex = Math.round(scrollLeft / itemWidth);
       setActiveIndex(newIndex);
+      
+      // Calculate scroll progress (0 to 1)
+      const maxScroll = scrollWidth - clientWidth;
+      const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+      setScrollProgress(progress);
+      
+      // Calculate parallax offset for each image
+      const newOffsets = designWorks.map((_, index) => {
+        const itemCenter = index * itemWidth;
+        const viewportCenter = scrollLeft + clientWidth / 2;
+        const distance = (itemCenter - viewportCenter) / clientWidth;
+        // Parallax factor: images move slower than cards
+        return distance * 50;
+      });
+      setImageOffsets(newOffsets);
     }
   };
 
@@ -130,12 +147,17 @@ const DesignGallery = ({ showIronMan }: DesignGalleryProps) => {
               {/* Glass card background */}
               <div className={`absolute inset-0 rounded-2xl z-0 ${showIronMan ? "glass-card-dark" : "glass-card"}`} />
               
-              {/* Image */}
-              <img
-                src={work.image}
-                alt={work.title}
-                className="absolute inset-0 w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110"
-              />
+              {/* Image with Parallax */}
+              <div className="absolute inset-0 overflow-hidden rounded-2xl">
+                <img
+                  src={work.image}
+                  alt={work.title}
+                  className="absolute inset-[-20%] w-[140%] h-[140%] object-cover transition-transform duration-100 ease-out group-hover:scale-110"
+                  style={{
+                    transform: `translateX(${imageOffsets[index] || 0}px) scale(${index === activeIndex ? 1.05 : 1})`
+                  }}
+                />
+              </div>
 
               {/* Gradient overlay */}
               <div className={`absolute inset-0 rounded-2xl transition-opacity duration-500 ${
