@@ -143,7 +143,7 @@ const SpotlightHero = () => {
       {/* Name - top left */}
       <div
         ref={nameElRef}
-        className="absolute top-12 left-12 z-[6] font-display leading-none"
+        className="absolute top-6 left-6 md:top-12 md:left-12 z-[6] font-display leading-none max-w-[50vw]"
         style={{
           color: textColor(nameInverted),
           transition: "color 300ms ease, opacity 800ms ease, transform 800ms ease",
@@ -151,19 +151,19 @@ const SpotlightHero = () => {
           ...textParallax(1.5),
         }}
       >
-        <span className="block text-[clamp(28px,4vw,56px)] font-semibold tracking-tight leading-[1.1]">
+        <span className="block text-[clamp(22px,3.5vw,56px)] font-semibold tracking-tight leading-[1.1]">
           𝓗𝓪𝓼𝓼𝓪𝓷
         </span>
-        <span className="block text-[clamp(28px,4vw,56px)] font-semibold tracking-tight leading-[1.1]">
+        <span className="block text-[clamp(22px,3.5vw,56px)] font-semibold tracking-tight leading-[1.1]">
           𝓼𝓪𝓵𝓶𝓪𝓷
         </span>
       </div>
 
-      {/* Nav - top right */}
+      {/* Nav - bottom left on mobile, top right on desktop */}
       <button
         ref={navElRef}
         onClick={() => navigate("/projects")}
-        className="absolute top-14 right-12 z-[6] font-display text-[clamp(14px,1.5vw,18px)] tracking-[0.15em] uppercase relative group cursor-none bg-transparent border-none"
+        className="absolute bottom-6 left-6 md:bottom-auto md:left-auto md:top-14 md:right-12 z-[6] font-display text-[clamp(11px,1.5vw,18px)] tracking-[0.15em] uppercase relative group cursor-none bg-transparent border-none"
         style={{
           color: textColor(navInverted),
           transition: "color 300ms ease, opacity 800ms ease 200ms, transform 800ms ease 200ms",
@@ -178,7 +178,7 @@ const SpotlightHero = () => {
       {/* Social icons - bottom right */}
       <div
         ref={socialElRef}
-        className="absolute bottom-12 right-12 z-[6] flex gap-6 items-center"
+        className="absolute bottom-6 right-6 md:bottom-12 md:right-12 z-[6] flex gap-3 md:gap-6 items-center"
         style={{
           transition: "opacity 800ms ease 400ms, transform 800ms ease 400ms",
           opacity: entered ? 1 : 0,

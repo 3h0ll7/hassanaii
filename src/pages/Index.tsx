@@ -10,8 +10,8 @@ const Index = () => {
       <SpotlightHero />
 
       {/* Projects Section */}
-      <section className="bg-background py-20 px-6">
-        <div className="text-center mb-12">
+      <section className="bg-background py-12 md:py-20 px-4 md:px-6">
+        <div className="text-center mb-8 md:mb-12">
           <h2 className="font-display text-[clamp(28px,4vw,48px)] font-semibold tracking-tight text-foreground">
             Projects
           </h2>
@@ -20,7 +20,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="flex flex-col items-center gap-8 max-w-md mx-auto">
+        <div className="flex flex-col items-center gap-6 md:gap-8 max-w-md mx-auto">
           <ProjectCard
             icon={<Stethoscope size={28} className="text-foreground" />}
             title="Digital Nurse"
@@ -74,7 +74,7 @@ const SocialFooter = () => {
   ];
 
   return (
-    <div className="bg-background flex justify-center gap-6 pb-16 pt-4 flex-wrap px-6">
+    <div className="bg-background flex justify-center gap-5 md:gap-6 pb-12 md:pb-16 pt-4 flex-wrap px-4 md:px-6">
       {socials.map((s) => (
         <a
           key={s.label}
