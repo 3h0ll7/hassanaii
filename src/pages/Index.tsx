@@ -38,7 +38,7 @@ const Index = () => {
             },
             {
               icon: <Stethoscope size={28} className="text-foreground" />,
-              title: "InsightMe",
+              title: "InsightMed",
               subtitle: "AI Medical Report Analyzer",
               description: "Analyzes lab results, radiology reports, prescriptions, and doctor visit notes using AI — turning them into clear explanations, health insights, and guidance for patients and doctors.",
               tags: ["Lab Analysis", "Radiology Reports", "Prescriptions", "Health Insights"],
