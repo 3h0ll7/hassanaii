@@ -9,6 +9,7 @@ interface ProjectCardProps {
   ctaLabel: string;
   ctaIcon?: React.ReactNode;
   href: string;
+  iconBg?: string;
 }
 
 const ProjectCard = ({ icon, title, subtitle, description, tags, ctaLabel, ctaIcon, href }: ProjectCardProps) => {
