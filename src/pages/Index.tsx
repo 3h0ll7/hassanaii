@@ -49,7 +49,7 @@ const Index = () => {
               iconBg: "hsl(220, 85%, 39%)",
             },
             {
-              icon: <Brain size={28} className="text-foreground" />,
+              icon: <Brain size={28} className="text-white" />,
               title: "Kidinnu AI",
               subtitle: "AI-Powered Assistant",
               description: "Advanced AI assistant powered by cutting-edge language models. Create, explore, and innovate with intelligent conversation.",
@@ -57,6 +57,7 @@ const Index = () => {
               ctaLabel: "Try Kidinnu AI",
               ctaIcon: <Sparkles size={18} />,
               href: "https://kidinnu.netlify.app/",
+              iconBg: "hsl(225, 100%, 7%)",
             },
             {
               icon: <Camera size={28} className="text-foreground" />,
