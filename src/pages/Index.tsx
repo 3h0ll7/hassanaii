@@ -35,19 +35,21 @@ const Index = () => {
               ctaLabel: "Explore the App",
               ctaIcon: <Heart size={18} />,
               href: "https://digital-nurse-buddy.lovable.app/home",
+              iconBg: "hsl(210, 52%, 91%)",
             },
             {
-              icon: <Stethoscope size={28} className="text-foreground" />,
+              icon: <Stethoscope size={28} className="text-white" />,
               title: "InsightMed",
               subtitle: "AI Medical Report Analyzer",
               description: "Analyzes lab results, radiology reports, prescriptions, and doctor visit notes using AI — turning them into clear explanations, health insights, and guidance for patients and doctors.",
               tags: ["Lab Analysis", "Radiology Reports", "Prescriptions", "Health Insights"],
-              ctaLabel: "Try InsightMe",
+              ctaLabel: "Try InsightMed",
               ctaIcon: <Sparkles size={18} />,
               href: "https://insightmed.lovable.app/",
+              iconBg: "hsl(220, 85%, 39%)",
             },
             {
-              icon: <Brain size={28} className="text-foreground" />,
+              icon: <Brain size={28} className="text-white" />,
               title: "Kidinnu AI",
               subtitle: "AI-Powered Assistant",
               description: "Advanced AI assistant powered by cutting-edge language models. Create, explore, and innovate with intelligent conversation.",
@@ -55,6 +57,7 @@ const Index = () => {
               ctaLabel: "Try Kidinnu AI",
               ctaIcon: <Sparkles size={18} />,
               href: "https://kidinnu.netlify.app/",
+              iconBg: "hsl(225, 100%, 7%)",
             },
             {
               icon: <Camera size={28} className="text-foreground" />,
@@ -65,6 +68,7 @@ const Index = () => {
               ctaLabel: "Try ItemValue",
               ctaIcon: <Sparkles size={18} />,
               href: "https://itemvalue.lovable.app/",
+              iconBg: "hsl(203, 33%, 75%)",
             },
           ].map((project, i) => (
             <motion.div
