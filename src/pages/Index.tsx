@@ -68,6 +68,7 @@ const Index = () => {
               ctaLabel: "Try ItemValue",
               ctaIcon: <Sparkles size={18} />,
               href: "https://itemvalue.lovable.app/",
+              iconBg: "hsl(203, 33%, 75%)",
             },
           ].map((project, i) => (
             <motion.div
