@@ -35,6 +35,7 @@ const Index = () => {
               ctaLabel: "Explore the App",
               ctaIcon: <Heart size={18} />,
               href: "https://digital-nurse-buddy.lovable.app/home",
+              iconBg: "hsl(210, 52%, 91%)",
             },
             {
               icon: <Stethoscope size={28} className="text-foreground" />,
