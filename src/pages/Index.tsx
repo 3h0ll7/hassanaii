@@ -56,7 +56,7 @@ const Index = () => {
               tags: ["Smart Conversations", "Creative Writing", "Problem Solving", "Knowledge Base"],
               ctaLabel: "Try Kidinnu AI",
               ctaIcon: <Sparkles size={18} />,
-              href: "https://kidinnu.netlify.app/",
+              href: "https://kidinnuaitools.lovable.app/",
               iconBg: "hsl(225, 100%, 7%)",
             },
             {
