@@ -1,8 +1,10 @@
 import SpotlightHero from "@/components/SpotlightHero";
 import LoadingScreen from "@/components/LoadingScreen";
 import ProjectCard from "@/components/ProjectCard";
-import { Stethoscope, Brain, Camera, Heart, Sparkles } from "lucide-react";
+import { Stethoscope, Brain, Camera, Heart, Sparkles, Sun, Moon, Languages } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTheme } from "@/contexts/ThemeContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
   return (
@@ -101,20 +103,45 @@ const SocialFooter = () => {
     { label: "Letterboxd", href: "https://boxd.it/7RQST", icon: <svg width="24" height="24" viewBox="0 0 500 500" fill="currentColor"><circle cx="250" cy="250" r="230" fill="none" stroke="currentColor" strokeWidth="40"/><circle cx="175" cy="250" r="60"/><circle cx="325" cy="250" r="60"/></svg> },
   ];
 
+  const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
+
   return (
-    <div className="bg-background flex justify-center gap-5 md:gap-6 pb-12 md:pb-16 pt-4 flex-wrap px-4 md:px-6">
-      {socials.map((s) => (
-        <a
-          key={s.label}
-          href={s.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={s.label}
-          className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors duration-300"
+    <div className="bg-background pb-12 md:pb-16 pt-4 px-4 md:px-6">
+      <div className="flex justify-center gap-5 md:gap-6 flex-wrap">
+        {socials.map((s) => (
+          <a
+            key={s.label}
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={s.label}
+            className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            {s.icon}
+          </a>
+        ))}
+      </div>
+
+      {/* Theme & Language toggles */}
+      <div className="flex justify-center gap-4 mt-6">
+        <button
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+          className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors duration-300 text-sm font-display"
         >
-          {s.icon}
-        </a>
-      ))}
+          {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
+          {theme === "light" ? "Dark" : "Light"}
+        </button>
+        <button
+          onClick={toggleLanguage}
+          aria-label="Toggle language"
+          className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors duration-300 text-sm font-display"
+        >
+          <Languages size={18} />
+          {language === "en" ? "عربي" : "EN"}
+        </button>
+      </div>
     </div>
   );
 };
