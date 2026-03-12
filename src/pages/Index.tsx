@@ -52,7 +52,7 @@ const Index = () => {
               icon: <Brain size={28} className="text-white" />,
               title: "Kidinnu",
               subtitle: "AI Tools Directory",
-              description: "The leading platform for aggregating AI tools. A comprehensive guide to 191+ carefully curated tools to boost your productivity and unleash your creativity.",
+              description: "More than 200 AI tools carefully categorized by professional fields. From marketing to programming, from medicine to design — you'll find everything you need in one place.",
               tags: ["191+ AI Tools", "Curated Directory", "Productivity", "Creativity"],
               ctaLabel: "Explore Kidinnu",
               ctaIcon: <Sparkles size={18} />,
