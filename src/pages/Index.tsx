@@ -1,8 +1,10 @@
 import SpotlightHero from "@/components/SpotlightHero";
 import LoadingScreen from "@/components/LoadingScreen";
 import ProjectCard from "@/components/ProjectCard";
-import { Stethoscope, Brain, Camera, Heart, Sparkles } from "lucide-react";
+import { Stethoscope, Brain, Camera, Heart, Sparkles, Sun, Moon, Languages } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTheme } from "@/contexts/ThemeContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
   return (
