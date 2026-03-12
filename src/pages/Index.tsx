@@ -7,72 +7,86 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
+  const { t } = useLanguage();
+
+  const projects = [
+    {
+      icon: <Stethoscope size={28} className="text-foreground" />,
+      title: "Digital Nurse",
+      subtitle: t("Clinical Reference App", "تطبيق مرجعي سريري"),
+      description: t(
+        "Evidence-based nursing procedures, clinical calculators, and professional healthcare resources. Built for healthcare professionals.",
+        "إجراءات تمريضية مبنية على الأدلة، حاسبات سريرية، وموارد رعاية صحية مهنية. مصمم لمتخصصي الرعاية الصحية."
+      ),
+      tags: t("Clinical Procedures,Medical Calculators,Drug References,AI Assistant", "إجراءات سريرية,حاسبات طبية,مراجع أدوية,مساعد ذكي").split(","),
+      ctaLabel: t("Explore the App", "استكشف التطبيق"),
+      ctaIcon: <Heart size={18} />,
+      href: "https://digital-nurse-buddy.lovable.app/home",
+      iconBg: "hsl(210, 52%, 91%)",
+    },
+    {
+      icon: <Stethoscope size={28} className="text-white" />,
+      title: "InsightMed",
+      subtitle: t("AI Medical Report Analyzer", "محلل التقارير الطبية بالذكاء الاصطناعي"),
+      description: t(
+        "Analyzes lab results, radiology reports, prescriptions, and doctor visit notes using AI — turning them into clear explanations, health insights, and guidance for patients and doctors.",
+        "يحلل نتائج المختبر، تقارير الأشعة، الوصفات الطبية، وملاحظات زيارات الأطباء باستخدام الذكاء الاصطناعي — ويحولها إلى شروحات واضحة ورؤى صحية وإرشادات للمرضى والأطباء."
+      ),
+      tags: t("Lab Analysis,Radiology Reports,Prescriptions,Health Insights", "تحليل مختبري,تقارير أشعة,وصفات طبية,رؤى صحية").split(","),
+      ctaLabel: t("Try InsightMed", "جرّب InsightMed"),
+      ctaIcon: <Sparkles size={18} />,
+      href: "https://insightmed.lovable.app/",
+      iconBg: "hsl(220, 85%, 39%)",
+    },
+    {
+      icon: <Brain size={28} className="text-white" />,
+      title: "Kidinnu",
+      subtitle: t("AI Tools Directory", "دليل أدوات الذكاء الاصطناعي"),
+      description: t(
+        "More than 200 AI tools carefully categorized by professional fields. From marketing to programming, from medicine to design — you'll find everything you need in one place.",
+        "أكثر من 200 أداة ذكاء اصطناعي مصنفة بعناية حسب المجالات المهنية. من التسويق إلى البرمجة، ومن الطب إلى التصميم — ستجد كل ما تحتاجه في مكان واحد."
+      ),
+      tags: t("191+ AI Tools,Curated Directory,Productivity,Creativity", "191+ أداة ذكية,دليل منسّق,إنتاجية,إبداع").split(","),
+      ctaLabel: t("Explore Kidinnu", "استكشف Kidinnu"),
+      ctaIcon: <Sparkles size={18} />,
+      href: "https://kidinnuaitools.lovable.app/",
+      iconBg: "hsl(225, 100%, 7%)",
+    },
+    {
+      icon: <Camera size={28} className="text-foreground" />,
+      title: "ItemValue",
+      subtitle: t("AI Price Estimator", "مُقدّر الأسعار بالذكاء الاصطناعي"),
+      description: t(
+        "Know how much your used items are worth in seconds. Just take a photo — it identifies the type and condition, then gives you a fair price in Iraqi dinars.",
+        "اعرف قيمة أغراضك المستعملة في ثوانٍ. فقط التقط صورة — يتعرف على النوع والحالة، ثم يعطيك سعراً عادلاً بالدينار العراقي."
+      ),
+      tags: t("Photo Recognition,Price Estimation,Condition Analysis,Province-Based", "تعرّف بالصور,تقدير الأسعار,تحليل الحالة,حسب المحافظة").split(","),
+      ctaLabel: t("Try ItemValue", "جرّب ItemValue"),
+      ctaIcon: <Sparkles size={18} />,
+      href: "https://itemvalue.lovable.app/",
+      iconBg: "hsl(203, 33%, 75%)",
+    },
+  ];
+
   return (
     <main>
       <LoadingScreen />
       <SpotlightHero />
 
-      {/* Spacer between hero and projects */}
       <div className="h-16 md:h-24 bg-background" />
 
-      {/* Projects Section */}
       <section className="bg-background pb-12 md:pb-20 px-4 md:px-6">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="font-display text-[clamp(28px,4vw,48px)] font-semibold tracking-tight text-foreground">
-            Projects
+            {t("Projects", "المشاريع")}
           </h2>
           <p className="font-display text-muted-foreground text-sm tracking-[0.2em] uppercase mt-2">
-            Featured Work
+            {t("Featured Work", "أعمال مميزة")}
           </p>
         </div>
 
         <div className="flex flex-col items-center gap-6 md:gap-8 max-w-md mx-auto">
-          {[
-            {
-              icon: <Stethoscope size={28} className="text-foreground" />,
-              title: "Digital Nurse",
-              subtitle: "Clinical Reference App",
-              description: "Evidence-based nursing procedures, clinical calculators, and professional healthcare resources. Built for healthcare professionals.",
-              tags: ["Clinical Procedures", "Medical Calculators", "Drug References", "AI Assistant"],
-              ctaLabel: "Explore the App",
-              ctaIcon: <Heart size={18} />,
-              href: "https://digital-nurse-buddy.lovable.app/home",
-              iconBg: "hsl(210, 52%, 91%)",
-            },
-            {
-              icon: <Stethoscope size={28} className="text-white" />,
-              title: "InsightMed",
-              subtitle: "AI Medical Report Analyzer",
-              description: "Analyzes lab results, radiology reports, prescriptions, and doctor visit notes using AI — turning them into clear explanations, health insights, and guidance for patients and doctors.",
-              tags: ["Lab Analysis", "Radiology Reports", "Prescriptions", "Health Insights"],
-              ctaLabel: "Try InsightMed",
-              ctaIcon: <Sparkles size={18} />,
-              href: "https://insightmed.lovable.app/",
-              iconBg: "hsl(220, 85%, 39%)",
-            },
-            {
-              icon: <Brain size={28} className="text-white" />,
-              title: "Kidinnu",
-              subtitle: "AI Tools Directory",
-              description: "More than 200 AI tools carefully categorized by professional fields. From marketing to programming, from medicine to design — you'll find everything you need in one place.",
-              tags: ["191+ AI Tools", "Curated Directory", "Productivity", "Creativity"],
-              ctaLabel: "Explore Kidinnu",
-              ctaIcon: <Sparkles size={18} />,
-              href: "https://kidinnuaitools.lovable.app/",
-              iconBg: "hsl(225, 100%, 7%)",
-            },
-            {
-              icon: <Camera size={28} className="text-foreground" />,
-              title: "ItemValue",
-              subtitle: "AI Price Estimator",
-              description: "Know how much your used items are worth in seconds. Just take a photo — it identifies the type and condition, then gives you a fair price in Iraqi dinars.",
-              tags: ["Photo Recognition", "Price Estimation", "Condition Analysis", "Province-Based"],
-              ctaLabel: "Try ItemValue",
-              ctaIcon: <Sparkles size={18} />,
-              href: "https://itemvalue.lovable.app/",
-              iconBg: "hsl(203, 33%, 75%)",
-            },
-          ].map((project, i) => (
+          {projects.map((project, i) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
@@ -86,7 +100,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Footer */}
       <SocialFooter />
     </main>
   );
@@ -123,7 +136,6 @@ const SocialFooter = () => {
         ))}
       </div>
 
-      {/* Theme & Language toggles */}
       <div className="flex justify-center gap-4 mt-6">
         <button
           onClick={toggleTheme}

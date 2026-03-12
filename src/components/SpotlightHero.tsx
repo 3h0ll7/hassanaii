@@ -4,6 +4,7 @@ import portraitMain from "@/assets/portrait-main.png";
 import portraitAlt from "@/assets/portrait-alt.png";
 import SpotlightGrid from "./SpotlightGrid";
 import { useSpotlightCursor } from "@/hooks/useSpotlightCursor";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Echo {
   id: number;
@@ -14,6 +15,7 @@ interface Echo {
 
 const SpotlightHero = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const { cursor, parallax, smoothRef, velocityRef, baseRadius } = useSpotlightCursor();
   const [entered, setEntered] = useState(false);
   const [echoes, setEchoes] = useState<Echo[]>([]);
@@ -35,7 +37,7 @@ const SpotlightHero = () => {
 
   // Entrance animation
   useEffect(() => {
-    const timer = setTimeout(() => setEntered(true), 1400); // after loader
+    const timer = setTimeout(() => setEntered(true), 1400);
     return () => clearTimeout(timer);
   }, []);
 
@@ -108,10 +110,10 @@ const SpotlightHero = () => {
             transition: "transform 0.3s ease-out",
           }}
         >
-          <img src={portraitMain} alt="Hassan Salman" className="w-full h-full object-cover" />
+          <img src={portraitMain} alt={t("Hassan Salman", "حسن سلمان")} className="w-full h-full object-cover" />
         </div>
 
-        {/* Reveal image (natural) via clip-path — clipped to top 75% only */}
+        {/* Reveal image (natural) via clip-path */}
         <div
           className="absolute inset-0 z-[2]"
           style={{
@@ -122,10 +124,10 @@ const SpotlightHero = () => {
             maskImage: "linear-gradient(to bottom, black 0%, black 72%, transparent 78%)",
           }}
         >
-          <img src={portraitAlt} alt="Hassan Salman" className="w-full h-full object-cover" />
+          <img src={portraitAlt} alt={t("Hassan Salman", "حسن سلمان")} className="w-full h-full object-cover" />
         </div>
 
-        {/* Scan overlay bound to hero image container — masked to top 72% like reveal */}
+        {/* Scan overlay */}
         <div
           className="hero-scan-overlay absolute inset-0 z-[3] pointer-events-none"
           aria-hidden="true"
@@ -154,7 +156,7 @@ const SpotlightHero = () => {
         </div>
       )}
 
-      {/* Custom cursor - only in hero */}
+      {/* Custom cursor */}
       {heroVisible && (
         <div
           className="absolute z-[10] pointer-events-none rounded-full border-2 border-white/60"
@@ -184,10 +186,10 @@ const SpotlightHero = () => {
         }}
       >
         <span className="block text-[clamp(22px,3.5vw,56px)] font-semibold tracking-tight leading-[1.1]">
-          𝓗𝓪𝓼𝓼𝓪𝓷
+          {t("𝓗𝓪𝓼𝓼𝓪𝓷", "𝓗𝓪𝓼𝓼𝓪𝓷")}
         </span>
         <span className="block text-[clamp(22px,3.5vw,56px)] font-semibold tracking-tight leading-[1.1]">
-          𝓼𝓪𝓵𝓶𝓪𝓷
+          {t("𝓼𝓪𝓵𝓶𝓪𝓷", "𝓼𝓪𝓵𝓶𝓪𝓷")}
         </span>
       </div>
 
@@ -203,7 +205,7 @@ const SpotlightHero = () => {
           ...textParallax(1.2),
         }}
       >
-        Projects
+        {t("Projects", "المشاريع")}
         <span className="absolute bottom-[-4px] left-0 w-0 h-px bg-current transition-all duration-300 group-hover:w-full" />
       </button>
 
