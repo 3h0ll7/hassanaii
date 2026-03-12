@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const LoadingScreen = () => {
   const [hidden, setHidden] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const timer = setTimeout(() => setFadeOut(true), 1200);
@@ -27,7 +29,7 @@ const LoadingScreen = () => {
       <span
         className="font-display text-lg tracking-[0.3em] text-foreground animate-pulse"
       >
-        HASSAN SALMAN
+        {t("HASSAN SALMAN", "حسن سلمان")}
       </span>
     </div>
   );
