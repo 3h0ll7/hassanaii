@@ -69,7 +69,7 @@ const Projects = () => {
 
 const SocialFooter = () => {
   const socials = [
-    { label: "Instagram", href: "https://instagram.com/staiiq", icon: <InstagramIcon /> },
+    { label: "Instagram", href: "https://www.instagram.com/3h0ll?igsh=eWNnN2V1YXF5bHpo", icon: <InstagramIcon /> },
     { label: "Twitter", href: "https://twitter.com/3h0ll7", icon: <TwitterIcon /> },
     { label: "YouTube", href: "https://youtube.com/@stai9", icon: <YouTubeIcon /> },
     { label: "GitHub", href: "https://github.com/3h0ll7", icon: <GitHubIcon /> },
