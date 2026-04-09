@@ -35,7 +35,7 @@ const Projects = () => {
           tags={["Clinical Procedures", "Medical Calculators", "Drug References", "AI Assistant"]}
           ctaLabel="Explore the App"
           ctaIcon={<Heart size={18} />}
-          href="https://digital-nurse-buddy.lovable.app/home"
+          href="https://digital-nurse-buddy.lovable.app"
         />
 
         <ProjectCard

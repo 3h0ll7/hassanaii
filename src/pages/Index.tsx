@@ -21,7 +21,7 @@ const Index = () => {
       tags: t("Clinical Procedures,Medical Calculators,Drug References,AI Assistant", "إجراءات سريرية,حاسبات طبية,مراجع أدوية,مساعد ذكي").split(","),
       ctaLabel: t("Explore the App", "استكشف التطبيق"),
       ctaIcon: <Heart size={18} />,
-      href: "https://digital-nurse-buddy.lovable.app/home",
+      href: "https://digital-nurse-buddy.lovable.app",
       iconBg: "hsl(210, 52%, 91%)",
     },
     {
