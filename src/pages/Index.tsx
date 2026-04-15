@@ -1,7 +1,7 @@
 import SpotlightHero from "@/components/SpotlightHero";
 import LoadingScreen from "@/components/LoadingScreen";
 import ProjectCard from "@/components/ProjectCard";
-import { Stethoscope, Brain, Camera, Heart, Sparkles, Sun, Moon, Languages } from "lucide-react";
+import { Stethoscope, Brain, Heart, Sparkles, Sun, Moon, Languages } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -53,18 +53,18 @@ const Index = () => {
       iconBg: "hsl(225, 100%, 7%)",
     },
     {
-      icon: <Camera size={28} className="text-foreground" />,
-      title: "ItemValue",
-      subtitle: t("AI Price Estimator", "مُقدّر الأسعار بالذكاء الاصطناعي"),
+      icon: <Sparkles size={28} className="text-white" />,
+      title: "ScriptForge AI",
+      subtitle: t("AI Video Script Generator", "مولّد نصوص الفيديو بالذكاء الاصطناعي"),
       description: t(
-        "Know how much your used items are worth in seconds. Just take a photo — it identifies the type and condition, then gives you a fair price in Iraqi dinars.",
-        "اعرف قيمة أغراضك المستعملة في ثوانٍ. فقط التقط صورة — يتعرف على النوع والحالة، ثم يعطيك سعراً عادلاً بالدينار العراقي."
+        "Turn any idea into a scroll-stopping video script in seconds. AI agent prompt optimized for YouTube, TikTok, Reels & educational content. Supports English & Arabic.",
+        "حوّل أي فكرة إلى نص فيديو جذاب في ثوانٍ. وكيل ذكاء اصطناعي محسّن لليوتيوب وتيك توك والريلز والمحتوى التعليمي. يدعم العربية والإنجليزية."
       ),
-      tags: t("Photo Recognition,Price Estimation,Condition Analysis,Province-Based", "تعرّف بالصور,تقدير الأسعار,تحليل الحالة,حسب المحافظة").split(","),
-      ctaLabel: t("Try ItemValue", "جرّب ItemValue"),
+      tags: t("AI Scripts,YouTube,TikTok,Reels", "نصوص ذكية,يوتيوب,تيك توك,ريلز").split(","),
+      ctaLabel: t("Try ScriptForge", "جرّب ScriptForge"),
       ctaIcon: <Sparkles size={18} />,
-      href: "https://itemvalue.lovable.app/",
-      iconBg: "hsl(203, 33%, 75%)",
+      href: "https://scriptforgeaii.lovable.app",
+      iconBg: "hsl(260, 80%, 45%)",
     },
   ];
 

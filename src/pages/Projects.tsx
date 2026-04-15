@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Stethoscope, Brain, Heart, Sparkles, Camera } from "lucide-react";
+import { ArrowLeft, Stethoscope, Brain, Heart, Sparkles } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
 const Projects = () => {
   const navigate = useNavigate();
@@ -50,14 +50,14 @@ const Projects = () => {
         />
 
         <ProjectCard
-          icon={<Camera size={28} className="text-foreground" />}
-          title="ItemValue"
-          subtitle="AI Price Estimator"
-          description="Know how much your used items are worth in seconds. Just take a photo — it identifies the type and condition, then gives you a fair price in Iraqi dinars."
-          tags={["Photo Recognition", "Price Estimation", "Condition Analysis", "Province-Based"]}
-          ctaLabel="Try ItemValue"
+          icon={<Sparkles size={28} className="text-white" />}
+          title="ScriptForge AI"
+          subtitle="AI Video Script Generator"
+          description="Turn any idea into a scroll-stopping video script in seconds. AI agent prompt optimized for YouTube, TikTok, Reels & educational content. Supports English & Arabic."
+          tags={["AI Scripts", "YouTube", "TikTok", "Reels"]}
+          ctaLabel="Try ScriptForge"
           ctaIcon={<Sparkles size={18} />}
-          href="https://itemvalue.lovable.app/"
+          href="https://scriptforgeaii.lovable.app"
         />
       </div>
 
