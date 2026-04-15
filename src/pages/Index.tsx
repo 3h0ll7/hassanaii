@@ -23,6 +23,7 @@ const Index = () => {
       ctaIcon: <Heart size={18} />,
       href: "https://digital-nurse-buddy.lovable.app",
       iconBg: "hsl(199, 89%, 48%)",
+      cardBg: "hsl(199, 89%, 38%)",
     },
     {
       icon: <Stethoscope size={28} className="text-white" />,
@@ -37,6 +38,7 @@ const Index = () => {
       ctaIcon: <Sparkles size={18} />,
       href: "https://insightmed.lovable.app/",
       iconBg: "hsl(160, 84%, 39%)",
+      cardBg: "hsl(160, 84%, 30%)",
     },
     {
       icon: <Brain size={28} className="text-white" />,
@@ -51,6 +53,7 @@ const Index = () => {
       ctaIcon: <Sparkles size={18} />,
       href: "https://kidinnuaitools.lovable.app/",
       iconBg: "hsl(38, 92%, 50%)",
+      cardBg: "hsl(38, 80%, 42%)",
     },
     {
       icon: <Sparkles size={28} className="text-white" />,
@@ -65,6 +68,7 @@ const Index = () => {
       ctaIcon: <Sparkles size={18} />,
       href: "https://scriptforgeaii.lovable.app",
       iconBg: "hsl(258, 90%, 66%)",
+      cardBg: "hsl(258, 70%, 45%)",
     },
   ];
 
