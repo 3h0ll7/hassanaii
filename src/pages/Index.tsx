@@ -11,7 +11,7 @@ const Index = () => {
 
   const projects = [
     {
-      icon: <Stethoscope size={28} className="text-foreground" />,
+      icon: <Stethoscope size={28} className="text-white" />,
       title: "Digital Nurse",
       subtitle: t("Clinical Reference App", "تطبيق مرجعي سريري"),
       description: t(
