@@ -10,11 +10,17 @@ interface ProjectCardProps {
   ctaIcon?: React.ReactNode;
   href: string;
   iconBg?: string;
+  cardBg?: string;
+  cardText?: string;
 }
 
-const ProjectCard = ({ icon, title, subtitle, description, tags, ctaLabel, ctaIcon, href, iconBg = "hsl(210, 52%, 91%)" }: ProjectCardProps) => {
+const ProjectCard = ({ icon, title, subtitle, description, tags, ctaLabel, ctaIcon, href, iconBg = "hsl(210, 52%, 91%)", cardBg, cardText }: ProjectCardProps) => {
+  const hasCustomBg = !!cardBg;
   return (
-    <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-5 md:p-8 max-w-md w-full shadow-sm hover:shadow-md transition-shadow duration-300">
+    <div
+      className="rounded-2xl border border-border p-5 md:p-8 max-w-md w-full shadow-sm hover:shadow-md transition-shadow duration-300"
+      style={hasCustomBg ? { backgroundColor: cardBg, color: cardText || '#fff' } : undefined}
+    >
       {/* Header */}
       <div className="flex items-start justify-between mb-6">
         <div className="flex items-center gap-4">
