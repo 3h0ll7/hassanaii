@@ -31,6 +31,7 @@ const Projects = () => {
           icon={<Stethoscope size={28} className="text-white" />}
           title="Digital Nurse"
           iconBg="hsl(199, 89%, 48%)"
+          cardBg="hsl(199, 89%, 38%)"
           subtitle="Clinical Reference App"
           description="Evidence-based nursing procedures, clinical calculators, and professional healthcare resources. Built for healthcare professionals."
           tags={["Clinical Procedures", "Medical Calculators", "Drug References", "AI Assistant"]}
@@ -43,6 +44,7 @@ const Projects = () => {
           icon={<Brain size={28} className="text-white" />}
           title="Kidinnu AI"
           iconBg="hsl(38, 92%, 50%)"
+          cardBg="hsl(38, 80%, 42%)"
           subtitle="AI-Powered Assistant"
           description="Advanced AI assistant powered by cutting-edge language models. Create, explore, and innovate with intelligent conversation."
           tags={["Smart Conversations", "Creative Writing", "Problem Solving", "Knowledge Base"]}
@@ -55,6 +57,7 @@ const Projects = () => {
           icon={<Sparkles size={28} className="text-white" />}
           title="ScriptForge AI"
           iconBg="hsl(258, 90%, 66%)"
+          cardBg="hsl(258, 70%, 45%)"
           subtitle="AI Video Script Generator"
           description="Turn any idea into a scroll-stopping video script in seconds. AI agent prompt optimized for YouTube, TikTok, Reels & educational content. Supports English & Arabic."
           tags={["AI Scripts", "YouTube", "TikTok", "Reels"]}
