@@ -22,7 +22,7 @@ const Index = () => {
       ctaLabel: t("Explore the App", "استكشف التطبيق"),
       ctaIcon: <Heart size={18} />,
       href: "https://digital-nurse-buddy.lovable.app",
-      iconBg: "hsl(210, 52%, 91%)",
+      iconBg: "hsl(199, 89%, 48%)",
     },
     {
       icon: <Stethoscope size={28} className="text-white" />,
@@ -36,7 +36,7 @@ const Index = () => {
       ctaLabel: t("Try InsightMed", "جرّب InsightMed"),
       ctaIcon: <Sparkles size={18} />,
       href: "https://insightmed.lovable.app/",
-      iconBg: "hsl(220, 85%, 39%)",
+      iconBg: "hsl(160, 84%, 39%)",
     },
     {
       icon: <Brain size={28} className="text-white" />,
@@ -50,7 +50,7 @@ const Index = () => {
       ctaLabel: t("Explore Kidinnu", "استكشف Kidinnu"),
       ctaIcon: <Sparkles size={18} />,
       href: "https://kidinnuaitools.lovable.app/",
-      iconBg: "hsl(225, 100%, 7%)",
+      iconBg: "hsl(38, 92%, 50%)",
     },
     {
       icon: <Sparkles size={28} className="text-white" />,
@@ -64,7 +64,7 @@ const Index = () => {
       ctaLabel: t("Try ScriptForge", "جرّب ScriptForge"),
       ctaIcon: <Sparkles size={18} />,
       href: "https://scriptforgeaii.lovable.app",
-      iconBg: "hsl(260, 80%, 45%)",
+      iconBg: "hsl(258, 90%, 66%)",
     },
   ];
 

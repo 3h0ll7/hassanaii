@@ -28,8 +28,9 @@ const Projects = () => {
       {/* Cards */}
       <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-8 px-6 pb-20">
         <ProjectCard
-          icon={<Stethoscope size={28} className="text-foreground" />}
+          icon={<Stethoscope size={28} className="text-white" />}
           title="Digital Nurse"
+          iconBg="hsl(199, 89%, 48%)"
           subtitle="Clinical Reference App"
           description="Evidence-based nursing procedures, clinical calculators, and professional healthcare resources. Built for healthcare professionals."
           tags={["Clinical Procedures", "Medical Calculators", "Drug References", "AI Assistant"]}
@@ -39,8 +40,9 @@ const Projects = () => {
         />
 
         <ProjectCard
-          icon={<Brain size={28} className="text-foreground" />}
+          icon={<Brain size={28} className="text-white" />}
           title="Kidinnu AI"
+          iconBg="hsl(38, 92%, 50%)"
           subtitle="AI-Powered Assistant"
           description="Advanced AI assistant powered by cutting-edge language models. Create, explore, and innovate with intelligent conversation."
           tags={["Smart Conversations", "Creative Writing", "Problem Solving", "Knowledge Base"]}
@@ -52,6 +54,7 @@ const Projects = () => {
         <ProjectCard
           icon={<Sparkles size={28} className="text-white" />}
           title="ScriptForge AI"
+          iconBg="hsl(258, 90%, 66%)"
           subtitle="AI Video Script Generator"
           description="Turn any idea into a scroll-stopping video script in seconds. AI agent prompt optimized for YouTube, TikTok, Reels & educational content. Supports English & Arabic."
           tags={["AI Scripts", "YouTube", "TikTok", "Reels"]}
