@@ -12,15 +12,29 @@ interface ProjectCardProps {
   iconBg?: string;
   cardBg?: string;
   cardText?: string;
+  images?: string[];
 }
 
-const ProjectCard = ({ icon, title, subtitle, description, tags, ctaLabel, ctaIcon, href, iconBg = "hsl(210, 52%, 91%)", cardBg, cardText }: ProjectCardProps) => {
+const ProjectCard = ({ icon, title, subtitle, description, tags, ctaLabel, ctaIcon, href, iconBg = "hsl(210, 52%, 91%)", cardBg, cardText, images }: ProjectCardProps) => {
   const hasCustomBg = !!cardBg;
   return (
     <div
       className={`rounded-2xl border p-5 md:p-8 max-w-md w-full shadow-sm hover:shadow-md transition-shadow duration-300 ${hasCustomBg ? 'border-white/15' : 'border-border bg-card/80 backdrop-blur-sm'}`}
       style={hasCustomBg ? { backgroundColor: cardBg } : undefined}
     >
+      {images && images.length > 0 && (
+        <div className={`grid ${images.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} gap-3 md:gap-4 mb-6`}>
+          {images.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt=""
+              loading="lazy"
+              className="w-full aspect-[9/16] object-cover rounded-lg ring-1 ring-white/15 shadow-md"
+            />
+          ))}
+        </div>
+      )}
       {/* Header */}
       <div className="flex items-start justify-between mb-6">
         <div className="flex items-center gap-4">
