@@ -35,11 +35,6 @@ const ProjectCard = ({ icon, title, subtitle, description, tags, ctaLabel, ctaIc
           ))}
         </div>
       )}
-  return (
-    <div
-      className={`rounded-2xl border p-5 md:p-8 max-w-md w-full shadow-sm hover:shadow-md transition-shadow duration-300 ${hasCustomBg ? 'border-white/15' : 'border-border bg-card/80 backdrop-blur-sm'}`}
-      style={hasCustomBg ? { backgroundColor: cardBg } : undefined}
-    >
       {/* Header */}
       <div className="flex items-start justify-between mb-6">
         <div className="flex items-center gap-4">
