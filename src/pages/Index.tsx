@@ -28,6 +28,22 @@ const Index = () => {
       cardBg: "hsl(199, 89%, 38%)",
     },
     {
+      icon: <Film size={28} className="text-white" />,
+      title: "Letterboxd",
+      subtitle: t("Cinema Journal", "يوميات السينما"),
+      description: t(
+        "My curated film journal — Top 100, Beyond Amazing, Space, and more. Cinema is my home, I think I've always lived in it.",
+        "يوميات أفلامي المنسّقة — Top 100، Beyond Amazing، Space والمزيد. السينما هي بيتي، وأظن أنني عشت فيها دائماً."
+      ),
+      tags: t("Film Lists,Reviews,Watchlist,Cinema", "قوائم أفلام,مراجعات,قائمة مشاهدة,سينما").split(","),
+      ctaLabel: t("View Profile", "عرض الملف"),
+      ctaIcon: <Film size={18} />,
+      href: "https://boxd.it/7RQST",
+      iconBg: "hsl(150, 60%, 32%)",
+      cardBg: "hsl(150, 55%, 20%)",
+      images: [letterboxdProfile.url, letterboxdLists.url],
+    },
+    {
       icon: <Stethoscope size={28} className="text-white" />,
       title: "InsightMed",
       subtitle: t("AI Medical Report Analyzer", "محلل التقارير الطبية بالذكاء الاصطناعي"),
