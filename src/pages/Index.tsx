@@ -41,7 +41,7 @@ const Index = () => {
       href: "https://boxd.it/7RQST",
       iconBg: "hsl(150, 60%, 32%)",
       cardBg: "hsl(150, 55%, 20%)",
-      images: [letterboxdProfile.url, letterboxdLists.url],
+      images: [letterboxdLists.url],
     },
     {
       icon: <Stethoscope size={28} className="text-white" />,
