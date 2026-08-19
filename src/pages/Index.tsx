@@ -1,12 +1,13 @@
 import SpotlightHero from "@/components/SpotlightHero";
 import LoadingScreen from "@/components/LoadingScreen";
 import ProjectCard from "@/components/ProjectCard";
-import { Stethoscope, Brain, Heart, Sparkles, Sun, Moon, Languages, Film } from "lucide-react";
+import { Stethoscope, Brain, Heart, Sparkles, Sun, Moon, Languages, Film, Orbit } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import letterboxdProfile from "@/assets/letterboxd-profile.jpg.asset.json";
 import letterboxdLists from "@/assets/letterboxd-lists.jpg.asset.json";
+
 
 const Index = () => {
   const { t } = useLanguage();
