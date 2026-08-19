@@ -45,20 +45,21 @@ const Index = () => {
       images: [letterboxdLists.url],
     },
     {
-      icon: <Stethoscope size={28} className="text-white" />,
-      title: "InsightMed",
-      subtitle: t("AI Medical Report Analyzer", "محلل التقارير الطبية بالذكاء الاصطناعي"),
+      icon: <Orbit size={28} className="text-white" />,
+      title: "Cosmic Taxonomy Engine",
+      subtitle: t("AI-Powered Cosmic Explorer", "مستكشف كوني بالذكاء الاصطناعي"),
       description: t(
-        "Analyzes lab results, radiology reports, prescriptions, and doctor visit notes using AI — turning them into clear explanations, health insights, and guidance for patients and doctors.",
-        "يحلل نتائج المختبر، تقارير الأشعة، الوصفات الطبية، وملاحظات زيارات الأطباء باستخدام الذكاء الاصطناعي — ويحولها إلى شروحات واضحة ورؤى صحية وإرشادات للمرضى والأطباء."
+        "An interactive AI-powered taxonomy engine for exploring exoplanets, stars, nebulae, galaxies, and space missions through cosmic classification and cladistic visualization.",
+        "محرك تصنيف تفاعلي بالذكاء الاصطناعي لاستكشاف الكواكب الخارجية والنجوم والسدم والمجرات والمهام الفضائية عبر التصنيف الكوني والتصور التفرعي."
       ),
-      tags: t("Lab Analysis,Radiology Reports,Prescriptions,Health Insights", "تحليل مختبري,تقارير أشعة,وصفات طبية,رؤى صحية").split(","),
-      ctaLabel: t("Try InsightMed", "جرّب InsightMed"),
+      tags: t("Exoplanets,Stars,Nebulae,Galaxies,Space Missions", "كواكب خارجية,نجوم,سدم,مجرات,مهام فضائية").split(","),
+      ctaLabel: t("Explore Cosmic Taxonomy", "استكشف التصنيف الكوني"),
       ctaIcon: <Sparkles size={18} />,
-      href: "https://insightmed.lovable.app/",
-      iconBg: "hsl(160, 84%, 39%)",
-      cardBg: "hsl(160, 84%, 30%)",
+      href: "https://cosmic-analysis-astronomical-taxonomic-logic.ai.studio",
+      iconBg: "hsl(222, 60%, 35%)",
+      cardBg: "hsl(222, 55%, 27%)",
     },
+
     {
       icon: <Brain size={28} className="text-white" />,
       title: "Kidinnu",
