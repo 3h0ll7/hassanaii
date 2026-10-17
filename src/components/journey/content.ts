@@ -98,7 +98,6 @@ export const LINKS: [string, string, string, string, string][] = [
   ["Instagram", "@3h0ll", "https://www.instagram.com/3h0ll?igsh=eWNnN2V1YXF5bHpo", "#ef8a62", "-1deg"],
   ["GitHub", "3h0ll7", "https://github.com/3h0ll7", "#e8e1d0", "3deg"],
   ["Facebook", "Hassan Salman", "https://www.facebook.com/share/1SXTmx3Zcj/", "#a9c4f5", "-2deg"],
-  ["TikTok", "linktr.ee/3h0ll", "https://linktr.ee/3h0ll", "#f5a9c4", "1deg"],
   ["Letterboxd", "boxd.it/7RQST", "https://boxd.it/7RQST", "#b8e08a", "-3deg"],
 ];
 
