@@ -139,12 +139,13 @@ export interface Segment {
   projs?: number[];
   pos?: "" | "at-right" | "at-left";
   fly?: number; // fly-through zoom: each project is a flight to the screen at the tunnel's end
+  video?: string; // optional fly-through clip scrubbed by scroll (replaces the zoom when it loads)
 }
 
 // Scroll journey. The last segment repeats the doorway so the loop back to the top is seamless.
 export const SEGMENTS: Segment[] = [
   { img: 0, len: 1.6, z0: 1.0, z1: 1.9, fx: 0.47, fy: 0.5, ui: "door" },
-  { img: 1, len: 4.2, z0: 1.0, z1: 1.0, fx: 0.5, fy: 0.497, ui: "proj", projs: [0, 3, 4], pos: "", fly: 7 },
+  { img: 1, len: 4.2, z0: 1.0, z1: 1.0, fx: 0.5, fy: 0.497, ui: "proj", projs: [0, 3, 4], pos: "", fly: 7, video: "/scenes/tunnel.mp4" },
   { img: 2, len: 1.6, z0: 1.15, z1: 1.0, fx: 0.42, fy: 0.5, ui: "proj", projs: [2], pos: "at-right" },
   { img: 3, len: 1.4, z0: 1.0, z1: 1.12, fx: 0.5, fy: 0.5, ui: "circuit" },
   { img: 4, len: 1.6, z0: 1.0, z1: 1.25, fx: 0.5, fy: 0.3, ui: "proj", projs: [1], pos: "at-left" },

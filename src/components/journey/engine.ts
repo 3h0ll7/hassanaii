@@ -200,6 +200,14 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
     );
     gl!.uniform1i(loc.t0, 0);
     gl!.uniform1i(loc.t1, 1);
+    if (flySrc) {
+      vidTex = gl!.createTexture();
+      gl!.bindTexture(gl!.TEXTURE_2D, vidTex);
+      gl!.texParameteri(gl!.TEXTURE_2D, gl!.TEXTURE_MIN_FILTER, gl!.LINEAR);
+      gl!.texParameteri(gl!.TEXTURE_2D, gl!.TEXTURE_MAG_FILTER, gl!.LINEAR);
+      gl!.texParameteri(gl!.TEXTURE_2D, gl!.TEXTURE_WRAP_S, gl!.CLAMP_TO_EDGE);
+      gl!.texParameteri(gl!.TEXTURE_2D, gl!.TEXTURE_WRAP_T, gl!.CLAMP_TO_EDGE);
+    }
   }
   function makeTex(img: HTMLImageElement) {
     const t = gl!.createTexture()!;
@@ -273,6 +281,34 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
     return st;
   }
 
+  // ---------- Fly-through clip (scrubbed by scroll) ----------
+  const flySrc = SEGMENTS.find((sg) => sg.video)?.video;
+  let vid: HTMLVideoElement | null = null;
+  let vidTex: WebGLTexture | null = null;
+  let vidReady = false;
+  let playedFlight = -1; // which tunnel flight the clip is currently playing for
+  if (flySrc) {
+    vid = document.createElement("video");
+    vid.muted = true;
+    vid.playsInline = true;
+    vid.preload = "auto";
+    // H.264 where supported, otherwise the WebM copy next to it.
+    const mp4 = vid.canPlayType('video/mp4; codecs="avc1.640028"');
+    vid.src = mp4 ? flySrc : flySrc.replace(/\.mp4$/, ".webm");
+    vid.addEventListener("loadeddata", () => { vidReady = true; });
+    vid.load();
+  }
+  // Some mobile browsers only decode frames after a play() from a user gesture.
+  const warmVideo = () => {
+    if (!vid) return;
+    vid.play().then(() => vid?.pause()).catch(() => {});
+    removeEventListener("touchstart", warmVideo);
+    removeEventListener("pointerdown", warmVideo);
+  };
+  addEventListener("touchstart", warmVideo, { passive: true });
+  addEventListener("pointerdown", warmVideo);
+  const vidUsable = (sg: Segment) => !!(sg.video && vid && vidReady && vidTex && vid.readyState >= 2);
+
   let raf = 0;
   function frame(now: number) {
     if (!alive) return;
@@ -286,26 +322,54 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
       let za = a.z0 + (a.z1 - a.z0) * ease(Math.min(st.t, 1));
       if (a.fly) {
         // Accelerate down the tunnel toward the end screen; the card grows out of it on arrival.
-        const { u } = flight(a, st.t);
-        const f = clamp01(u / 0.72);
-        za = Math.exp(Math.log(a.fly) * f * f);
-        const c = clamp01((u - 0.5) / 0.26);
+        const { k, u } = flight(a, st.t);
+        let c: number;
+        if (vidUsable(a) && !reduce) {
+          // Scrolling into a flight starts the clip at its natural speed; the card appears as it ends.
+          if (playedFlight !== k) {
+            playedFlight = k;
+            vid!.currentTime = 0;
+            vid!.play().catch(() => {});
+          }
+          const dur = vid!.duration || 5;
+          const p = clamp01(vid!.currentTime / dur);
+          za = 1 + 0.9 * p * p * p * p;
+          c = clamp01((vid!.currentTime - (dur - 1.1)) / 0.9);
+        } else {
+          const f = clamp01(u / 0.72);
+          za = Math.exp(Math.log(a.fly) * f * f);
+          c = clamp01((u - 0.5) / 0.26);
+        }
         const grow = 1 - Math.pow(1 - c, 3);
         win.style.transform = `scale(${(0.18 + 0.82 * grow).toFixed(4)})`;
         win.style.opacity = String(clamp01(c * 2.5) * (1 - clamp01(st.mixv * 2)));
         win.style.filter = c < 1 ? `blur(${((1 - c) * 6).toFixed(2)}px)` : "";
-      } else if (win.style.transform) {
+      } else if (win.style.transform || playedFlight !== -1) {
+        // Left the tunnel: park the clip on its first frame for the next visit.
+        if (playedFlight !== -1 && vid) { vid.pause(); playedFlight = -1; }
         win.style.transform = ""; win.style.opacity = ""; win.style.filter = "";
       }
       glitchKick *= 0.9;
       const g = reduce ? 0 : Math.min(1, Math.sin(Math.PI * st.mixv) * 0.9 + glitchKick + (Math.random() < 0.01 ? 0.25 : 0));
+      const va = vidUsable(a);
+      const vb = !va && vidUsable(b);
+      if (vb && !vid!.paused) vid!.pause();
+      if (vb && vid!.currentTime > 0.02 && !vid!.seeking) vid!.currentTime = 0; // arriving at the tunnel: first frame
+      if (va || vb) {
+        gl.activeTexture(gl.TEXTURE2);
+        gl.bindTexture(gl.TEXTURE_2D, vidTex);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, vid!);
+      }
+      const vsize: [number, number] = vid ? [vid.videoWidth || 16, vid.videoHeight || 9] : [16, 9];
+      const sa = va ? vsize : sizes[a.img];
+      const sb = vb ? vsize : sizes[b.img];
       gl.activeTexture(gl.TEXTURE0);
-      gl.bindTexture(gl.TEXTURE_2D, texs[a.img]);
+      gl.bindTexture(gl.TEXTURE_2D, va ? vidTex : texs[a.img]);
       gl.activeTexture(gl.TEXTURE1);
-      gl.bindTexture(gl.TEXTURE_2D, texs[b.img]);
+      gl.bindTexture(gl.TEXTURE_2D, vb ? vidTex : texs[b.img]);
       gl.uniform2f(loc.res, canvas.width, canvas.height);
-      gl.uniform2f(loc.s0, sizes[a.img][0], sizes[a.img][1]);
-      gl.uniform2f(loc.s1, sizes[b.img][0], sizes[b.img][1]);
+      gl.uniform2f(loc.s0, sa[0], sa[1]);
+      gl.uniform2f(loc.s1, sb[0], sb[1]);
       gl.uniform2f(loc.f0, a.fx, a.fy);
       gl.uniform2f(loc.f1, b.fx, b.fy);
       gl.uniform2f(loc.mouse, reduce ? 0 : mouse.x, reduce ? 0 : mouse.y);
@@ -374,6 +438,10 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
       removeEventListener("pointermove", onMove);
       q("#j-sound")?.removeEventListener("click", onSound);
       audio.ctx?.close();
+      removeEventListener("touchstart", warmVideo);
+      removeEventListener("pointerdown", warmVideo);
+      if (vid) { vid.pause(); vid.removeAttribute("src"); vid.load(); }
+      if (gl && vidTex) gl.deleteTexture(vidTex);
       if (gl) texs.forEach((t) => gl.deleteTexture(t));
     },
   };
