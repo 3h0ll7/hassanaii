@@ -286,6 +286,7 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
   let vid: HTMLVideoElement | null = null;
   let vidTex: WebGLTexture | null = null;
   let vidReady = false;
+  let playedFlight = -1; // which tunnel flight the clip is currently playing for
   if (flySrc) {
     vid = document.createElement("video");
     vid.muted = true;
@@ -321,28 +322,38 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
       let za = a.z0 + (a.z1 - a.z0) * ease(Math.min(st.t, 1));
       if (a.fly) {
         // Accelerate down the tunnel toward the end screen; the card grows out of it on arrival.
-        const { u } = flight(a, st.t);
-        const f = clamp01(u / 0.72);
-        if (vidUsable(a)) {
-          // The clip itself flies down the tunnel; scroll picks the frame.
-          za = 1 + 0.9 * f * f * f * f;
-          const target = f * (vid!.duration || 5) * 0.999;
-          if (!vid!.seeking && Math.abs(vid!.currentTime - target) > 0.015) vid!.currentTime = target;
+        const { k, u } = flight(a, st.t);
+        let c: number;
+        if (vidUsable(a) && !reduce) {
+          // Scrolling into a flight starts the clip at its natural speed; the card appears as it ends.
+          if (playedFlight !== k) {
+            playedFlight = k;
+            vid!.currentTime = 0;
+            vid!.play().catch(() => {});
+          }
+          const dur = vid!.duration || 5;
+          const p = clamp01(vid!.currentTime / dur);
+          za = 1 + 0.9 * p * p * p * p;
+          c = clamp01((vid!.currentTime - (dur - 1.1)) / 0.9);
         } else {
+          const f = clamp01(u / 0.72);
           za = Math.exp(Math.log(a.fly) * f * f);
+          c = clamp01((u - 0.5) / 0.26);
         }
-        const c = clamp01((u - 0.5) / 0.26);
         const grow = 1 - Math.pow(1 - c, 3);
         win.style.transform = `scale(${(0.18 + 0.82 * grow).toFixed(4)})`;
         win.style.opacity = String(clamp01(c * 2.5) * (1 - clamp01(st.mixv * 2)));
         win.style.filter = c < 1 ? `blur(${((1 - c) * 6).toFixed(2)}px)` : "";
-      } else if (win.style.transform) {
+      } else if (win.style.transform || playedFlight !== -1) {
+        // Left the tunnel: park the clip on its first frame for the next visit.
+        if (playedFlight !== -1 && vid) { vid.pause(); playedFlight = -1; }
         win.style.transform = ""; win.style.opacity = ""; win.style.filter = "";
       }
       glitchKick *= 0.9;
       const g = reduce ? 0 : Math.min(1, Math.sin(Math.PI * st.mixv) * 0.9 + glitchKick + (Math.random() < 0.01 ? 0.25 : 0));
       const va = vidUsable(a);
       const vb = !va && vidUsable(b);
+      if (vb && !vid!.paused) vid!.pause();
       if (vb && vid!.currentTime > 0.02 && !vid!.seeking) vid!.currentTime = 0; // arriving at the tunnel: first frame
       if (va || vb) {
         gl.activeTexture(gl.TEXTURE2);
