@@ -98,7 +98,6 @@ export const LINKS: [string, string, string, string, string][] = [
   ["Instagram", "@3h0ll", "https://www.instagram.com/3h0ll?igsh=eWNnN2V1YXF5bHpo", "#ef8a62", "-1deg"],
   ["GitHub", "3h0ll7", "https://github.com/3h0ll7", "#e8e1d0", "3deg"],
   ["Facebook", "Hassan Salman", "https://www.facebook.com/share/1SXTmx3Zcj/", "#a9c4f5", "-2deg"],
-  ["TikTok", "linktr.ee/3h0ll", "https://linktr.ee/3h0ll", "#f5a9c4", "1deg"],
   ["Letterboxd", "boxd.it/7RQST", "https://boxd.it/7RQST", "#b8e08a", "-3deg"],
 ];
 
@@ -139,12 +138,13 @@ export interface Segment {
   ui: "door" | "proj" | "circuit" | "desk";
   projs?: number[];
   pos?: "" | "at-right" | "at-left";
+  fly?: number; // fly-through zoom: each project is a flight to the screen at the tunnel's end
 }
 
 // Scroll journey. The last segment repeats the doorway so the loop back to the top is seamless.
 export const SEGMENTS: Segment[] = [
   { img: 0, len: 1.6, z0: 1.0, z1: 1.9, fx: 0.47, fy: 0.5, ui: "door" },
-  { img: 1, len: 3.0, z0: 1.0, z1: 1.7, fx: 0.5, fy: 0.5, ui: "proj", projs: [0, 3, 4], pos: "" },
+  { img: 1, len: 4.2, z0: 1.0, z1: 1.0, fx: 0.5, fy: 0.497, ui: "proj", projs: [0, 3, 4], pos: "", fly: 7 },
   { img: 2, len: 1.6, z0: 1.15, z1: 1.0, fx: 0.42, fy: 0.5, ui: "proj", projs: [2], pos: "at-right" },
   { img: 3, len: 1.4, z0: 1.0, z1: 1.12, fx: 0.5, fy: 0.5, ui: "circuit" },
   { img: 4, len: 1.6, z0: 1.0, z1: 1.25, fx: 0.5, fy: 0.3, ui: "proj", projs: [1], pos: "at-left" },
