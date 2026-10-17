@@ -70,7 +70,7 @@
 .journey .s-proj.at-left { place-items: center start; }
 [dir="rtl"] .journey .s-proj.at-right { place-items: end start; }
 [dir="rtl"] .journey .s-proj.at-left { place-items: center end; }
-.journey .j-win { width: min(440px, 100%); background: #0b0b0d; border: 1px solid rgba(255,179,71,.55);
+.journey .j-win { transform-origin: 50% 50%; will-change: transform, opacity; width: min(440px, 100%); background: #0b0b0d; border: 1px solid rgba(255,179,71,.55);
   box-shadow: 0 0 0 1px #000, 0 0 40px rgba(255,179,71,.25), inset 0 0 60px rgba(255,179,71,.06); }
 .journey .j-win-bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 8px 6px 12px; background: var(--j-phosphor); color: #160d00; font: 20px/1 var(--j-pixel); }
 .journey .j-win-btns { display: flex; gap: 4px; }

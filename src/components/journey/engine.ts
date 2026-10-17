@@ -1,4 +1,4 @@
-import { PROJECTS, SCENE_IMAGES, SEGMENTS, UI, type Lang } from "./content";
+import { PROJECTS, SCENE_IMAGES, SEGMENTS, UI, type Lang, type Segment } from "./content";
 
 // Scroll-driven WebGL stage: draws two scene images at once and blends them with a
 // noise dissolve, RGB split and row glitch while the visitor scrolls between scenes.
@@ -47,6 +47,16 @@ const TRANS = 0.55; // viewport heights spent transitioning at the end of each s
 const TOTAL = SEGMENTS.reduce((a, s) => a + s.len, 0);
 const GLYPHS = "▓▒░█<>/\\=+*#01";
 
+// Within a fly-through segment: which project, and how far along its flight (0..1).
+function flight(seg: Segment, t: number) {
+  const n = seg.projs?.length || 1;
+  const usable = 1 - Math.min(TRANS, seg.len * 0.5) / seg.len;
+  const tt = Math.min(t / usable, 0.9999);
+  const k = Math.min(n - 1, Math.floor(tt * n));
+  return { k, u: tt * n - k };
+}
+const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
+
 const esc = (s: string) =>
   s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c] as string);
 
@@ -63,6 +73,7 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
   const scenes = Array.from(root.querySelectorAll<HTMLElement>(".scene"));
   const ticks = Array.from(root.querySelectorAll<HTMLElement>(".j-ticks i"));
   const projScene = q(".s-proj");
+  const win = q(".j-win");
   let curKey = "";
 
   // ---------- Text ----------
@@ -241,10 +252,8 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
     const sceneIdx = si % 6;
     let projK = -1;
     if (seg.ui === "proj" && seg.projs) {
-      if (si === st.i) {
-        const usable = 1 - TRANS / seg.len;
-        projK = seg.projs[Math.min(seg.projs.length - 1, Math.floor(Math.min(st.t / usable, 0.999) * seg.projs.length))];
-      } else projK = seg.projs[0];
+      if (si === st.i) projK = seg.projs[flight(seg, st.t).k];
+      else projK = seg.projs[0];
     }
     const key = `${lang}|${sceneIdx}|${projK}`;
     if (key !== curKey) {
@@ -258,7 +267,7 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
       q("#j-scene").textContent = String(sceneIdx + 1).padStart(2, "0") + " · " + UI[lang].scenes[sceneIdx];
       if (prev && prev.split("|")[0] === lang) {
         click();
-        if (projK >= 0) glitchKick = 0.35;
+        if (projK >= 0) glitchKick = 0.8;
       }
     }
     return st;
@@ -274,7 +283,20 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
       const a = SEGMENTS[st.i];
       const b = SEGMENTS[Math.min(st.i + 1, SEGMENTS.length - 1)];
       const ease = (x: number) => x * x * (3 - 2 * x);
-      const za = a.z0 + (a.z1 - a.z0) * ease(Math.min(st.t, 1));
+      let za = a.z0 + (a.z1 - a.z0) * ease(Math.min(st.t, 1));
+      if (a.fly) {
+        // Accelerate down the tunnel toward the end screen; the card grows out of it on arrival.
+        const { u } = flight(a, st.t);
+        const f = clamp01(u / 0.72);
+        za = Math.exp(Math.log(a.fly) * f * f);
+        const c = clamp01((u - 0.5) / 0.26);
+        const grow = 1 - Math.pow(1 - c, 3);
+        win.style.transform = `scale(${(0.18 + 0.82 * grow).toFixed(4)})`;
+        win.style.opacity = String(clamp01(c * 2.5) * (1 - clamp01(st.mixv * 2)));
+        win.style.filter = c < 1 ? `blur(${((1 - c) * 6).toFixed(2)}px)` : "";
+      } else if (win.style.transform) {
+        win.style.transform = ""; win.style.opacity = ""; win.style.filter = "";
+      }
       glitchKick *= 0.9;
       const g = reduce ? 0 : Math.min(1, Math.sin(Math.PI * st.mixv) * 0.9 + glitchKick + (Math.random() < 0.01 ? 0.25 : 0));
       gl.activeTexture(gl.TEXTURE0);
