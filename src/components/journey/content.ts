@@ -89,13 +89,28 @@ export const PROJECTS: JourneyProject[] = [
     cta: ["Try ScriptForge", "جرّب ScriptForge"],
     href: "https://scriptforgeaii.lovable.app",
   },
+  {
+    file: "physics-3d.exe",
+    title: "Physics 6th Scientific 3D",
+    sub: ["Interactive 3D Physics Book", "كتاب فيزياء تفاعلي ثلاثي الأبعاد"],
+    desc: [
+      "Iraq's 6th scientific grade physics textbook as a 3D book students can experiment with: predict, try it by hand, then solve the book's examples step by step. Built chapter by chapter.",
+      "كتاب فيزياء السادس العلمي في العراق بصيغة كتاب ثلاثي الأبعاد يجرّب فيه الطالب بيده: يتنبّأ، ثم يجرّب، ثم يحل أمثلة الكتاب خطوة بخطوة. يُبنى فصلاً بعد فصل.",
+    ],
+    tags: [
+      ["Capacitors", "Electromagnetic Induction", "3D Experiments", "Solved Examples"],
+      ["المتسعات", "الحث الكهرومغناطيسي", "تجارب ثلاثية الأبعاد", "أمثلة محلولة"],
+    ],
+    cta: ["Open the Book", "افتح الكتاب"],
+    href: "https://claude.ai/artifact/4i7JdepxXurzKK9b1c6ju6",
+  },
 ];
 
 // [label, shown handle, url, card color, tilt]
 export const LINKS: [string, string, string, string, string][] = [
-  ["YouTube", "@stai9", "https://youtube.com/@stai9", "#f2c14e", "-3deg"],
   ["X / Twitter", "@3h0ll7", "https://twitter.com/3h0ll7", "#9fd3c7", "2deg"],
   ["Instagram", "@3h0ll", "https://www.instagram.com/3h0ll?igsh=eWNnN2V1YXF5bHpo", "#ef8a62", "-1deg"],
+  ["Instagram", "@staiiq", "https://www.instagram.com/staiiq", "#f2c14e", "-3deg"],
   ["GitHub", "3h0ll7", "https://github.com/3h0ll7", "#e8e1d0", "3deg"],
   ["Facebook", "Hassan Salman", "https://www.facebook.com/share/1SXTmx3Zcj/", "#a9c4f5", "-2deg"],
   ["Letterboxd", "boxd.it/7RQST", "https://boxd.it/7RQST", "#b8e08a", "-3deg"],
@@ -145,7 +160,7 @@ export interface Segment {
 // Scroll journey. The last segment repeats the doorway so the loop back to the top is seamless.
 export const SEGMENTS: Segment[] = [
   { img: 0, len: 1.6, z0: 1.0, z1: 1.9, fx: 0.47, fy: 0.5, ui: "door" },
-  { img: 1, len: 4.2, z0: 1.0, z1: 1.0, fx: 0.5, fy: 0.497, ui: "proj", projs: [0, 3, 4], pos: "", fly: 7, video: "/scenes/tunnel.mp4" },
+  { img: 1, len: 5.6, z0: 1.0, z1: 1.0, fx: 0.5, fy: 0.497, ui: "proj", projs: [0, 5, 3, 4], pos: "", fly: 7, video: "/scenes/tunnel.mp4" },
   { img: 2, len: 1.6, z0: 1.15, z1: 1.0, fx: 0.42, fy: 0.5, ui: "proj", projs: [2], pos: "at-right" },
   { img: 3, len: 1.4, z0: 1.0, z1: 1.12, fx: 0.5, fy: 0.5, ui: "circuit" },
   { img: 4, len: 1.6, z0: 1.0, z1: 1.25, fx: 0.5, fy: 0.3, ui: "proj", projs: [1], pos: "at-left" },

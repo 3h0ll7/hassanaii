@@ -74,7 +74,7 @@ const Journey = () => {
             <div className="j-tags">
               {LINKS.map(([label, handle, url, color, tilt]) => (
                 <a
-                  key={label}
+                  key={url}
                   className="j-tag"
                   style={{ background: color, ["--r" as string]: tilt }}
                   href={url}
