@@ -94,15 +94,15 @@ export const PROJECTS: JourneyProject[] = [
     title: "Physics 6th Scientific 3D",
     sub: ["Interactive 3D Physics Book", "كتاب فيزياء تفاعلي ثلاثي الأبعاد"],
     desc: [
-      "Iraq's 6th scientific grade physics textbook as a 3D book students can experiment with: predict, try it by hand, then solve the book's examples step by step. Built chapter by chapter.",
-      "كتاب فيزياء السادس العلمي في العراق بصيغة كتاب ثلاثي الأبعاد يجرّب فيه الطالب بيده: يتنبّأ، ثم يجرّب، ثم يحل أمثلة الكتاب خطوة بخطوة. يُبنى فصلاً بعد فصل.",
+      "Iraq's complete 6th scientific grade physics textbook as a 3D book: 9 chapters and 81 lessons where students predict, experiment by hand, then solve the book's examples step by step. With end-of-chapter quizzes, progress tracking, search, and 360° rotation.",
+      "كتاب فيزياء السادس العلمي في العراق كاملاً بصيغة كتاب ثلاثي الأبعاد: 9 فصول و81 درساً يتنبّأ فيها الطالب، ثم يجرّب بيده، ثم يحل أمثلة الكتاب خطوة بخطوة. مع اختبارات نهاية الفصول وحفظ التقدم والبحث ودوران 360°.",
     ],
     tags: [
-      ["Capacitors", "Electromagnetic Induction", "3D Experiments", "Solved Examples"],
-      ["المتسعات", "الحث الكهرومغناطيسي", "تجارب ثلاثية الأبعاد", "أمثلة محلولة"],
+      ["9 Chapters", "3D Experiments", "Chapter Quizzes", "Solved Examples"],
+      ["9 فصول", "تجارب ثلاثية الأبعاد", "اختبارات الفصول", "أمثلة محلولة"],
     ],
     cta: ["Open the Book", "افتح الكتاب"],
-    href: "https://claude.ai/artifact/4i7JdepxXurzKK9b1c6ju6",
+    href: "https://physics3d6th.lovable.app",
   },
 ];
 

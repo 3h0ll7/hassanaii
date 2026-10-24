@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Stethoscope, Brain, Heart, Sparkles } from "lucide-react";
+import { ArrowLeft, Stethoscope, Brain, Heart, Sparkles, Atom, BookOpen } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
 const Projects = () => {
   const navigate = useNavigate();
@@ -64,6 +64,19 @@ const Projects = () => {
           ctaLabel="Try ScriptForge"
           ctaIcon={<Sparkles size={18} />}
           href="https://scriptforgeaii.lovable.app"
+        />
+
+        <ProjectCard
+          icon={<Atom size={28} className="text-white" />}
+          title="Physics 6th Scientific 3D"
+          iconBg="hsl(222, 60%, 32%)"
+          cardBg="hsl(222, 45%, 18%)"
+          subtitle="Interactive 3D Physics Book"
+          description="Iraq's complete 6th scientific grade physics textbook as a 3D book: 9 chapters and 81 lessons where students predict, experiment by hand, then solve the book's examples step by step."
+          tags={["9 Chapters", "3D Experiments", "Chapter Quizzes", "Solved Examples"]}
+          ctaLabel="Open the Book"
+          ctaIcon={<BookOpen size={18} />}
+          href="https://physics3d6th.lovable.app"
         />
       </div>
 
