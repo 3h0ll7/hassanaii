@@ -120,7 +120,9 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
   }
 
   // ---------- Audio: generated hum + channel-change click ----------
-  const audio: { on: boolean; ctx: AudioContext | null; gain: GainNode | null } = { on: false, ctx: null, gain: null };
+  // Sound is ON by default; browsers only allow audio to start after a user
+  // gesture, so the context is created/resumed on the first interaction.
+  const audio: { on: boolean; ctx: AudioContext | null; gain: GainNode | null } = { on: true, ctx: null, gain: null };
   function setSound(on: boolean) {
     audio.on = on;
     if (on && !audio.ctx) {
@@ -167,6 +169,13 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
   }
   const onSound = () => setSound(!audio.on);
   q("#j-sound").addEventListener("click", onSound);
+  // First user gesture unlocks audio playback and starts the hum.
+  const warmAudio = () => {
+    if (audio.on) setSound(true);
+    warmEvents.forEach((e) => removeEventListener(e, warmAudio));
+  };
+  const warmEvents: (keyof WindowEventMap)[] = ["pointerdown", "touchstart", "keydown", "wheel"];
+  warmEvents.forEach((e) => addEventListener(e, warmAudio, { passive: true }));
 
   // ---------- WebGL ----------
   const canvas = q<HTMLCanvasElement>("#j-stage");
@@ -438,6 +447,7 @@ export function startJourney(root: HTMLElement, initialLang: Lang): JourneyHandl
       removeEventListener("pointermove", onMove);
       q("#j-sound")?.removeEventListener("click", onSound);
       audio.ctx?.close();
+      warmEvents.forEach((e) => removeEventListener(e, warmAudio));
       removeEventListener("touchstart", warmVideo);
       removeEventListener("pointerdown", warmVideo);
       if (vid) { vid.pause(); vid.removeAttribute("src"); vid.load(); }
