@@ -1,21 +1,29 @@
-// Site content, word for word from the existing pages (Index.tsx / SpotlightHero.tsx).
+// Site content, word for word from the previous site (journey + classic pages).
 // Each bilingual field is [English, Arabic].
 
 export type Bilingual = [string, string];
+export type Lang = "en" | "ar";
 
-export interface JourneyProject {
-  file: string;
+export interface PlanetLook {
+  kind: "terrain" | "gas";
+  radius: number;
+  colors: [string, string, string]; // dark, mid, highlight
+  atmosphere: string;
+  extra: "moon" | "trio" | "rings" | "swarm" | "moons" | "orbits";
+}
+
+export interface SpaceProject {
   title: string;
   sub: Bilingual;
   desc: Bilingual;
   tags: [string[], string[]];
   cta: Bilingual;
   href: string;
+  look: PlanetLook;
 }
 
-export const PROJECTS: JourneyProject[] = [
+export const PROJECTS: SpaceProject[] = [
   {
-    file: "digital-nurse.exe",
     title: "Digital Nurse",
     sub: ["Clinical Reference App", "تطبيق مرجعي سريري"],
     desc: [
@@ -28,9 +36,15 @@ export const PROJECTS: JourneyProject[] = [
     ],
     cta: ["Explore the App", "استكشف التطبيق"],
     href: "https://digital-nurse-buddy.lovable.app",
+    look: {
+      kind: "terrain",
+      radius: 5,
+      colors: ["#062b47", "#0e8fc4", "#dff6ff"],
+      atmosphere: "#4cc9ff",
+      extra: "moon",
+    },
   },
   {
-    file: "letterboxd.exe",
     title: "Letterboxd",
     sub: ["Cinema Journal", "يوميات السينما"],
     desc: [
@@ -43,9 +57,15 @@ export const PROJECTS: JourneyProject[] = [
     ],
     cta: ["View Profile", "عرض الملف"],
     href: "https://boxd.it/7RQST",
+    look: {
+      kind: "terrain",
+      radius: 4.4,
+      colors: ["#08261a", "#1f8a4c", "#c9eb9c"],
+      atmosphere: "#6fe3a0",
+      extra: "trio",
+    },
   },
   {
-    file: "cosmic.exe",
     title: "Cosmic Taxonomy Engine",
     sub: ["AI-Powered Cosmic Explorer", "مستكشف كوني بالذكاء الاصطناعي"],
     desc: [
@@ -58,9 +78,15 @@ export const PROJECTS: JourneyProject[] = [
     ],
     cta: ["Explore Cosmic Taxonomy", "استكشف التصنيف الكوني"],
     href: "https://cosmic-analysis-astronomical-taxonomic-logic.ai.studio",
+    look: {
+      kind: "gas",
+      radius: 5.2,
+      colors: ["#0c1030", "#3848b8", "#c3b5ff"],
+      atmosphere: "#8fa0ff",
+      extra: "rings",
+    },
   },
   {
-    file: "kidinnu.exe",
     title: "Kidinnu",
     sub: ["AI Tools Directory", "دليل أدوات الذكاء الاصطناعي"],
     desc: [
@@ -73,9 +99,15 @@ export const PROJECTS: JourneyProject[] = [
     ],
     cta: ["Explore Kidinnu", "استكشف Kidinnu"],
     href: "https://kidinnuaitools.lovable.app/",
+    look: {
+      kind: "terrain",
+      radius: 4.8,
+      colors: ["#3a1c05", "#d98a1a", "#ffe6ad"],
+      atmosphere: "#ffc56b",
+      extra: "swarm",
+    },
   },
   {
-    file: "scriptforge.exe",
     title: "ScriptForge AI",
     sub: ["AI Video Script Generator", "مولّد نصوص الفيديو بالذكاء الاصطناعي"],
     desc: [
@@ -88,9 +120,15 @@ export const PROJECTS: JourneyProject[] = [
     ],
     cta: ["Try ScriptForge", "جرّب ScriptForge"],
     href: "https://scriptforgeaii.lovable.app",
+    look: {
+      kind: "gas",
+      radius: 5.6,
+      colors: ["#1c0b3a", "#7b3fe4", "#f3c2ff"],
+      atmosphere: "#b48cff",
+      extra: "moons",
+    },
   },
   {
-    file: "physics-3d.exe",
     title: "Physics 6th Scientific 3D",
     sub: ["Interactive 3D Physics Book", "كتاب فيزياء تفاعلي ثلاثي الأبعاد"],
     desc: [
@@ -103,17 +141,26 @@ export const PROJECTS: JourneyProject[] = [
     ],
     cta: ["Open the Book", "افتح الكتاب"],
     href: "https://physics3d6th.lovable.app",
+    look: {
+      kind: "terrain",
+      radius: 4.2,
+      colors: ["#070d24", "#24408f", "#a9caff"],
+      atmosphere: "#7fb0ff",
+      extra: "orbits",
+    },
   },
 ];
 
-// [label, shown handle, url, card color, tilt]
-export const LINKS: [string, string, string, string, string][] = [
-  ["X / Twitter", "@3h0ll7", "https://twitter.com/3h0ll7", "#9fd3c7", "2deg"],
-  ["Instagram", "@3h0ll", "https://www.instagram.com/3h0ll?igsh=eWNnN2V1YXF5bHpo", "#ef8a62", "-1deg"],
-  ["Instagram", "@staiiq", "https://www.instagram.com/staiiq", "#f2c14e", "-3deg"],
-  ["GitHub", "3h0ll7", "https://github.com/3h0ll7", "#e8e1d0", "3deg"],
-  ["Facebook", "Hassan Salman", "https://www.facebook.com/share/1SXTmx3Zcj/", "#a9c4f5", "-2deg"],
-  ["Letterboxd", "boxd.it/7RQST", "https://boxd.it/7RQST", "#b8e08a", "-3deg"],
+// [label, shown handle, url]
+export const LINKS: [string, string, string][] = [
+  ["X / Twitter", "@3h0ll7", "https://twitter.com/3h0ll7"],
+  ["Instagram", "@3h0ll", "https://www.instagram.com/3h0ll?igsh=eWNnN2V1YXF5bHpo"],
+  ["Instagram", "@staiiq", "https://www.instagram.com/staiiq"],
+  ["YouTube", "@stai9", "https://youtube.com/@stai9"],
+  ["TikTok", "linktr.ee/3h0ll", "https://linktr.ee/3h0ll"],
+  ["GitHub", "3h0ll7", "https://github.com/3h0ll7"],
+  ["Facebook", "Hassan Salman", "https://www.facebook.com/share/1SXTmx3Zcj/"],
+  ["Letterboxd", "boxd.it/7RQST", "https://boxd.it/7RQST"],
 ];
 
 export const UI = {
@@ -124,8 +171,10 @@ export const UI = {
     lang: "عربي",
     soundOff: "Sound: Off",
     soundOn: "Sound: On",
-    classic: "Classic",
-    scenes: ["Doorway", "Screen tunnel", "Cosmic record", "Circuit signature", "Puppeteer", "The desk"],
+    projects: "Projects",
+    links: "Links",
+    start: "Start",
+    signature: "Developed by: Hassan salman",
   },
   ar: {
     name: "حسن سلمان",
@@ -134,36 +183,12 @@ export const UI = {
     lang: "EN",
     soundOff: "الصوت: مغلق",
     soundOn: "الصوت: مفتوح",
-    classic: "الكلاسيكي",
-    scenes: ["البوابة", "نفق الشاشات", "الأسطوانة الكونية", "توقيع الدوائر", "محرّك الدمى", "المكتب"],
+    projects: "المشاريع",
+    links: "الروابط",
+    start: "البداية",
+    signature: "Developed by: Hassan salman",
   },
 } as const;
 
-export type Lang = keyof typeof UI;
-
-export const SCENE_IMAGES = [1, 2, 3, 4, 5, 6].map((n) => `/scenes/s${n}.webp`);
-
-export interface Segment {
-  img: number;
-  len: number; // viewport heights
-  z0: number;
-  z1: number;
-  fx: number;
-  fy: number;
-  ui: "door" | "proj" | "circuit" | "desk";
-  projs?: number[];
-  pos?: "" | "at-right" | "at-left";
-  fly?: number; // fly-through zoom: each project is a flight to the screen at the tunnel's end
-  video?: string; // optional fly-through clip scrubbed by scroll (replaces the zoom when it loads)
-}
-
-// Scroll journey. The last segment repeats the doorway so the loop back to the top is seamless.
-export const SEGMENTS: Segment[] = [
-  { img: 0, len: 1.6, z0: 1.0, z1: 1.9, fx: 0.47, fy: 0.5, ui: "door" },
-  { img: 1, len: 5.6, z0: 1.0, z1: 1.0, fx: 0.5, fy: 0.497, ui: "proj", projs: [0, 5, 3, 4], pos: "", fly: 7, video: "/scenes/tunnel.mp4" },
-  { img: 2, len: 1.6, z0: 1.15, z1: 1.0, fx: 0.42, fy: 0.5, ui: "proj", projs: [2], pos: "at-right" },
-  { img: 3, len: 1.4, z0: 1.0, z1: 1.12, fx: 0.5, fy: 0.5, ui: "circuit" },
-  { img: 4, len: 1.6, z0: 1.0, z1: 1.25, fx: 0.5, fy: 0.3, ui: "proj", projs: [1], pos: "at-left" },
-  { img: 5, len: 1.6, z0: 1.0, z1: 1.6, fx: 0.62, fy: 0.42, ui: "desk" },
-  { img: 0, len: 0.01, z0: 1.0, z1: 1.0, fx: 0.47, fy: 0.5, ui: "door" },
-];
+// Stops along the journey: intro, one per project, links.
+export const STOP_COUNT = PROJECTS.length + 2;

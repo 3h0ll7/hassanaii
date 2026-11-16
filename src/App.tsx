@@ -1,36 +1,20 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "@/contexts/ThemeContext";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import Index from "./pages/Index";
-import Journey from "./pages/Journey";
-import Projects from "./pages/Projects";
+import Space from "./pages/Space";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
-
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Journey />} />
-              <Route path="/classic" element={<Index />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </LanguageProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+  <LanguageProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Space />} />
+        {/* Old addresses keep working. */}
+        <Route path="/classic" element={<Navigate to="/" replace />} />
+        <Route path="/projects" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  </LanguageProvider>
 );
 
 export default App;
