@@ -156,7 +156,6 @@ export const LINKS: [string, string, string][] = [
   ["Instagram", "@3h0ll", "https://www.instagram.com/3h0ll?igsh=eWNnN2V1YXF5bHpo"],
   ["X / Twitter", "@3h0ll7", "https://twitter.com/3h0ll7"],
   ["GitHub", "3h0ll7", "https://github.com/3h0ll7"],
-  ["Facebook", "Hassan Salman", "https://www.facebook.com/share/1SXTmx3Zcj/"],
   ["Letterboxd", "boxd.it/7RQST", "https://boxd.it/7RQST"],
 ];
 
