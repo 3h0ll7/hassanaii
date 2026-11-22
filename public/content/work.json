@@ -28,104 +28,39 @@
   ],
   "projects": [
     {
-      "title_ar": "قلادة",
-      "title_en": "Qilada",
-      "brand": "Qilada",
-      "category": "campaign",
-      "tags": [
-        "social",
-        "identity"
-      ],
-      "summary_ar": "كل ما صنعته لقلادة: قلادة الشمس، وحملة «حب، ذكريات، تفاصيل»، وقلادات الفصول، والقلوب، والغزال، وتغليف الهدايا.",
-      "summary_en": "Everything I made for Qilada: the sun necklace, the “love, memories, details” campaign, the seasons necklaces, hearts, the fawn and gift packaging.",
-      "cover": "/media/work/qilada-sun-collage.webp",
-      "focus": "50% 50%",
-      "images": [
-        {
-          "src": "/media/work/qilada-sun-collage.webp",
-          "caption_ar": "قلادة الشمس",
-          "caption_en": "The sun necklace"
-        },
-        {
-          "src": "/media/work/qilada-sun-portrait.webp",
-          "caption_ar": "قلادة الشمس",
-          "caption_en": "The sun necklace"
-        },
-        {
-          "src": "/media/work/qilada-sun-ring.webp",
-          "caption_ar": "قلادة الشمس",
-          "caption_en": "The sun necklace"
-        },
-        {
-          "src": "/media/work/qilada-banner.webp",
-          "caption_ar": "حملة «حب، ذكريات، تفاصيل»",
-          "caption_en": "“Love, memories, details” campaign"
-        },
-        {
-          "src": "/media/work/qilada-swan-pendant.webp",
-          "caption_ar": "حملة «حب، ذكريات، تفاصيل»",
-          "caption_en": "“Love, memories, details” campaign"
-        },
-        {
-          "src": "/media/work/qilada-clover-bracelets.webp",
-          "caption_ar": "حملة «حب، ذكريات، تفاصيل»",
-          "caption_en": "“Love, memories, details” campaign"
-        },
-        {
-          "src": "/media/work/qilada-watch.webp",
-          "caption_ar": "حملة «حب، ذكريات، تفاصيل»",
-          "caption_en": "“Love, memories, details” campaign"
-        },
-        {
-          "src": "/media/work/qilada-seasons-green.webp",
-          "caption_ar": "قلادات الفصول",
-          "caption_en": "The seasons necklaces"
-        },
-        {
-          "src": "/media/work/qilada-seasons-pink-collage.webp",
-          "caption_ar": "قلادات الفصول",
-          "caption_en": "The seasons necklaces"
-        },
-        {
-          "src": "/media/work/qilada-heart-split.webp",
-          "caption_ar": "القلوب",
-          "caption_en": "Hearts"
-        },
-        {
-          "src": "/media/work/qilada-heart-pearl.webp",
-          "caption_ar": "القلوب",
-          "caption_en": "Hearts"
-        },
-        {
-          "src": "/media/work/qilada-fawn-collage.webp",
-          "caption_ar": "الغزال",
-          "caption_en": "The fawn"
-        },
-        {
-          "src": "/media/work/qilada-packaging.webp",
-          "caption_ar": "تغليف الهدايا",
-          "caption_en": "Gift packaging"
-        },
-        {
-          "src": "/media/work/qilada-gift-bag.webp",
-          "caption_ar": "تغليف الهدايا",
-          "caption_en": "Gift packaging"
-        }
-      ]
-    },
-    {
       "title_ar": "قصة",
       "title_en": "Qissa",
       "brand": "Qissa",
       "category": "social",
       "tags": [
-        "identity"
+        "identity",
+        "campaign"
       ],
-      "summary_ar": "كل ما صنعته لقصة: قلادات الأسماء الفضية بالخط العربي في كولاجات وصور منتجات، والهوية والتغليف.",
-      "summary_en": "Everything I made for Qissa: the silver Arabic-calligraphy name necklaces in collages and product shots, plus the identity and packaging.",
-      "cover": "/media/work/qissa-coffee-collage.webp",
-      "focus": "50% 55%",
+      "summary_ar": "كل ما صنعته لقصة: بانر «قصة حب، ذكريات، تفاصيل» بالخط العربي، والهوية والتغليف، وقلادات الأسماء الفضية في كولاجات وصور منتجات.",
+      "summary_en": "Everything I made for Qissa: the calligraphy banner “a story of love, memories, details”, the identity and packaging, and the silver name necklaces in collages and product shots.",
+      "cover": "/media/work/qissa-banner.webp",
+      "focus": "50% 40%",
       "images": [
+        {
+          "src": "/media/work/qissa-banner.webp",
+          "caption_ar": "الهوية والتغليف",
+          "caption_en": "Identity & packaging"
+        },
+        {
+          "src": "/media/work/qissa-gift-wide.webp",
+          "caption_ar": "الهوية والتغليف",
+          "caption_en": "Identity & packaging"
+        },
+        {
+          "src": "/media/work/qissa-packaging.webp",
+          "caption_ar": "الهوية والتغليف",
+          "caption_en": "Identity & packaging"
+        },
+        {
+          "src": "/media/work/qissa-calligraphy-necklace.webp",
+          "caption_ar": "الهوية والتغليف",
+          "caption_en": "Identity & packaging"
+        },
         {
           "src": "/media/work/qissa-coffee-collage.webp",
           "caption_ar": "قلادات الأسماء",
@@ -145,21 +80,87 @@
           "src": "/media/work/qissa-name-velvet.webp",
           "caption_ar": "قلادات الأسماء",
           "caption_en": "Name necklaces"
+        }
+      ]
+    },
+    {
+      "title_ar": "قلادة",
+      "title_en": "Qilada",
+      "brand": "Qilada",
+      "category": "campaign",
+      "tags": [
+        "social",
+        "identity"
+      ],
+      "summary_ar": "كل ما صنعته لقلادة: القلوب، وقلادة الشمس، وقلادات الفصول، والحملة على المخمل الأحمر والخشب المحفور، والغزال، وتغليف الهدايا.",
+      "summary_en": "Everything I made for Qilada: hearts, the sun necklace, the seasons necklaces, the red-velvet and carved-wood campaign, the fawn and gift packaging.",
+      "cover": "/media/work/qilada-heart-split.webp",
+      "focus": "50% 60%",
+      "images": [
+        {
+          "src": "/media/work/qilada-heart-split.webp",
+          "caption_ar": "القلوب",
+          "caption_en": "Hearts"
         },
         {
-          "src": "/media/work/qissa-gift-wide.webp",
-          "caption_ar": "الهوية والتغليف",
-          "caption_en": "Identity & packaging"
+          "src": "/media/work/qilada-heart-pearl.webp",
+          "caption_ar": "القلوب",
+          "caption_en": "Hearts"
         },
         {
-          "src": "/media/work/qissa-packaging.webp",
-          "caption_ar": "الهوية والتغليف",
-          "caption_en": "Identity & packaging"
+          "src": "/media/work/qilada-sun-collage.webp",
+          "caption_ar": "قلادة الشمس",
+          "caption_en": "The sun necklace"
         },
         {
-          "src": "/media/work/qissa-calligraphy-necklace.webp",
-          "caption_ar": "الهوية والتغليف",
-          "caption_en": "Identity & packaging"
+          "src": "/media/work/qilada-sun-portrait.webp",
+          "caption_ar": "قلادة الشمس",
+          "caption_en": "The sun necklace"
+        },
+        {
+          "src": "/media/work/qilada-sun-ring.webp",
+          "caption_ar": "قلادة الشمس",
+          "caption_en": "The sun necklace"
+        },
+        {
+          "src": "/media/work/qilada-swan-pendant.webp",
+          "caption_ar": "حملة المخمل والخشب",
+          "caption_en": "Velvet and wood campaign"
+        },
+        {
+          "src": "/media/work/qilada-clover-bracelets.webp",
+          "caption_ar": "حملة المخمل والخشب",
+          "caption_en": "Velvet and wood campaign"
+        },
+        {
+          "src": "/media/work/qilada-watch.webp",
+          "caption_ar": "حملة المخمل والخشب",
+          "caption_en": "Velvet and wood campaign"
+        },
+        {
+          "src": "/media/work/qilada-seasons-green.webp",
+          "caption_ar": "قلادات الفصول",
+          "caption_en": "The seasons necklaces"
+        },
+        {
+          "src": "/media/work/qilada-seasons-pink-collage.webp",
+          "caption_ar": "قلادات الفصول",
+          "caption_en": "The seasons necklaces"
+        },
+        {
+          "src": "/media/work/qilada-fawn-collage.webp",
+          "caption_ar": "الغزال",
+          "caption_en": "The fawn"
+        },
+        {
+          "src": "/media/work/qilada-packaging.webp",
+          "caption_ar": "تغليف الهدايا",
+          "caption_en": "Gift packaging"
+        },
+        {
+          "src": "/media/work/qilada-gift-bag.webp",
+          "caption_ar": "تغليف الهدايا",
+          "caption_en": "Gift packaging"
         }
       ]
     },
