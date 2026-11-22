@@ -28,74 +28,205 @@
   ],
   "projects": [
     {
-      "title_ar": "قصة — هوية وتغليف",
-      "title_en": "Qissa — identity & packaging",
-      "brand": "Qissa",
-      "category": "identity",
-      "summary_ar": "شعار جديد وتغليف لعلامة إكسسوارات فضية: الكيس والشريط وصندوق الهدية بلون نبيذي وفضي.",
-      "summary_en": "A new logo and packaging for a silver accessories brand: bag, ribbon and gift box in burgundy and silver.",
-      "cover": "/media/work/qissa-gift-wide.webp",
-      "focus": "50% 45%",
-      "images": [
-        {
-          "src": "/media/work/qissa-gift-wide.webp"
-        },
-        {
-          "src": "/media/work/qissa-packaging.webp"
-        },
-        {
-          "src": "/media/work/qissa-calligraphy-necklace.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "قلادة — حملة «حب، ذكريات، تفاصيل»",
-      "title_en": "Qilada — “love, memories, details” campaign",
+      "title_ar": "قلادة",
+      "title_en": "Qilada",
       "brand": "Qilada",
       "category": "campaign",
-      "summary_ar": "بانر بخط عربي وعارضة، وصور للقطع على المخمل الأحمر والخشب المحفور: قلادة البجعة، أساور البرسيم، والساعة المرصّعة.",
-      "summary_en": "A calligraphy banner with a model, plus product shots on red velvet and carved wood: the swan pendant, clover bracelets and the jewelled watch.",
-      "cover": "/media/work/qilada-banner.webp",
-      "focus": "50% 40%",
-      "images": [
-        {
-          "src": "/media/work/qilada-banner.webp"
-        },
-        {
-          "src": "/media/work/qilada-swan-pendant.webp"
-        },
-        {
-          "src": "/media/work/qilada-clover-bracelets.webp"
-        },
-        {
-          "src": "/media/work/qilada-watch.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "قلادة — قلادة الشمس",
-      "title_en": "Qilada — the sun necklace",
-      "brand": "Qilada",
-      "category": "campaign",
-      "summary_ar": "قلادة الشمس باسم محفور وخاتم الاسم: كولاج بحقل عبّاد الشمس وحواف ورق ممزّق وغروب على النهر والنخيل، وعارضة بين جذوع النخل.",
-      "summary_en": "The sun necklace with an engraved name and the matching name ring: a sunflower-field collage with torn-paper edges and a sunset over the river and palms, and a model among palm trunks.",
+      "tags": [
+        "social",
+        "identity"
+      ],
+      "summary_ar": "كل ما صنعته لقلادة: قلادة الشمس، وحملة «حب، ذكريات، تفاصيل»، وقلادات الفصول، والقلوب، والغزال، وتغليف الهدايا.",
+      "summary_en": "Everything I made for Qilada: the sun necklace, the “love, memories, details” campaign, the seasons necklaces, hearts, the fawn and gift packaging.",
       "cover": "/media/work/qilada-sun-collage.webp",
       "focus": "50% 50%",
       "images": [
         {
-          "src": "/media/work/qilada-sun-collage.webp"
+          "src": "/media/work/qilada-sun-collage.webp",
+          "caption_ar": "قلادة الشمس",
+          "caption_en": "The sun necklace"
         },
         {
-          "src": "/media/work/qilada-sun-portrait.webp"
+          "src": "/media/work/qilada-sun-portrait.webp",
+          "caption_ar": "قلادة الشمس",
+          "caption_en": "The sun necklace"
         },
         {
-          "src": "/media/work/qilada-sun-ring.webp"
+          "src": "/media/work/qilada-sun-ring.webp",
+          "caption_ar": "قلادة الشمس",
+          "caption_en": "The sun necklace"
+        },
+        {
+          "src": "/media/work/qilada-banner.webp",
+          "caption_ar": "حملة «حب، ذكريات، تفاصيل»",
+          "caption_en": "“Love, memories, details” campaign"
+        },
+        {
+          "src": "/media/work/qilada-swan-pendant.webp",
+          "caption_ar": "حملة «حب، ذكريات، تفاصيل»",
+          "caption_en": "“Love, memories, details” campaign"
+        },
+        {
+          "src": "/media/work/qilada-clover-bracelets.webp",
+          "caption_ar": "حملة «حب، ذكريات، تفاصيل»",
+          "caption_en": "“Love, memories, details” campaign"
+        },
+        {
+          "src": "/media/work/qilada-watch.webp",
+          "caption_ar": "حملة «حب، ذكريات، تفاصيل»",
+          "caption_en": "“Love, memories, details” campaign"
+        },
+        {
+          "src": "/media/work/qilada-seasons-green.webp",
+          "caption_ar": "قلادات الفصول",
+          "caption_en": "The seasons necklaces"
+        },
+        {
+          "src": "/media/work/qilada-seasons-pink-collage.webp",
+          "caption_ar": "قلادات الفصول",
+          "caption_en": "The seasons necklaces"
+        },
+        {
+          "src": "/media/work/qilada-heart-split.webp",
+          "caption_ar": "القلوب",
+          "caption_en": "Hearts"
+        },
+        {
+          "src": "/media/work/qilada-heart-pearl.webp",
+          "caption_ar": "القلوب",
+          "caption_en": "Hearts"
+        },
+        {
+          "src": "/media/work/qilada-fawn-collage.webp",
+          "caption_ar": "الغزال",
+          "caption_en": "The fawn"
+        },
+        {
+          "src": "/media/work/qilada-packaging.webp",
+          "caption_ar": "تغليف الهدايا",
+          "caption_en": "Gift packaging"
+        },
+        {
+          "src": "/media/work/qilada-gift-bag.webp",
+          "caption_ar": "تغليف الهدايا",
+          "caption_en": "Gift packaging"
         }
       ]
     },
     {
-      "title_ar": "LUXSOUL — مجموعة العطور",
-      "title_en": "LUXSOUL — the fragrance collection",
+      "title_ar": "قصة",
+      "title_en": "Qissa",
+      "brand": "Qissa",
+      "category": "social",
+      "tags": [
+        "identity"
+      ],
+      "summary_ar": "كل ما صنعته لقصة: قلادات الأسماء الفضية بالخط العربي في كولاجات وصور منتجات، والهوية والتغليف.",
+      "summary_en": "Everything I made for Qissa: the silver Arabic-calligraphy name necklaces in collages and product shots, plus the identity and packaging.",
+      "cover": "/media/work/qissa-coffee-collage.webp",
+      "focus": "50% 55%",
+      "images": [
+        {
+          "src": "/media/work/qissa-coffee-collage.webp",
+          "caption_ar": "قلادات الأسماء",
+          "caption_en": "Name necklaces"
+        },
+        {
+          "src": "/media/work/qissa-pomegranate-collage.webp",
+          "caption_ar": "قلادات الأسماء",
+          "caption_en": "Name necklaces"
+        },
+        {
+          "src": "/media/work/qissa-name-linen.webp",
+          "caption_ar": "قلادات الأسماء",
+          "caption_en": "Name necklaces"
+        },
+        {
+          "src": "/media/work/qissa-name-velvet.webp",
+          "caption_ar": "قلادات الأسماء",
+          "caption_en": "Name necklaces"
+        },
+        {
+          "src": "/media/work/qissa-gift-wide.webp",
+          "caption_ar": "الهوية والتغليف",
+          "caption_en": "Identity & packaging"
+        },
+        {
+          "src": "/media/work/qissa-packaging.webp",
+          "caption_ar": "الهوية والتغليف",
+          "caption_en": "Identity & packaging"
+        },
+        {
+          "src": "/media/work/qissa-calligraphy-necklace.webp",
+          "caption_ar": "الهوية والتغليف",
+          "caption_en": "Identity & packaging"
+        }
+      ]
+    },
+    {
+      "title_ar": "فايروس",
+      "title_en": "VIRUS PERFUME",
+      "brand": "VIRUS PERFUME",
+      "category": "product",
+      "tags": [
+        "social",
+        "campaign"
+      ],
+      "summary_ar": "كل ما صنعته لفايروس: تصوير الإصدارات، ومكوّنات فايروس الأسود، وإطلاق «ليل البنفسج»، وشخصيات فايروس للسوشيال ميديا.",
+      "summary_en": "Everything I made for VIRUS: release photography, the BLACK VIRUS notes, the Violet Night launch and the VIRUS characters for social media.",
+      "cover": "/media/work/virus-four-bottles.webp",
+      "focus": "50% 55%",
+      "images": [
+        {
+          "src": "/media/work/virus-four-bottles.webp",
+          "caption_ar": "تصوير العطور",
+          "caption_en": "Perfume photography"
+        },
+        {
+          "src": "/media/work/virus-unisex-white.webp",
+          "caption_ar": "تصوير العطور",
+          "caption_en": "Perfume photography"
+        },
+        {
+          "src": "/media/work/virus-women-pink.webp",
+          "caption_ar": "تصوير العطور",
+          "caption_en": "Perfume photography"
+        },
+        {
+          "src": "/media/work/virus-blue.webp",
+          "caption_ar": "تصوير العطور",
+          "caption_en": "Perfume photography"
+        },
+        {
+          "src": "/media/work/virus-wood-orange.webp",
+          "caption_ar": "تصوير العطور",
+          "caption_en": "Perfume photography"
+        },
+        {
+          "src": "/media/work/virus-black-stone.webp",
+          "caption_ar": "فايروس الأسود",
+          "caption_en": "BLACK VIRUS"
+        },
+        {
+          "src": "/media/work/virus-black-notes.webp",
+          "caption_ar": "فايروس الأسود",
+          "caption_en": "BLACK VIRUS"
+        },
+        {
+          "src": "/media/work/virus-violet-night.webp",
+          "caption_ar": "ليل البنفسج",
+          "caption_en": "Violet Night"
+        },
+        {
+          "src": "/media/work/virus-boat-characters.webp",
+          "caption_ar": "شخصيات فايروس",
+          "caption_en": "The VIRUS characters"
+        }
+      ]
+    },
+    {
+      "title_ar": "LUXSOUL",
+      "title_en": "LUXSOUL",
       "brand": "LUXSOUL",
       "category": "product",
       "summary_ar": "لكل عطر خلفيته اللونية ومكوّناته الطافية حوله، وصورة جماعية لعشرة إصدارات تحت جملة «اختر عطرا يشبهك، لا عطرا يشبه الجميع».",
@@ -124,77 +255,8 @@
       ]
     },
     {
-      "title_ar": "قصة — قلادات الأسماء",
-      "title_en": "Qissa — name necklaces",
-      "brand": "Qissa",
-      "category": "social",
-      "summary_ar": "قلادات فضية بأسماء بالخط العربي: كولاجات بالرمان والسجاد، وبالقهوة والعباءة المطرّزة، وصور للقطع على الكتان والمخمل.",
-      "summary_en": "Silver Arabic-calligraphy name necklaces: collages with pomegranates and carpets, coffee and an embroidered abaya, plus product shots on linen and velvet.",
-      "cover": "/media/work/qissa-coffee-collage.webp",
-      "focus": "50% 55%",
-      "images": [
-        {
-          "src": "/media/work/qissa-coffee-collage.webp"
-        },
-        {
-          "src": "/media/work/qissa-pomegranate-collage.webp"
-        },
-        {
-          "src": "/media/work/qissa-name-linen.webp"
-        },
-        {
-          "src": "/media/work/qissa-name-velvet.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "فايروس — تصوير العطور",
-      "title_en": "VIRUS — perfume photography",
-      "brand": "VIRUS PERFUME",
-      "category": "product",
-      "summary_ar": "صور منتجات لإصدارات عطور فايروس، لكل إصدار مكوّناته وعالمه اللوني.",
-      "summary_en": "Product shots for the VIRUS perfume editions, each built around its own notes and colour world.",
-      "cover": "/media/work/virus-four-bottles.webp",
-      "focus": "50% 55%",
-      "images": [
-        {
-          "src": "/media/work/virus-four-bottles.webp"
-        },
-        {
-          "src": "/media/work/virus-unisex-white.webp"
-        },
-        {
-          "src": "/media/work/virus-women-pink.webp"
-        },
-        {
-          "src": "/media/work/virus-blue.webp"
-        },
-        {
-          "src": "/media/work/virus-wood-orange.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "قلادة — قلادات الفصول",
-      "title_en": "Qilada — the seasons necklaces",
-      "brand": "Qilada",
-      "category": "campaign",
-      "summary_ar": "قلادة ورقة القيقب بأحجارها الملوّنة: لحظة إلباسها لعارضة، وكولاج ثلاثي بزهور الزنبق الوردية.",
-      "summary_en": "The maple-leaf necklace in its coloured stones: the moment it is put on a model, and a three-band collage with pink lilies.",
-      "cover": "/media/work/qilada-seasons-green.webp",
-      "focus": "50% 55%",
-      "images": [
-        {
-          "src": "/media/work/qilada-seasons-green.webp"
-        },
-        {
-          "src": "/media/work/qilada-seasons-pink-collage.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "فيرو — تصفيف الشعر",
-      "title_en": "VIRO — hair styling",
+      "title_ar": "فيرو",
+      "title_en": "VIRO",
       "brand": "VIRO by VIRUS",
       "category": "product",
       "summary_ar": "موس الشعر والزجاجة على حجر مبلل تحت ضوء أخضر، مع لقطة لزيت الأفوكادو الذي يدخل في تركيبته.",
@@ -207,42 +269,6 @@
         },
         {
           "src": "/media/work/viro-avocado.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "فايروس الأسود — المكوّنات",
-      "title_en": "BLACK VIRUS — the notes",
-      "brand": "VIRUS PERFUME",
-      "category": "social",
-      "summary_ar": "تصميمان يعرّفان بمكوّنات فايروس الأسود: القهوة، الهيل، الليمون، الخزامى، السوسن والزعفران.",
-      "summary_en": "Two designs introducing the BLACK VIRUS notes: coffee, cardamom, lemon, lavender, iris and saffron.",
-      "cover": "/media/work/virus-black-stone.webp",
-      "focus": "50% 45%",
-      "images": [
-        {
-          "src": "/media/work/virus-black-stone.webp"
-        },
-        {
-          "src": "/media/work/virus-black-notes.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "قلادة — القلوب",
-      "title_en": "Qilada — hearts",
-      "brand": "Qilada",
-      "category": "campaign",
-      "summary_ar": "قلادات القلب: شاشة مقسومة بين جيلين بالقلادة نفسها، وقلب أحمر مع لؤلؤة على يد بالحنّاء.",
-      "summary_en": "Heart necklaces: a split screen across two generations wearing the same necklace, and a red heart with a pearl beside a henna-painted hand.",
-      "cover": "/media/work/qilada-heart-split.webp",
-      "focus": "50% 60%",
-      "images": [
-        {
-          "src": "/media/work/qilada-heart-split.webp"
-        },
-        {
-          "src": "/media/work/qilada-heart-pearl.webp"
         }
       ]
     },
@@ -270,69 +296,6 @@
         },
         {
           "src": "/media/work/jewelry-red-earring.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "ليل البنفسج",
-      "title_en": "Layl al-Banafsaj (Violet Night)",
-      "brand": "VIRUS PERFUME",
-      "category": "campaign",
-      "summary_ar": "إطلاق إصدار «ليل البنفسج»: الزجاجة وبطاقة المكوّنات في عالم بنفسجي ليلي.",
-      "summary_en": "Launch visual for the Violet Night edition: the bottle and its notes card in a night-violet world.",
-      "cover": "/media/work/virus-violet-night.webp",
-      "focus": "50% 55%",
-      "images": [
-        {
-          "src": "/media/work/virus-violet-night.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "قلادة — تغليف الهدايا",
-      "title_en": "Qilada — gift packaging",
-      "brand": "Qilada",
-      "category": "identity",
-      "summary_ar": "كيس وصناديق هدايا بشعار «حب، ذكريات، تفاصيل»، وكيس الهدايا على الساتان العنابي.",
-      "summary_en": "Gift bag and boxes carrying the line “love, memories, details”, and the gift bag on burgundy satin.",
-      "cover": "/media/work/qilada-packaging.webp",
-      "focus": "50% 45%",
-      "images": [
-        {
-          "src": "/media/work/qilada-packaging.webp"
-        },
-        {
-          "src": "/media/work/qilada-gift-bag.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "قلادة — الغزال",
-      "title_en": "Qilada — the fawn",
-      "brand": "Qilada",
-      "category": "social",
-      "summary_ar": "كولاج رباعي لقلادة الغزال الفضية: القطعة على الخشب، وغزال في غابة خريفية، ولوحة زيتية، ورسم بالحبر بعبارة «The Fawn».",
-      "summary_en": "A four-panel collage for the silver fawn pendant: the piece on wood, a fawn in an autumn forest, an oil painting, and an ink drawing titled “The Fawn”.",
-      "cover": "/media/work/qilada-fawn-collage.webp",
-      "focus": "50% 22%",
-      "images": [
-        {
-          "src": "/media/work/qilada-fawn-collage.webp"
-        }
-      ]
-    },
-    {
-      "title_ar": "شخصيات فايروس",
-      "title_en": "The VIRUS characters",
-      "brand": "VIRUS PERFUME",
-      "category": "social",
-      "summary_ar": "شخصيات مرحة تحمل إصدارات فايروس في قارب تحت القمر، لمنشورات السوشيال ميديا.",
-      "summary_en": "Playful characters holding each VIRUS edition in a moonlit boat, made for social media.",
-      "cover": "/media/work/virus-boat-characters.webp",
-      "focus": "50% 60%",
-      "images": [
-        {
-          "src": "/media/work/virus-boat-characters.webp"
         }
       ]
     },

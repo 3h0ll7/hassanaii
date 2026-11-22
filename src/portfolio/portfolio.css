@@ -418,3 +418,15 @@ html:not([dir="rtl"]) .pf .vviewer__nav--prev svg,html[dir="rtl"] .pf .vviewer__
   .pf .rotor__word{display:none}
   .pf .rotor__word:first-child{display:block;opacity:1;transform:none;filter:none}
 }
+
+/* set chips inside a brand's viewer */
+.pf .lightbox--sets{grid-template-rows:auto auto 1fr}
+.pf .lightbox--sets .slide img{max-height:calc(100svh - 150px)}
+.pf .lightbox__sets{display:flex;gap:.45rem;overflow-x:auto;padding:0 1rem .7rem;scrollbar-width:none}
+.pf .lightbox__sets::-webkit-scrollbar{display:none}
+.pf .lightbox__set{flex:none;display:inline-flex;align-items:center;gap:.45rem;padding:.4rem .85rem;border-radius:999px;
+  border:1px solid var(--line);background:transparent;color:var(--mute);font:inherit;font-size:.85rem;cursor:pointer;
+  transition:color .3s,border-color .3s,background .3s}
+.pf .lightbox__set:hover{color:var(--ivory)}
+.pf .lightbox__set.is-on{color:#0A0807;background:var(--gold);border-color:var(--gold)}
+.pf .lightbox__set-n{font-size:.75rem;opacity:.7;font-variant-numeric:tabular-nums}

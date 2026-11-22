@@ -206,14 +206,21 @@ const VideoViewer = ({ videos, index, setIndex, titleOf, onClose, labels, client
 
 /* ---------------- Lightbox ---------------- */
 
-const Lightbox = ({ project, title, onClose, labels, brand }: {
+const Lightbox = ({ project, title, onClose, labels, brand, captionOf }: {
   project: Project;
   title: string;
+  captionOf: (im: Project["images"][number]) => string;
   onClose: () => void;
   labels: { close: string; prev: string; next: string; store: string; instagram: string };
   brand?: Client;
 }) => {
   const imgs = project.images?.length ? project.images : [{ src: project.cover }];
+  // consecutive images with the same caption form one set; the chips jump between sets
+  const sets = imgs.reduce<{ label: string; start: number }[]>((acc, im, k) => {
+    const label = captionOf(im);
+    if (label && (!acc.length || acc[acc.length - 1].label !== label)) acc.push({ label, start: k });
+    return acc;
+  }, []);
   const track = useRef<HTMLDivElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
   const [index, setIndex] = useState(0);
@@ -244,7 +251,7 @@ const Lightbox = ({ project, title, onClose, labels, brand }: {
   };
 
   return (
-    <div className="lightbox" role="dialog" aria-modal="true" aria-label={title} onKeyDown={onKey}>
+    <div className={`lightbox${sets.length > 1 ? " lightbox--sets" : ""}`} role="dialog" aria-modal="true" aria-label={title} onKeyDown={onKey}>
       <div className="lightbox__top">
         <p className="lightbox__title">{title}</p>
         {(brand?.store || brand?.link) && (
@@ -253,11 +260,25 @@ const Lightbox = ({ project, title, onClose, labels, brand }: {
             {brand.link && <a className="lightbox__link" href={brand.link} target="_blank" rel="noopener noreferrer">{labels.instagram}</a>}
           </div>
         )}
-        <p className="lightbox__count" aria-live="polite">{index + 1} / {imgs.length}</p>
+        <p className="lightbox__count" aria-live="polite"><bdi dir="ltr">{index + 1} / {imgs.length}</bdi></p>
         <button ref={closeBtn} className="lightbox__close" type="button" aria-label={labels.close} onClick={onClose}>
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" /></svg>
         </button>
       </div>
+      {sets.length > 1 && (
+        <div className="lightbox__sets">
+          {sets.map((st, k) => {
+            const end = sets[k + 1]?.start ?? imgs.length;
+            const on = index >= st.start && index < end;
+            return (
+              <button key={st.label + k} type="button" className={`lightbox__set${on ? " is-on" : ""}`} aria-pressed={on} onClick={() => go(st.start)}
+                ref={(el) => { if (on && el) el.scrollIntoView({ block: "nearest", inline: "nearest", behavior: reducedMotion() ? "auto" : "smooth" }); }}>
+                {st.label} <span className="lightbox__set-n">{end - st.start}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
       <div
         ref={track}
         className="lightbox__track"
@@ -283,7 +304,7 @@ const Lightbox = ({ project, title, onClose, labels, brand }: {
       >
         {imgs.map((im, k) => (
           <div className="slide" key={im.src + k}>
-            <img src={im.src} alt={`${title} — ${k + 1}`} loading={k > 1 ? "lazy" : undefined} draggable={false} />
+            <img src={im.src} alt={`${title}${captionOf(im) ? ` — ${captionOf(im)}` : ""} — ${k + 1}`} loading={k > 1 ? "lazy" : undefined} draggable={false} />
           </div>
         ))}
       </div>
@@ -379,7 +400,7 @@ const Portfolio = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth" });
 
   const cats = useMemo(
-    () => (data ? data.work.categories.filter((c) => data.work.projects.some((p) => p.category === c.id)) : []),
+    () => (data ? data.work.categories.filter((c) => data.work.projects.some((p) => p.category === c.id || p.tags?.includes(c.id))) : []),
     [data],
   );
 
@@ -394,7 +415,8 @@ const Portfolio = () => {
   const { projects, posters, clients } = data.work;
   const videoList = data.videos?.videos || [];
   const catLabel = (id: string) => t(data.work.categories.find((c) => c.id === id), "label");
-  const hasWork = (id: string) => projects.some((p) => p.category === id);
+  const inCat = (p: Project, id: string) => p.category === id || !!p.tags?.includes(id);
+  const hasWork = (id: string) => projects.some((p) => inCat(p, id));
   const digits = (v: string) => String(v).replace(/[^\d+]/g, "");
   const ig = s.instagram?.replace(/^@/, "");
 
@@ -419,7 +441,7 @@ const Portfolio = () => {
   ].filter((c) => c.show);
 
   const activeFilter = cats.some((c) => c.id === filter) ? filter : "all";
-  const visible = projects.map((p, i) => ({ p, i })).filter(({ p }) => activeFilter === "all" || p.category === activeFilter);
+  const visible = projects.map((p, i) => ({ p, i })).filter(({ p }) => activeFilter === "all" || inCat(p, activeFilter));
 
   return (
     <div className="pf" ref={root}>
@@ -693,6 +715,7 @@ const Portfolio = () => {
           title={t(projects[open], "title")}
           onClose={() => setOpen(null)}
           labels={{ close: u.close, prev: u.prev, next: u.next, store: u.store, instagram: u.instagram }}
+          captionOf={(im) => t(im, "caption")}
           brand={projects[open].brand ? clients.find((c) => c.name === projects[open].brand) : undefined}
         />
       )}
