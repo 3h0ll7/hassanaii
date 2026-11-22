@@ -73,15 +73,39 @@
       ]
     },
     {
+      "title_ar": "قلادة — قلادة الشمس",
+      "title_en": "Qilada — the sun necklace",
+      "brand": "Qilada",
+      "category": "campaign",
+      "summary_ar": "قلادة الشمس باسم محفور وخاتم الاسم: كولاج بحقل عبّاد الشمس وحواف ورق ممزّق وغروب على النهر والنخيل، وعارضة بين جذوع النخل.",
+      "summary_en": "The sun necklace with an engraved name and the matching name ring: a sunflower-field collage with torn-paper edges and a sunset over the river and palms, and a model among palm trunks.",
+      "cover": "/media/work/qilada-sun-collage.webp",
+      "focus": "50% 50%",
+      "images": [
+        {
+          "src": "/media/work/qilada-sun-collage.webp"
+        },
+        {
+          "src": "/media/work/qilada-sun-portrait.webp"
+        },
+        {
+          "src": "/media/work/qilada-sun-ring.webp"
+        }
+      ]
+    },
+    {
       "title_ar": "LUXSOUL — مجموعة العطور",
       "title_en": "LUXSOUL — the fragrance collection",
       "brand": "LUXSOUL",
       "category": "product",
       "summary_ar": "لكل عطر خلفيته اللونية ومكوّناته الطافية حوله، وصورة جماعية لعشرة إصدارات تحت جملة «اختر عطرا يشبهك، لا عطرا يشبه الجميع».",
       "summary_en": "Each extrait gets its own colour field and floating notes, plus a group shot of ten editions under the line “choose a scent that resembles you”.",
-      "cover": "/media/work/luxsoul-ten-bottles.webp",
-      "focus": "50% 82%",
+      "cover": "/media/work/luxsoul-banner.webp",
+      "focus": "50% 50%",
       "images": [
+        {
+          "src": "/media/work/luxsoul-banner.webp"
+        },
         {
           "src": "/media/work/luxsoul-ten-bottles.webp"
         },
@@ -93,6 +117,33 @@
         },
         {
           "src": "/media/work/luxsoul-majesty-aura.webp"
+        },
+        {
+          "src": "/media/work/luxsoul-rose-petals.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "قصة — قلادات الأسماء",
+      "title_en": "Qissa — name necklaces",
+      "brand": "Qissa",
+      "category": "social",
+      "summary_ar": "قلادات فضية بأسماء بالخط العربي: كولاجات بالرمان والسجاد، وبالقهوة والعباءة المطرّزة، وصور للقطع على الكتان والمخمل.",
+      "summary_en": "Silver Arabic-calligraphy name necklaces: collages with pomegranates and carpets, coffee and an embroidered abaya, plus product shots on linen and velvet.",
+      "cover": "/media/work/qissa-coffee-collage.webp",
+      "focus": "50% 55%",
+      "images": [
+        {
+          "src": "/media/work/qissa-coffee-collage.webp"
+        },
+        {
+          "src": "/media/work/qissa-pomegranate-collage.webp"
+        },
+        {
+          "src": "/media/work/qissa-name-linen.webp"
+        },
+        {
+          "src": "/media/work/qissa-name-velvet.webp"
         }
       ]
     },
@@ -120,6 +171,24 @@
         },
         {
           "src": "/media/work/virus-wood-orange.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "قلادة — قلادات الفصول",
+      "title_en": "Qilada — the seasons necklaces",
+      "brand": "Qilada",
+      "category": "campaign",
+      "summary_ar": "قلادة ورقة القيقب بأحجارها الملوّنة: لحظة إلباسها لعارضة، وكولاج ثلاثي بزهور الزنبق الوردية.",
+      "summary_en": "The maple-leaf necklace in its coloured stones: the moment it is put on a model, and a three-band collage with pink lilies.",
+      "cover": "/media/work/qilada-seasons-green.webp",
+      "focus": "50% 55%",
+      "images": [
+        {
+          "src": "/media/work/qilada-seasons-green.webp"
+        },
+        {
+          "src": "/media/work/qilada-seasons-pink-collage.webp"
         }
       ]
     },
@@ -156,6 +225,24 @@
         },
         {
           "src": "/media/work/virus-black-notes.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "قلادة — القلوب",
+      "title_en": "Qilada — hearts",
+      "brand": "Qilada",
+      "category": "campaign",
+      "summary_ar": "قلادات القلب: شاشة مقسومة بين جيلين بالقلادة نفسها، وقلب أحمر مع لؤلؤة على يد بالحنّاء.",
+      "summary_en": "Heart necklaces: a split screen across two generations wearing the same necklace, and a red heart with a pearl beside a henna-painted hand.",
+      "cover": "/media/work/qilada-heart-split.webp",
+      "focus": "50% 60%",
+      "images": [
+        {
+          "src": "/media/work/qilada-heart-split.webp"
+        },
+        {
+          "src": "/media/work/qilada-heart-pearl.webp"
         }
       ]
     },
@@ -206,13 +293,31 @@
       "title_en": "Qilada — gift packaging",
       "brand": "Qilada",
       "category": "identity",
-      "summary_ar": "كيس وصناديق هدايا بشعار «حب، ذكريات، تفاصيل».",
-      "summary_en": "Gift bag and boxes carrying the line “love, memories, details”.",
+      "summary_ar": "كيس وصناديق هدايا بشعار «حب، ذكريات، تفاصيل»، وكيس الهدايا على الساتان العنابي.",
+      "summary_en": "Gift bag and boxes carrying the line “love, memories, details”, and the gift bag on burgundy satin.",
       "cover": "/media/work/qilada-packaging.webp",
       "focus": "50% 45%",
       "images": [
         {
           "src": "/media/work/qilada-packaging.webp"
+        },
+        {
+          "src": "/media/work/qilada-gift-bag.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "قلادة — الغزال",
+      "title_en": "Qilada — the fawn",
+      "brand": "Qilada",
+      "category": "social",
+      "summary_ar": "كولاج رباعي لقلادة الغزال الفضية: القطعة على الخشب، وغزال في غابة خريفية، ولوحة زيتية، ورسم بالحبر بعبارة «The Fawn».",
+      "summary_en": "A four-panel collage for the silver fawn pendant: the piece on wood, a fawn in an autumn forest, an oil painting, and an ink drawing titled “The Fawn”.",
+      "cover": "/media/work/qilada-fawn-collage.webp",
+      "focus": "50% 22%",
+      "images": [
+        {
+          "src": "/media/work/qilada-fawn-collage.webp"
         }
       ]
     },
