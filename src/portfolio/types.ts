@@ -129,6 +129,8 @@ export interface Video {
   loop: string;
   /** full video with sound, opened in the viewer */
   src: string;
+  /** width/height, e.g. "16/9"; vertical 9/16 when left out */
+  ratio?: string;
 }
 
 export interface Videos {
@@ -137,6 +139,15 @@ export interface Videos {
   intro_ar: string;
   intro_en: string;
   videos: Video[];
+  motion_title_ar?: string;
+  motion_title_en?: string;
+  motion_intro_ar?: string;
+  motion_intro_en?: string;
+  /** optional link under the motion intro (e.g. the toolkit page) */
+  motion_link?: string;
+  motion_link_ar?: string;
+  motion_link_en?: string;
+  motion?: Video[];
 }
 
 export interface Content {

@@ -215,3 +215,22 @@ collections:
               - { name: poster, label: صورة الغلاف, widget: image }
               - { name: loop, label: مقطع صامت قصير يتكرر على البطاقة (360 بكسل، بلا صوت), widget: file }
               - { name: src, label: الفيديو الكامل بالصوت (720 بكسل، أقل من 5 ميغابايت), widget: file }
+          - { name: motion_title_ar, label: عنوان قسم الموشن بالعربي, widget: string, required: false }
+          - { name: motion_title_en, label: عنوان قسم الموشن بالإنجليزي, widget: string, required: false }
+          - { name: motion_intro_ar, label: نص قسم الموشن بالعربي, widget: text, required: false }
+          - { name: motion_intro_en, label: نص قسم الموشن بالإنجليزي, widget: text, required: false }
+          - { name: motion_link, label: رابط تحت نص الموشن (صفحة الأدوات), widget: string, required: false }
+          - { name: motion_link_ar, label: نص الرابط بالعربي, widget: string, required: false }
+          - { name: motion_link_en, label: نص الرابط بالإنجليزي, widget: string, required: false }
+          - name: motion
+            label: فيديوهات الموشن ديزاين
+            widget: list
+            required: false
+            fields:
+              - { name: brand, label: العلامة التجارية (اتركه فارغاً للعمل الشخصي), widget: string, required: false }
+              - { name: title_ar, label: العنوان بالعربي, widget: string }
+              - { name: title_en, label: العنوان بالإنجليزي, widget: string }
+              - { name: ratio, label: "الأبعاد (16/9 للعرضي، 9/16 للطولي)", widget: select, options: ["16/9", "9/16", "1/1", "4/5"], default: "9/16" }
+              - { name: poster, label: صورة الغلاف, widget: image }
+              - { name: loop, label: مقطع صامت قصير يتكرر على البطاقة, widget: file }
+              - { name: src, label: الفيديو الكامل بالصوت, widget: file }
