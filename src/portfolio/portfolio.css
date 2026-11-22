@@ -342,3 +342,66 @@ html[dir="rtl"] .pf .xp__link svg,html[dir="rtl"] .pf .partner svg{transform:sca
 /* Five areas plus the partners card make two even rows of three. */
 @media (min-width:1100px){.pf .expertise__grid{grid-template-columns:repeat(3,1fr)}}
 .pf .foot__links{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem}
+
+/* ---------- Videos ---------- */
+.pf .videos{padding:clamp(3.5rem,9vw,7rem) 0}
+.pf .videos__intro{color:var(--mute);max-width:52ch;font-size:1rem;line-height:1.8}
+/* phones: a row you swipe through; wider screens: a grid */
+.pf .videos__row{display:grid;grid-auto-flow:column;grid-auto-columns:min(62vw,300px);gap:.9rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;padding:.3rem var(--pad) .5rem;scrollbar-width:none;
+  scroll-padding-inline:var(--pad);
+  contain:paint;/* keeps the sideways row from widening the page */
+  max-width:var(--max);margin:0 auto}
+.pf .videos__row::-webkit-scrollbar{display:none}
+@media (min-width:700px){.pf .videos__row{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;contain:none;gap:1.25rem}}
+@media (min-width:1180px){.pf .videos__row{grid-template-columns:repeat(6,1fr);gap:1rem}}
+.pf .vcard{all:unset;cursor:pointer;display:grid;gap:.7rem;scroll-snap-align:start;
+  transition-delay:calc(var(--i) * 90ms)}
+.pf .vcard:focus-visible .vcard__media{outline:2px solid var(--gold);outline-offset:3px}
+.pf .vcard__media{position:relative;display:block;aspect-ratio:9/16;border-radius:var(--r-md);overflow:hidden;
+  background:var(--ink-2);border:1px solid var(--line);isolation:isolate}
+.pf .vcard__media :is(img,video){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .9s var(--ease),opacity .6s var(--ease)}
+.pf .vcard__media video{opacity:0}
+.pf .vcard.is-playing video{opacity:1}
+.pf .vcard__media::after{content:"";position:absolute;inset:auto 0 0;height:40%;
+  background:linear-gradient(transparent,rgba(10,8,7,.55));pointer-events:none}
+.pf .vcard__play{position:absolute;z-index:1;inset-inline-start:.7rem;bottom:.7rem;display:grid;place-items:center;
+  width:2.6rem;height:2.6rem;border-radius:50%;color:#0A0807;background:var(--gold);
+  box-shadow:0 0 0 0 rgba(201,161,91,.5);transition:transform .5s var(--ease),background .3s}
+.pf .vcard__play svg{width:1.05rem;height:1.05rem;margin-left:2px}
+.pf .vcard.is-playing .vcard__play{animation:pf-ring 2.4s ease-out infinite}
+@keyframes pf-ring{0%{box-shadow:0 0 0 0 rgba(201,161,91,.45)}80%,100%{box-shadow:0 0 0 12px rgba(201,161,91,0)}}
+@media (hover:hover){
+  .pf .vcard:hover .vcard__media :is(img,video){transform:scale(1.04)}
+  .pf .vcard:hover .vcard__play{transform:scale(1.12);background:var(--ivory)}
+}
+.pf .vcard__info{display:grid;gap:.15rem}
+.pf .vcard__brand{color:var(--gold);font-size:.75rem;letter-spacing:.04em}
+.pf .vcard__title{font-weight:500;font-size:.98rem;line-height:1.4}
+
+/* full video viewer */
+.pf .vviewer{position:fixed;inset:0;z-index:100;background:#0A0807;display:grid;grid-template-rows:auto 1fr auto;
+  animation:pf-fade .35s var(--ease)}
+@keyframes pf-fade{from{opacity:0}to{opacity:1}}
+.pf .vviewer__top{display:flex;align-items:center;gap:1rem;padding:.75rem 1rem .75rem 1.25rem;flex-wrap:wrap}
+.pf .vviewer__heading{display:grid;gap:.1rem;margin-inline-end:auto}
+.pf .vviewer__title{font-weight:500}
+.pf .vviewer__links{display:flex;gap:.5rem;order:3;flex-basis:100%}
+@media (min-width:700px){.pf .vviewer__links{order:0;flex-basis:auto}}
+.pf .vviewer__stage{position:relative;display:grid;place-items:center;min-height:0;padding:0 .75rem}
+.pf .vviewer__video{max-height:100%;max-width:100%;aspect-ratio:9/16;height:100%;border-radius:var(--r-md);background:#000;
+  animation:pf-pop .45s var(--ease)}
+@keyframes pf-pop{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.pf .vviewer__nav{position:absolute;top:50%;translate:0 -50%;display:grid;place-items:center;width:3rem;height:3rem;
+  border-radius:50%;border:1px solid var(--line);background:rgba(10,8,7,.6);color:var(--ivory);cursor:pointer;z-index:1}
+.pf .vviewer__nav:hover{border-color:var(--gold);color:var(--gold)}
+.pf .vviewer__nav--prev{inset-inline-start:.75rem}
+.pf .vviewer__nav--next{inset-inline-end:.75rem}
+/* the arrow points right: flip it for "previous" in English and for "next" in Arabic */
+html:not([dir="rtl"]) .pf .vviewer__nav--prev svg,html[dir="rtl"] .pf .vviewer__nav--next svg{transform:scaleX(-1)}
+.pf .vviewer__count{text-align:center;color:var(--mute);font-size:.85rem;padding:.75rem}
+@media (max-width:699px){.pf .vviewer__nav{top:auto;bottom:0;translate:none;width:2.6rem;height:2.6rem}
+  .pf .vviewer__stage{padding-bottom:3.6rem}
+  .pf .vviewer__count{position:absolute;bottom:.55rem;inset-inline:0;pointer-events:none}}
+@media (prefers-reduced-motion:reduce){.pf .vcard__media video{display:none}}
