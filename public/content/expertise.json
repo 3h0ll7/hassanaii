@@ -25,6 +25,17 @@
       "link_en": ""
     },
     {
+      "title_ar": "موشن ديزاين مع Claude",
+      "title_en": "Motion design with Claude",
+      "text_ar": "أصمم فيديوهات موشن ديزاين كاملة مع Claude بالكود: إعلانات منتجات، نصوص متحركة، وفيديوهات شرح بالعربي، من الفكرة حتى الملف النهائي.",
+      "text_en": "I make complete motion design videos with Claude in code: product ads, kinetic type and explainers in Arabic, from the idea to the final file.",
+      "tools": "Claude, Claude Code, Remotion, HyperFrames",
+      "image": "/media/expertise/motion-design.webp",
+      "link": "",
+      "link_ar": "",
+      "link_en": ""
+    },
+    {
       "title_ar": "توليد الصور",
       "title_en": "Image generation",
       "text_ar": "صور منتجات وحملات تبدو كجلسة تصوير حقيقية، مع الحفاظ على المنتج كما هو.",

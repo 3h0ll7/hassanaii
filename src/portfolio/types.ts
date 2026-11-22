@@ -29,6 +29,7 @@ export interface Settings {
   whatsapp: string;
   phone: string;
   instagram: string;
+  github?: string;
   behance: string;
   stats: Stat[];
   about_ar: string;
