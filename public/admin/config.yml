@@ -93,15 +93,28 @@ collections:
                   - { label: حملات إعلانية, value: campaign }
                   - { label: سوشيال ميديا, value: social }
                   - { label: فيديو وموشن, value: video }
+              - name: tags
+                label: يظهر أيضاً تحت هذه الأنواع في الفلتر
+                widget: select
+                multiple: true
+                required: false
+                options:
+                  - { label: هويات وتغليف, value: identity }
+                  - { label: تصوير منتجات, value: product }
+                  - { label: حملات إعلانية, value: campaign }
+                  - { label: سوشيال ميديا, value: social }
+                  - { label: فيديو وموشن, value: video }
               - { name: summary_ar, label: وصف قصير بالعربي, widget: text }
               - { name: summary_en, label: وصف قصير بالإنجليزي, widget: text }
               - { name: cover, label: صورة الغلاف (تُقص بقياس غلاف فيسبوك), widget: image }
               - { name: focus, label: نقطة التركيز في الغلاف (مثال 50% 30% — الرقم الثاني يحرك القص للأعلى والأسفل), widget: string, default: "50% 50%", required: false }
               - name: images
-                label: صور المشروع (تظهر في العارض)
+                label: صور المشروع (تظهر في العارض؛ الصور المتتالية بنفس المجموعة تظهر كزر واحد في العارض)
                 widget: list
                 fields:
                   - { name: src, label: الصورة, widget: image }
+                  - { name: caption_ar, label: المجموعة أو الحملة بالعربي (مثال قلادة الشمس), widget: string, required: false }
+                  - { name: caption_en, label: المجموعة أو الحملة بالإنجليزي, widget: string, required: false }
           - name: posters
             label: شريط البوسترات المتحرك
             widget: list

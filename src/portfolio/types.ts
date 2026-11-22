@@ -54,11 +54,14 @@ export interface Project {
   title_en: string;
   brand: string;
   category: string;
+  /** other categories this brand's work also shows under in the filter */
+  tags?: string[];
   summary_ar: string;
   summary_en: string;
   cover: string;
   focus?: string;
-  images: { src: string }[];
+  /** caption = the set or campaign the image belongs to; the viewer groups images by it */
+  images: { src: string; caption_ar?: string; caption_en?: string }[];
 }
 
 export interface Client {
