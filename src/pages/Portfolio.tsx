@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import type { Client, Content, Project } from "@/portfolio/types";
+import type { Client, Content, Project, Video } from "@/portfolio/types";
 import { UI } from "@/portfolio/ui";
 import "@/portfolio/portfolio.css";
 
@@ -101,6 +101,90 @@ const Icons = {
   be: (
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8.2 11.4c.8-.4 1.3-1.1 1.3-2.1C9.5 7.3 8 6.5 6 6.5H1.5v11H6.3c2 0 3.8-1 3.8-3.2 0-1.4-.7-2.5-1.9-2.9ZM3.9 8.4h1.8c.7 0 1.4.2 1.4 1s-.5 1.1-1.3 1.1H3.9V8.4Zm2 7.2h-2v-2.6h2.1c.9 0 1.5.4 1.5 1.3s-.7 1.3-1.6 1.3ZM18.9 9.2c-2.6 0-4.3 1.9-4.3 4.3 0 2.5 1.6 4.3 4.3 4.3 2 0 3.3-.9 4-2.8h-2.1c-.2.7-1.1 1.1-1.8 1.1-1.3 0-2-.8-2-2h6c.2-2.6-1.3-4.9-4.1-4.9Zm-1.9 3.4c.1-1 .8-1.7 1.9-1.7s1.6.6 1.8 1.7H17ZM16.4 6.9h4.8v1.2h-4.8z" /></svg>
   ),
+};
+
+/* ---------------- Videos ---------------- */
+
+/* Plays its silent loop only while it is on screen, and never for reduced motion or data saver. */
+const VideoCard = ({ v, title, label, onOpen, i }: { v: Video; title: string; label: string; onOpen: () => void; i: number }) => {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+    if (!el || reducedMotion() || saveData || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(([en]) => {
+      if (en.isIntersecting) el.play().then(() => setPlaying(true)).catch(() => {});
+      else { el.pause(); setPlaying(false); }
+    }, { threshold: 0.55 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <button type="button" className={`vcard${playing ? " is-playing" : ""}`} onClick={onOpen} data-reveal style={{ "--i": i } as React.CSSProperties}>
+      <span className="vcard__media">
+        <img src={v.poster} alt="" loading="lazy" />
+        <video ref={ref} src={v.loop} muted loop playsInline preload="none" aria-hidden="true" tabIndex={-1} />
+        <span className="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5Z" fill="currentColor" /></svg></span>
+      </span>
+      <span className="vcard__info">
+        <span className="vcard__brand"><bdi>{v.brand}</bdi></span>
+        <span className="vcard__title">{title}</span>
+      </span>
+      <span className="sr-only">{label}</span>
+    </button>
+  );
+};
+
+const VideoViewer = ({ videos, index, setIndex, titleOf, onClose, labels, clientOf }: {
+  videos: Video[];
+  index: number;
+  setIndex: (n: number) => void;
+  titleOf: (v: Video) => string;
+  onClose: () => void;
+  labels: { close: string; prev: string; next: string; store: string; instagram: string };
+  clientOf: (v: Video) => Client | undefined;
+}) => {
+  const closeBtn = useRef<HTMLButtonElement>(null);
+  const v = videos[index];
+  const brand = clientOf(v);
+  useEffect(() => {
+    const opener = document.activeElement as HTMLElement | null;
+    document.body.classList.add("pf-locked");
+    closeBtn.current?.focus();
+    return () => { document.body.classList.remove("pf-locked"); opener?.focus?.(); };
+  }, []);
+  useEffect(() => {
+    const rtl = document.documentElement.dir === "rtl";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") setIndex((index + (rtl ? -1 : 1) + videos.length) % videos.length);
+      if (e.key === "ArrowLeft") setIndex((index + (rtl ? 1 : -1) + videos.length) % videos.length);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [index, videos.length, onClose, setIndex]);
+  return (
+    <div className="vviewer" role="dialog" aria-modal="true" aria-label={titleOf(v)} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="vviewer__top">
+        <div className="vviewer__heading">
+          <span className="vcard__brand"><bdi>{v.brand}</bdi></span>
+          <span className="vviewer__title">{titleOf(v)}</span>
+        </div>
+        <div className="vviewer__links">
+          {brand?.store && <a className="lightbox__link lightbox__link--gold" href={brand.store} target="_blank" rel="noopener noreferrer">{labels.store}</a>}
+          {brand?.link && <a className="lightbox__link" href={brand.link} target="_blank" rel="noopener noreferrer">{labels.instagram}</a>}
+        </div>
+        <button ref={closeBtn} type="button" className="lightbox__close" onClick={onClose} aria-label={labels.close}>×</button>
+      </div>
+      <div className="vviewer__stage">
+        <button type="button" className="vviewer__nav vviewer__nav--prev" onClick={() => setIndex((index - 1 + videos.length) % videos.length)} aria-label={labels.prev}><Arrow /></button>
+        <video key={v.src} className="vviewer__video" src={v.src} poster={v.poster} controls autoPlay playsInline />
+        <button type="button" className="vviewer__nav vviewer__nav--next" onClick={() => setIndex((index + 1) % videos.length)} aria-label={labels.next}><Arrow /></button>
+      </div>
+      <div className="vviewer__count" aria-live="polite"><bdi dir="ltr">{index + 1} / {videos.length}</bdi></div>
+    </div>
+  );
 };
 
 /* ---------------- Lightbox ---------------- */
@@ -205,6 +289,7 @@ const Portfolio = () => {
   const [failed, setFailed] = useState(false);
   const [filter, setFilter] = useState("all");
   const [open, setOpen] = useState<number | null>(null);
+  const [videoOpen, setVideoOpen] = useState<number | null>(null);
 
   const root = useRef<HTMLDivElement>(null);
   const bar = useRef<HTMLSpanElement>(null);
@@ -222,7 +307,11 @@ const Portfolio = () => {
         return r.json();
       }),
     ))
-      .then(([settings, work, services, expertise]) => setData({ settings, work, services: services.services, expertise }))
+      // videos are optional: the page still loads if the file is missing
+      .then(async ([settings, work, services, expertise]) => {
+        const videos = await fetch("/content/videos.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : undefined)).catch(() => undefined);
+        setData({ settings, work, services: services.services, expertise, videos });
+      })
       .catch((err) => { console.error("Portfolio content failed to load", err); setFailed(true); });
   }, []);
 
@@ -286,6 +375,7 @@ const Portfolio = () => {
 
   const s = data.settings;
   const { projects, posters, clients } = data.work;
+  const videoList = data.videos?.videos || [];
   const catLabel = (id: string) => t(data.work.categories.find((c) => c.id === id), "label");
   const hasWork = (id: string) => projects.some((p) => p.category === id);
   const digits = (v: string) => String(v).replace(/[^\d+]/g, "");
@@ -436,12 +526,13 @@ const Portfolio = () => {
                 data-reveal
                 onClick={() => {
                   if (hasWork(sv.category)) { setFilter(sv.category); scrollTo("work"); }
+                  else if (sv.category === "video" && videoList.length) scrollTo("videos");
                   else scrollTo("contact");
                 }}
               >
                 <span className="service__title">{t(sv, "title")}</span>
                 <span className="service__text">{t(sv, "text")}</span>
-                <span className="service__go">{hasWork(sv.category) ? u.seeWork : u.askSample} <Arrow /></span>
+                <span className="service__go">{hasWork(sv.category) ? u.seeWork : sv.category === "video" && videoList.length ? u.seeVideos : u.askSample} <Arrow /></span>
               </button>
             ))}
           </div>
@@ -520,6 +611,21 @@ const Portfolio = () => {
           </div>
         </section>
 
+        {/* Videos: the last thing to see before getting in touch */}
+        {videoList.length > 0 && (
+          <section className="videos" id="videos" aria-labelledby="videosTitle">
+            <div className="section-head section-head--stack" data-reveal>
+              <h2 id="videosTitle">{t(data.videos, "title")}</h2>
+              {t(data.videos, "intro") && <p className="videos__intro">{t(data.videos, "intro")}</p>}
+            </div>
+            <div className="videos__row">
+              {videoList.map((v, i) => (
+                <VideoCard key={v.src} v={v} i={i} title={t(v, "title")} label={u.play} onOpen={() => setVideoOpen(i)} />
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* 8. Contact */}
         <section className="contact" id="contact" aria-labelledby="contactTitle">
           <div className="contact__bg" aria-hidden="true" style={{ backgroundImage: s.contact_photo ? `url("${encodeURI(s.contact_photo)}")` : "none" }} />
@@ -547,6 +653,18 @@ const Portfolio = () => {
         </span>
         <span>{t(s, "copyright")} {new Date().getFullYear()}</span>
       </footer>
+
+      {videoOpen !== null && videoList[videoOpen] && (
+        <VideoViewer
+          videos={videoList}
+          index={videoOpen}
+          setIndex={setVideoOpen}
+          titleOf={(v) => t(v, "title")}
+          onClose={() => setVideoOpen(null)}
+          labels={{ close: u.close, prev: u.prev, next: u.next, store: u.store, instagram: u.instagram }}
+          clientOf={(v) => clients.find((c) => c.name === v.brand)}
+        />
+      )}
 
       {open !== null && projects[open] && (
         <Lightbox

@@ -1,0 +1,56 @@
+{
+  "title_ar": "فيديوهات إعلانية",
+  "title_en": "Video ads",
+  "intro_ar": "إعلانات قصيرة صنعتها بالذكاء الاصطناعي لعلامات تجارية حقيقية. اضغط على أي فيديو لمشاهدته كاملاً بالصوت.",
+  "intro_en": "Short ads I made with Artificial Intelligence for real brands. Tap any video to watch it in full with sound.",
+  "videos": [
+    {
+      "brand": "VIRUS PERFUME",
+      "title_ar": "رحلة تحت القمر",
+      "title_en": "Moonlit voyage",
+      "poster": "/media/video/virus-moon.webp",
+      "loop": "/media/video/virus-moon-loop.mp4",
+      "src": "/media/video/virus-moon.mp4"
+    },
+    {
+      "brand": "VIRUS PERFUME",
+      "title_ar": "ليلة في المدينة",
+      "title_en": "A night in the city",
+      "poster": "/media/video/virus-city.webp",
+      "loop": "/media/video/virus-city-loop.mp4",
+      "src": "/media/video/virus-city.mp4"
+    },
+    {
+      "brand": "Qilada",
+      "title_ar": "بحيرة البجع",
+      "title_en": "Swan lake",
+      "poster": "/media/video/qilada-swan.webp",
+      "loop": "/media/video/qilada-swan-loop.mp4",
+      "src": "/media/video/qilada-swan.mp4"
+    },
+    {
+      "brand": "Qilada",
+      "title_ar": "حديقة الليل",
+      "title_en": "Night garden",
+      "poster": "/media/video/qilada-garden.webp",
+      "loop": "/media/video/qilada-garden-loop.mp4",
+      "src": "/media/video/qilada-garden.mp4"
+    },
+    {
+      "brand": "VIRO by VIRUS",
+      "title_ar": "تجعيدات تبقى طوال اليوم",
+      "title_en": "Curls that last all day",
+      "poster": "/media/video/viro-look.webp",
+      "loop": "/media/video/viro-look-loop.mp4",
+      "src": "/media/video/viro-look.mp4"
+    },
+    {
+      "brand": "VIRO by VIRUS",
+      "title_ar": "رغوة فيرو",
+      "title_en": "VIRO mousse",
+      "poster": "/media/video/viro-mousse.webp",
+      "loop": "/media/video/viro-mousse-loop.mp4",
+      "src": "/media/video/viro-mousse.mp4"
+    }
+  ]
+}

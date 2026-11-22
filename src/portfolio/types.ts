@@ -117,9 +117,29 @@ export interface Expertise {
   partners: Partner[];
 }
 
+export interface Video {
+  brand: string;
+  title_ar: string;
+  title_en: string;
+  poster: string;
+  /** short, silent, small file that plays on the card */
+  loop: string;
+  /** full video with sound, opened in the viewer */
+  src: string;
+}
+
+export interface Videos {
+  title_ar: string;
+  title_en: string;
+  intro_ar: string;
+  intro_en: string;
+  videos: Video[];
+}
+
 export interface Content {
   settings: Settings;
   work: Work;
   services: Service[];
   expertise: Expertise;
+  videos?: Videos;
 }

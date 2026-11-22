@@ -181,3 +181,24 @@ collections:
               - { name: note_ar, label: نوع الشراكة بالعربي, widget: string, required: false }
               - { name: note_en, label: نوع الشراكة بالإنجليزي, widget: string, required: false }
               - { name: link, label: الرابط, widget: string, required: false }
+
+      # ---------------- الفيديوهات ----------------
+      - name: videos
+        label: الفيديوهات الإعلانية
+        file: public/content/videos.json
+        format: json
+        fields:
+          - { name: title_ar, label: عنوان القسم بالعربي, widget: string }
+          - { name: title_en, label: عنوان القسم بالإنجليزي, widget: string }
+          - { name: intro_ar, label: نص تعريفي بالعربي, widget: text, required: false }
+          - { name: intro_en, label: نص تعريفي بالإنجليزي, widget: text, required: false }
+          - name: videos
+            label: الفيديوهات (الترتيب هنا هو ترتيب الظهور)
+            widget: list
+            fields:
+              - { name: brand, label: العلامة التجارية (نفس اسمها في قائمة العملاء), widget: string }
+              - { name: title_ar, label: العنوان بالعربي, widget: string }
+              - { name: title_en, label: العنوان بالإنجليزي, widget: string }
+              - { name: poster, label: صورة الغلاف, widget: image }
+              - { name: loop, label: مقطع صامت قصير يتكرر على البطاقة (360 بكسل، بلا صوت), widget: file }
+              - { name: src, label: الفيديو الكامل بالصوت (720 بكسل، أقل من 5 ميغابايت), widget: file }
