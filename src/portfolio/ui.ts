@@ -4,6 +4,8 @@ export const UI = {
   ar: {
     navWork: "الأعمال",
     navServices: "خدماتي",
+    navExpertise: "خبرتي",
+    expertiseTitle: "خبرتي بالذكاء الاصطناعي",
     navAbout: "عني",
     navContact: "تواصل",
     ctaContact: "تواصل وياي",
@@ -47,6 +49,8 @@ export const UI = {
   en: {
     navWork: "Work",
     navServices: "Services",
+    navExpertise: "Expertise",
+    expertiseTitle: "My Artificial Intelligence expertise",
     navAbout: "About",
     navContact: "Contact",
     ctaContact: "Get in touch",

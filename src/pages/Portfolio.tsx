@@ -166,13 +166,13 @@ const Portfolio = () => {
 
   /* load content */
   useEffect(() => {
-    Promise.all(["settings", "work", "services"].map((f) =>
+    Promise.all(["settings", "work", "services", "expertise"].map((f) =>
       fetch(`/content/${f}.json`, { cache: "no-cache" }).then((r) => {
         if (!r.ok) throw new Error(`${f}.json ${r.status}`);
         return r.json();
       }),
     ))
-      .then(([settings, work, services]) => setData({ settings, work, services: services.services }))
+      .then(([settings, work, services, expertise]) => setData({ settings, work, services: services.services, expertise }))
       .catch((err) => { console.error("Portfolio content failed to load", err); setFailed(true); });
   }, []);
 
@@ -260,6 +260,7 @@ const Portfolio = () => {
         <nav className="bar__nav" aria-label={u.navWork}>
           <a href="#work">{u.navWork}</a>
           <a href="#services">{u.navServices}</a>
+          <a href="#expertise">{u.navExpertise}</a>
           <a href="#about">{u.navAbout}</a>
           <a href="#contact">{u.navContact}</a>
         </nav>
@@ -379,6 +380,52 @@ const Portfolio = () => {
                 <span className="service__go">{hasWork(sv.category) ? u.seeWork : u.askSample} <Arrow /></span>
               </button>
             ))}
+          </div>
+        </section>
+
+        {/* Artificial Intelligence expertise */}
+        <section className="expertise" id="expertise" aria-labelledby="expertiseTitle">
+          <div className="section-head section-head--stack" data-reveal>
+            <h2 id="expertiseTitle">{u.expertiseTitle}</h2>
+            <p className="section-lead">{t(data.expertise, "intro")}</p>
+          </div>
+          <div className="expertise__grid">
+            {data.expertise.groups.map((g, i) => (
+              <article className="xp" key={i} data-reveal>
+                <div className="xp__media"><img src={g.image} alt="" loading="lazy" /></div>
+                <div className="xp__body">
+                  <h3 className="xp__title">{t(g, "title")}</h3>
+                  <p className="xp__text">{t(g, "text")}</p>
+                  <ul className="xp__tools" dir="ltr">
+                    {g.tools.split(",").map((tool) => tool.trim()).filter(Boolean).map((tool) => <li key={tool}>{tool}</li>)}
+                  </ul>
+                  {g.link && t(g, "link") && (
+                    g.link.startsWith("/")
+                      ? <Link className="xp__link" to={g.link}>{t(g, "link")} <Arrow /></Link>
+                      : <a className="xp__link" href={g.link} target="_blank" rel="noopener noreferrer">{t(g, "link")} <Arrow /></a>
+                  )}
+                </div>
+              </article>
+            ))}
+            <article className="xp xp--partners" data-reveal>
+              <div className="xp__media"><img src={data.expertise.partners_image} alt="" loading="lazy" /></div>
+              <div className="xp__body">
+                <h3 className="xp__title">{t(data.expertise, "partners_title")}</h3>
+                <p className="xp__text">{t(data.expertise, "partners_text")}</p>
+                <ul className="partners">
+                  {data.expertise.partners.map((p) => {
+                    const inner = <><span className="partner__name">{p.name}</span>{t(p, "note") && <span className="partner__note">{t(p, "note")}</span>}</>;
+                    return (
+                      <li key={p.name}>
+                        {p.link
+                          ? <a className="partner" href={p.link} target="_blank" rel="noopener noreferrer">{inner}<Arrow /></a>
+                          : <span className="partner">{inner}</span>}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </article>
           </div>
         </section>
 
