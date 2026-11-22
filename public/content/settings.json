@@ -1,0 +1,66 @@
+{
+  "name_ar": "حسن سلمان",
+  "name_en": "Hassan Salman",
+  "role_ar": "مدير إبداعي بالذكاء الاصطناعي",
+  "role_en": "Artificial Intelligence Creative Director",
+  "city_ar": "النجف، العراق",
+  "city_en": "Najaf, Iraq",
+  "headline_ar": "أصنع صوراً وإعلانات سينمائية بالذكاء الاصطناعي للعلامات التجارية في العراق والخليج.",
+  "headline_en": "I create cinematic Artificial Intelligence imagery and advertising for brands in Iraq and the Gulf.",
+  "photo": "/media/me/hero.webp",
+  "about_photo": "/media/me/about.webp",
+  "contact_photo": "/media/me/onset.webp",
+  "whatsapp": "",
+  "phone": "",
+  "instagram": "staiiq",
+  "behance": "",
+  "stats": [
+    {
+      "value": "",
+      "label_ar": "سنوات الخبرة",
+      "label_en": "Years of experience"
+    },
+    {
+      "value": "",
+      "label_ar": "عميل",
+      "label_en": "Clients"
+    },
+    {
+      "value": "",
+      "label_ar": "مشروع",
+      "label_en": "Projects"
+    },
+    {
+      "value": "",
+      "label_ar": "تصميم",
+      "label_en": "Designs"
+    }
+  ],
+  "about_ar": "أنا حسن سلمان من النجف. أبني الصورة من الفكرة حتى الإطار الأخير: أختار المشهد والضوء والعارضة، وأصنع بالذكاء الاصطناعي صوراً تبدو كجلسة تصوير حقيقية، مع الحفاظ على المنتج كما هو دون أي تحريف.",
+  "about_en": "I'm Hassan Salman, based in Najaf. I build an image from the idea to the final frame: I choose the scene, the light and the model, and use Artificial Intelligence to make pictures that look like a real photo shoot, while keeping the product exactly as it is.",
+  "experience": [
+    {
+      "years": "",
+      "title_ar": "",
+      "title_en": "",
+      "place_ar": "",
+      "place_en": ""
+    },
+    {
+      "years": "",
+      "title_ar": "",
+      "title_en": "",
+      "place_ar": "",
+      "place_en": ""
+    },
+    {
+      "years": "",
+      "title_ar": "",
+      "title_en": "",
+      "place_ar": "",
+      "place_en": ""
+    }
+  ],
+  "copyright_ar": "© جميع الحقوق محفوظة",
+  "copyright_en": "© All rights reserved"
+}

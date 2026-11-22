@@ -1,0 +1,320 @@
+{
+  "categories": [
+    {
+      "id": "identity",
+      "label_ar": "هويات وتغليف",
+      "label_en": "Identity & packaging"
+    },
+    {
+      "id": "product",
+      "label_ar": "تصوير منتجات",
+      "label_en": "Product photography"
+    },
+    {
+      "id": "campaign",
+      "label_ar": "حملات إعلانية",
+      "label_en": "Campaigns"
+    },
+    {
+      "id": "social",
+      "label_ar": "سوشيال ميديا",
+      "label_en": "Social media"
+    },
+    {
+      "id": "video",
+      "label_ar": "فيديو وموشن",
+      "label_en": "Video & motion"
+    }
+  ],
+  "projects": [
+    {
+      "title_ar": "قصة — هوية وتغليف",
+      "title_en": "Qissa — identity & packaging",
+      "brand": "Qissa",
+      "category": "identity",
+      "summary_ar": "شعار جديد وتغليف لعلامة إكسسوارات فضية: الكيس والشريط وصندوق الهدية بلون نبيذي وفضي.",
+      "summary_en": "A new logo and packaging for a silver accessories brand: bag, ribbon and gift box in burgundy and silver.",
+      "cover": "/media/work/qissa-gift-wide.webp",
+      "focus": "50% 45%",
+      "images": [
+        {
+          "src": "/media/work/qissa-gift-wide.webp"
+        },
+        {
+          "src": "/media/work/qissa-packaging.webp"
+        },
+        {
+          "src": "/media/work/qissa-calligraphy-necklace.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "قلادة — حملة «حب، ذكريات، تفاصيل»",
+      "title_en": "Qilada — “love, memories, details” campaign",
+      "brand": "Qilada",
+      "category": "campaign",
+      "summary_ar": "بانر بخط عربي وعارضة، وصور للقطع على المخمل الأحمر والخشب المحفور: قلادة البجعة، أساور البرسيم، والساعة المرصّعة.",
+      "summary_en": "A calligraphy banner with a model, plus product shots on red velvet and carved wood: the swan pendant, clover bracelets and the jewelled watch.",
+      "cover": "/media/work/qilada-banner.webp",
+      "focus": "50% 40%",
+      "images": [
+        {
+          "src": "/media/work/qilada-banner.webp"
+        },
+        {
+          "src": "/media/work/qilada-swan-pendant.webp"
+        },
+        {
+          "src": "/media/work/qilada-clover-bracelets.webp"
+        },
+        {
+          "src": "/media/work/qilada-watch.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "LUXSOUL — مجموعة العطور",
+      "title_en": "LUXSOUL — the fragrance collection",
+      "brand": "LUXSOUL",
+      "category": "product",
+      "summary_ar": "لكل عطر خلفيته اللونية ومكوّناته الطافية حوله، وصورة جماعية لعشرة إصدارات تحت جملة «اختر عطرا يشبهك، لا عطرا يشبه الجميع».",
+      "summary_en": "Each extrait gets its own colour field and floating notes, plus a group shot of ten editions under the line “choose a scent that resembles you”.",
+      "cover": "/media/work/luxsoul-ten-bottles.webp",
+      "focus": "50% 82%",
+      "images": [
+        {
+          "src": "/media/work/luxsoul-ten-bottles.webp"
+        },
+        {
+          "src": "/media/work/luxsoul-rose-spirit.webp"
+        },
+        {
+          "src": "/media/work/luxsoul-roots-of-love.webp"
+        },
+        {
+          "src": "/media/work/luxsoul-majesty-aura.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "فايروس — تصوير العطور",
+      "title_en": "VIRUS — perfume photography",
+      "brand": "VIRUS PERFUME",
+      "category": "product",
+      "summary_ar": "صور منتجات لإصدارات عطور فايروس، لكل إصدار مكوّناته وعالمه اللوني.",
+      "summary_en": "Product shots for the VIRUS perfume editions, each built around its own notes and colour world.",
+      "cover": "/media/work/virus-four-bottles.webp",
+      "focus": "50% 55%",
+      "images": [
+        {
+          "src": "/media/work/virus-four-bottles.webp"
+        },
+        {
+          "src": "/media/work/virus-unisex-white.webp"
+        },
+        {
+          "src": "/media/work/virus-women-pink.webp"
+        },
+        {
+          "src": "/media/work/virus-blue.webp"
+        },
+        {
+          "src": "/media/work/virus-wood-orange.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "فيرو — تصفيف الشعر",
+      "title_en": "VIRO — hair styling",
+      "brand": "VIRO by VIRUS",
+      "category": "product",
+      "summary_ar": "موس الشعر والزجاجة على حجر مبلل تحت ضوء أخضر، مع لقطة لزيت الأفوكادو الذي يدخل في تركيبته.",
+      "summary_en": "The hair mousse and pump bottle on wet stone under green light, with a shot of the avocado oil in its formula.",
+      "cover": "/media/work/viro-mousse.webp",
+      "focus": "50% 60%",
+      "images": [
+        {
+          "src": "/media/work/viro-mousse.webp"
+        },
+        {
+          "src": "/media/work/viro-avocado.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "فايروس الأسود — المكوّنات",
+      "title_en": "BLACK VIRUS — the notes",
+      "brand": "VIRUS PERFUME",
+      "category": "social",
+      "summary_ar": "تصميمان يعرّفان بمكوّنات فايروس الأسود: القهوة، الهيل، الليمون، الخزامى، السوسن والزعفران.",
+      "summary_en": "Two designs introducing the BLACK VIRUS notes: coffee, cardamom, lemon, lavender, iris and saffron.",
+      "cover": "/media/work/virus-black-stone.webp",
+      "focus": "50% 45%",
+      "images": [
+        {
+          "src": "/media/work/virus-black-stone.webp"
+        },
+        {
+          "src": "/media/work/virus-black-notes.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "حملة مجوهرات بعارضات",
+      "title_en": "Jewelry campaign with models",
+      "brand": "",
+      "category": "campaign",
+      "summary_ar": "صور حملات بعارضات في أجواء من المنطقة: نخيل، تمر وحنّاء، مخمل أحمر وزخارف ذهبية.",
+      "summary_en": "Campaign images with models in regional settings: palms, dates and henna, red velvet and gilded patterns.",
+      "cover": "/media/work/jewelry-butterfly-set.webp",
+      "focus": "50% 30%",
+      "images": [
+        {
+          "src": "/media/work/jewelry-butterfly-set.webp"
+        },
+        {
+          "src": "/media/work/jewelry-floral-palms.webp"
+        },
+        {
+          "src": "/media/work/jewelry-dates-ring.webp"
+        },
+        {
+          "src": "/media/work/jewelry-heart-red.webp"
+        },
+        {
+          "src": "/media/work/jewelry-red-earring.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "ليل البنفسج",
+      "title_en": "Layl al-Banafsaj (Violet Night)",
+      "brand": "VIRUS PERFUME",
+      "category": "campaign",
+      "summary_ar": "إطلاق إصدار «ليل البنفسج»: الزجاجة وبطاقة المكوّنات في عالم بنفسجي ليلي.",
+      "summary_en": "Launch visual for the Violet Night edition: the bottle and its notes card in a night-violet world.",
+      "cover": "/media/work/virus-violet-night.webp",
+      "focus": "50% 55%",
+      "images": [
+        {
+          "src": "/media/work/virus-violet-night.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "قلادة — تغليف الهدايا",
+      "title_en": "Qilada — gift packaging",
+      "brand": "Qilada",
+      "category": "identity",
+      "summary_ar": "كيس وصناديق هدايا بشعار «حب، ذكريات، تفاصيل».",
+      "summary_en": "Gift bag and boxes carrying the line “love, memories, details”.",
+      "cover": "/media/work/qilada-packaging.webp",
+      "focus": "50% 45%",
+      "images": [
+        {
+          "src": "/media/work/qilada-packaging.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "شخصيات فايروس",
+      "title_en": "The VIRUS characters",
+      "brand": "VIRUS PERFUME",
+      "category": "social",
+      "summary_ar": "شخصيات مرحة تحمل إصدارات فايروس في قارب تحت القمر، لمنشورات السوشيال ميديا.",
+      "summary_en": "Playful characters holding each VIRUS edition in a moonlit boat, made for social media.",
+      "cover": "/media/work/virus-boat-characters.webp",
+      "focus": "50% 60%",
+      "images": [
+        {
+          "src": "/media/work/virus-boat-characters.webp"
+        }
+      ]
+    },
+    {
+      "title_ar": "كولاج الغزال",
+      "title_en": "The fawn collage",
+      "brand": "",
+      "category": "social",
+      "summary_ar": "كولاج ثلاثي يربط قلادة الغزال بالغزال وزهر الزنبق بخيط لوني واحد.",
+      "summary_en": "A three-band collage tying the fawn necklace to a fawn and lilies with one colour thread.",
+      "cover": "/media/work/jewelry-deer-collage.webp",
+      "focus": "50% 50%",
+      "images": [
+        {
+          "src": "/media/work/jewelry-deer-collage.webp"
+        }
+      ]
+    }
+  ],
+  "posters": [
+    {
+      "src": "/media/work/luxsoul-rose-spirit.webp"
+    },
+    {
+      "src": "/media/work/qilada-watch.webp"
+    },
+    {
+      "src": "/media/work/virus-violet-night.webp"
+    },
+    {
+      "src": "/media/work/viro-mousse.webp"
+    },
+    {
+      "src": "/media/work/jewelry-butterfly-set.webp"
+    },
+    {
+      "src": "/media/work/virus-black-stone.webp"
+    },
+    {
+      "src": "/media/work/luxsoul-roots-of-love.webp"
+    },
+    {
+      "src": "/media/work/qilada-swan-pendant.webp"
+    },
+    {
+      "src": "/media/work/virus-boat-characters.webp"
+    },
+    {
+      "src": "/media/work/jewelry-deer-collage.webp"
+    },
+    {
+      "src": "/media/work/qilada-clover-bracelets.webp"
+    },
+    {
+      "src": "/media/work/luxsoul-majesty-aura.webp"
+    },
+    {
+      "src": "/media/work/virus-wood-orange.webp"
+    },
+    {
+      "src": "/media/work/qilada-packaging.webp"
+    }
+  ],
+  "clients": [
+    {
+      "name": "Qilada",
+      "logo": "/media/clients/qilada.webp"
+    },
+    {
+      "name": "VIRUS PERFUME",
+      "logo": "/media/clients/virus.webp"
+    },
+    {
+      "name": "Qissa",
+      "logo": "/media/clients/qissa.webp"
+    },
+    {
+      "name": "LUXSOUL",
+      "logo": "/media/clients/luxsoul.webp"
+    },
+    {
+      "name": "Aseels Jewelry",
+      "logo": "/media/clients/aseels.webp"
+    },
+    {
+      "name": "VIRO by VIRUS",
+      "logo": "/media/clients/viro.webp"
+    }
+  ]
+}
