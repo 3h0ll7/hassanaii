@@ -38,6 +38,53 @@ const Arrow = () => (
   </svg>
 );
 
+/* Line icons for the stats and the experience list. pathLength="1" lets CSS draw them in. */
+const line = { fill: "none", stroke: "currentColor", strokeWidth: 1.5, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, pathLength: 1 };
+const LineIcons: Record<string, JSX.Element> = {
+  time: <><circle cx="12" cy="12" r="8.5" {...line} /><path d="M12 7.5V12l3 2" {...line} /></>,
+  brand: <><path d="M3.5 12.6 11.4 4.7a2 2 0 0 1 1.4-.6h5.1a2 2 0 0 1 2 2v5.1a2 2 0 0 1-.6 1.4l-7.9 7.9a2 2 0 0 1-2.8 0l-4.1-4.1a2 2 0 0 1 0-2.8Z" {...line} /><circle cx="16" cy="8" r="1.3" {...line} /></>,
+  frame: <><rect x="3.5" y="5" width="17" height="14" rx="2" {...line} /><path d="m3.5 16 5-4.5 4 3.5 2.5-2 5 4" {...line} /><circle cx="15.5" cy="9" r="1.4" {...line} /></>,
+  link: <><circle cx="9" cy="12" r="5" {...line} /><circle cx="15" cy="12" r="5" {...line} /></>,
+  spark: <><path d="M12 3.5c.6 4.4 2.1 5.9 6.5 6.5-4.4.6-5.9 2.1-6.5 6.5-.6-4.4-2.1-5.9-6.5-6.5 4.4-.6 5.9-2.1 6.5-6.5Z" {...line} /><path d="M18.5 15.5c.2 1.6.8 2.2 2.4 2.4-1.6.2-2.2.8-2.4 2.4-.2-1.6-.8-2.2-2.4-2.4 1.6-.2 2.2-.8 2.4-2.4Z" {...line} /></>,
+  pulse: <><path d="M2.5 12.5h4l2-4.5 3.5 9 2.5-6 1.5 1.5h5.5" {...line} /><path d="M2.5 12.5h4l2-4.5 3.5 9 2.5-6 1.5 1.5h5.5" {...line} className="ecg" /></>,
+};
+const LineIcon = ({ name }: { name?: string }) =>
+  name && LineIcons[name] ? <svg className="licon" viewBox="0 0 24 24" aria-hidden="true">{LineIcons[name]}</svg> : null;
+
+/* Counts up from zero the first time the number scrolls into view. */
+const CountUp = ({ value }: { value: string }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const m = value.match(/^(\D*)(\d+)(.*)$/);
+  const target = m ? parseInt(m[2], 10) : 0;
+  const [n, setN] = useState(m ? 0 : target);
+  useEffect(() => {
+    const el = ref.current;
+    if (!m || !el) return;
+    if (reducedMotion() || !("IntersectionObserver" in window)) { setN(target); return; }
+    let raf = 0;
+    const io = new IntersectionObserver(([en]) => {
+      if (!en.isIntersecting) return;
+      io.disconnect();
+      const t0 = performance.now(), dur = 1100 + target * 40;
+      const tick = (now: number) => {
+        const k = Math.min(1, (now - t0) / dur);
+        setN(Math.round(target * (1 - Math.pow(1 - k, 3))));
+        if (k < 1) raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+    }, { threshold: 0.6 });
+    io.observe(el);
+    return () => { io.disconnect(); cancelAnimationFrame(raf); };
+  }, [value]); // eslint-disable-line react-hooks/exhaustive-deps
+  if (!m) return <span ref={ref}>{value}</span>;
+  return (
+    <span ref={ref}>
+      <span aria-hidden="true">{m[1]}{n}{m[3]}</span>
+      <span className="sr-only">{value}</span>
+    </span>
+  );
+};
+
 const Icons = {
   wa: (
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5 5 0 0 0 1 2.7 11.6 11.6 0 0 0 4.5 3.9c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z" /></svg>
@@ -244,6 +291,17 @@ const Portfolio = () => {
   const digits = (v: string) => String(v).replace(/[^\d+]/g, "");
   const ig = s.instagram?.replace(/^@/, "");
 
+  // Numbers come from the dashboard or are counted from the site's own lists. Empty ones are hidden.
+  const counts: Record<string, number> = {
+    clients: data.work.clients?.length || 0,
+    projects: projects.length,
+    partners: data.expertise?.partners?.length || 0,
+  };
+  const stats = (s.stats || [])
+    .map((st) => ({ ...st, value: st.source ? String(counts[st.source] || "") : String(st.value || "").trim() }))
+    .filter((st) => st.value);
+  const experience = (s.experience || []).filter((x) => t(x, "title"));
+
   // Instagram is the main way to reach Hassan. WhatsApp, phone and Behance appear only once filled in.
   const contactItems = [
     { href: ig && `https://ig.me/m/${ig}`, label: u.dm, icon: Icons.ig, sub: ig && `@${ig}`, primary: true, show: !!ig },
@@ -356,10 +414,11 @@ const Portfolio = () => {
         </section>
 
         {/* Stats: after the work, where they back it up */}
-        <section className="stats" aria-label={u.navAbout}>
-          {s.stats.map((st, i) => (
-            <div className="stat" key={i}>
-              <span className="stat__value">{st.value || <Ph>—</Ph>}</span>
+        <section className="stats" aria-label={u.navAbout} data-reveal>
+          {stats.map((st, i) => (
+            <div className="stat" key={i} style={{ "--i": i } as React.CSSProperties}>
+              <span className="stat__icon"><LineIcon name={st.icon} /></span>
+              <span className="stat__value"><CountUp value={st.value} /></span>
               <span className="stat__label">{t(st, "label")}</span>
             </div>
           ))}
@@ -444,12 +503,15 @@ const Portfolio = () => {
             <div className="about__text">
               <p className="about__bio" data-reveal>{t(s, "about")}</p>
               <ol className="about__exp" data-reveal>
-                {s.experience.map((x, i) => (
-                  <li className="exp" key={i}>
-                    <span className="exp__years">{x.years || <Ph>{u.ph.years}</Ph>}</span>
-                    <span>
-                      <span className="exp__title">{t(x, "title") || <Ph>{u.ph.title}</Ph>}</span><br />
-                      <span className="exp__place">{t(x, "place") || <Ph>{u.ph.place}</Ph>}</span>
+                {experience.map((x, i) => (
+                  <li className="exp" key={i} style={{ "--i": i } as React.CSSProperties}>
+                    <span className="exp__icon"><LineIcon name={x.icon} /></span>
+                    <span className="exp__body">
+                      <span className="exp__head">
+                        <span className="exp__title">{t(x, "title")}</span>
+                        {x.years ? <span className="exp__years">{x.years}</span> : null}
+                      </span>
+                      {t(x, "place") ? <span className="exp__place">{t(x, "place")}</span> : null}
                     </span>
                   </li>
                 ))}

@@ -17,49 +17,60 @@
   "behance": "",
   "stats": [
     {
-      "value": "",
-      "label_ar": "سنوات الخبرة",
-      "label_en": "Years of experience"
+      "value": "4",
+      "source": "",
+      "icon": "time",
+      "label_ar": "سنوات خبرة بالذكاء الاصطناعي",
+      "label_en": "Years with Artificial Intelligence"
     },
     {
       "value": "",
-      "label_ar": "عميل",
-      "label_en": "Clients"
+      "source": "clients",
+      "icon": "brand",
+      "label_ar": "علامات تجارية وثقت بي",
+      "label_en": "Brands that trusted me"
     },
     {
       "value": "",
-      "label_ar": "مشروع",
-      "label_en": "Projects"
+      "source": "projects",
+      "icon": "frame",
+      "label_ar": "مشروعاً في المعرض",
+      "label_en": "Projects in the gallery"
     },
     {
       "value": "",
-      "label_ar": "تصميم",
-      "label_en": "Designs"
+      "source": "partners",
+      "icon": "link",
+      "label_ar": "شراكات إبداعية",
+      "label_en": "Creative partnerships"
     }
   ],
-  "about_ar": "أنا حسن سلمان من النجف. أبني الصورة من الفكرة حتى الإطار الأخير: أختار المشهد والضوء والعارضة، وأصنع بالذكاء الاصطناعي صوراً تبدو كجلسة تصوير حقيقية، مع الحفاظ على المنتج كما هو دون أي تحريف.",
-  "about_en": "I'm Hassan Salman, based in Najaf. I build an image from the idea to the final frame: I choose the scene, the light and the model, and use Artificial Intelligence to make pictures that look like a real photo shoot, while keeping the product exactly as it is.",
+  "about_ar": "أنا حسن سلمان من النجف. أبني الصورة من الفكرة حتى الإطار الأخير: أختار المشهد والضوء والعارضة، وأصنع بالذكاء الاصطناعي صوراً تبدو كجلسة تصوير حقيقية، مع الحفاظ على المنتج كما هو دون أي تحريف. وإلى جانب عملي الإبداعي، أنا ممرض جامعي في العناية المركزة.",
+  "about_en": "I'm Hassan Salman, based in Najaf. I build an image from the idea to the final frame: I choose the scene, the light and the model, and use Artificial Intelligence to make pictures that look like a real photo shoot, while keeping the product exactly as it is. Alongside my creative work, I am a university-qualified nurse in the Intensive Care Unit.",
   "experience": [
     {
-      "years": "",
-      "title_ar": "",
-      "title_en": "",
-      "place_ar": "",
-      "place_en": ""
+      "years": "4 سنوات",
+      "icon": "spark",
+      "title_ar": "مدير إبداعي بالذكاء الاصطناعي",
+      "title_en": "Artificial Intelligence Creative Director",
+      "place_ar": "عمل مستقل مع العلامات التجارية",
+      "place_en": "Independent, working with brands"
     },
     {
       "years": "",
-      "title_ar": "",
-      "title_en": "",
-      "place_ar": "",
-      "place_en": ""
+      "icon": "link",
+      "title_ar": "شريك إبداعي",
+      "title_en": "Creative partner",
+      "place_ar": "YouArt، Astorie AI، Reel AI",
+      "place_en": "YouArt, Astorie AI, Reel AI"
     },
     {
       "years": "",
-      "title_ar": "",
-      "title_en": "",
-      "place_ar": "",
-      "place_en": ""
+      "icon": "pulse",
+      "title_ar": "ممرض جامعي",
+      "title_en": "University-qualified nurse",
+      "place_ar": "العناية المركزة",
+      "place_en": "Intensive Care Unit"
     }
   ],
   "copyright_ar": "© جميع الحقوق محفوظة",
