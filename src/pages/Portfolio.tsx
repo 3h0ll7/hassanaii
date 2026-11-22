@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import type { Content, Project } from "@/portfolio/types";
+import type { Client, Content, Project } from "@/portfolio/types";
 import { UI } from "@/portfolio/ui";
 import "@/portfolio/portfolio.css";
 
@@ -55,11 +55,12 @@ const Icons = {
 
 /* ---------------- Lightbox ---------------- */
 
-const Lightbox = ({ project, title, onClose, labels }: {
+const Lightbox = ({ project, title, onClose, labels, brand }: {
   project: Project;
   title: string;
   onClose: () => void;
-  labels: { close: string; prev: string; next: string };
+  labels: { close: string; prev: string; next: string; store: string; instagram: string };
+  brand?: Client;
 }) => {
   const imgs = project.images?.length ? project.images : [{ src: project.cover }];
   const track = useRef<HTMLDivElement>(null);
@@ -95,6 +96,12 @@ const Lightbox = ({ project, title, onClose, labels }: {
     <div className="lightbox" role="dialog" aria-modal="true" aria-label={title} onKeyDown={onKey}>
       <div className="lightbox__top">
         <p className="lightbox__title">{title}</p>
+        {(brand?.store || brand?.link) && (
+          <div className="lightbox__links">
+            {brand.store && <a className="lightbox__link lightbox__link--gold" href={brand.store} target="_blank" rel="noopener noreferrer">{labels.store}</a>}
+            {brand.link && <a className="lightbox__link" href={brand.link} target="_blank" rel="noopener noreferrer">{labels.instagram}</a>}
+          </div>
+        )}
         <p className="lightbox__count" aria-live="polite">{index + 1} / {imgs.length}</p>
         <button ref={closeBtn} className="lightbox__close" type="button" aria-label={labels.close} onClick={onClose}>
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" /></svg>
@@ -429,7 +436,8 @@ const Portfolio = () => {
           project={projects[open]}
           title={t(projects[open], "title")}
           onClose={() => setOpen(null)}
-          labels={{ close: u.close, prev: u.prev, next: u.next }}
+          labels={{ close: u.close, prev: u.prev, next: u.next, store: u.store, instagram: u.instagram }}
+          brand={projects[open].brand ? clients.find((c) => c.name === projects[open].brand) : undefined}
         />
       )}
     </div>
