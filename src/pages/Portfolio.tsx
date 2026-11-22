@@ -681,10 +681,16 @@ const Portfolio = () => {
                     <a className="xp__link" href={data.videos.motion_link} target="_blank" rel="noopener noreferrer">{t(data.videos, "motion_link")} <Arrow /></a>
                   )}
                 </div>
+                {/* widescreen pieces first; on phones the vertical ones become a swipe row under them */}
                 <div className="videos__row videos__row--motion">
-                  {motionList.map((v, i) => (
+                  {motionList.map((v, i) => ({ v, i })).filter(({ v }) => ratioNum(v.ratio) >= 1).map(({ v, i }) => (
                     <VideoCard key={v.src} v={v} i={i} title={t(v, "title")} label={u.play} onOpen={() => setVideoOpen(adList.length + i)} />
                   ))}
+                  <div className="motion-tall">
+                    {motionList.map((v, i) => ({ v, i })).filter(({ v }) => ratioNum(v.ratio) < 1).map(({ v, i }) => (
+                      <VideoCard key={v.src} v={v} i={i} title={t(v, "title")} label={u.play} onOpen={() => setVideoOpen(adList.length + i)} />
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
