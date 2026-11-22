@@ -259,3 +259,6 @@ html[lang="en"] .pf .about__bio{line-height:1.6;max-width:46ch}
 .pf .marquee__item{flex:none;display:flex}
 .pf .foot__link{color:var(--mute);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line)}
 .pf .foot__link:hover{color:var(--ivory)}
+.pf a.logo{text-decoration:none;border-radius:999px}
+.pf a.logo:hover .logo__name{color:var(--ivory)}
+.pf .stats{margin-top:clamp(1rem,3vw,2rem)}

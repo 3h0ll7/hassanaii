@@ -59,6 +59,8 @@ export interface Project {
 export interface Client {
   name: string;
   logo: string;
+  /** The brand's Instagram or website; the logo links to it. */
+  link?: string;
 }
 
 export interface Work {

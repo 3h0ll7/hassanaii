@@ -294,27 +294,33 @@
   "clients": [
     {
       "name": "Qilada",
-      "logo": "/media/clients/qilada.webp"
+      "logo": "/media/clients/qilada.webp",
+      "link": "https://www.instagram.com/qilada.iq"
     },
     {
       "name": "VIRUS PERFUME",
-      "logo": "/media/clients/virus.webp"
+      "logo": "/media/clients/virus.webp",
+      "link": "https://www.instagram.com/virus.rip"
     },
     {
       "name": "Qissa",
-      "logo": "/media/clients/qissa.webp"
+      "logo": "/media/clients/qissa.webp",
+      "link": "https://www.instagram.com/qissa_stor"
     },
     {
       "name": "LUXSOUL",
-      "logo": "/media/clients/luxsoul.webp"
+      "logo": "/media/clients/luxsoul.webp",
+      "link": "https://www.instagram.com/luxsoul.iq"
     },
     {
       "name": "Aseels Jewelry",
-      "logo": "/media/clients/aseels.webp"
+      "logo": "/media/clients/aseels.webp",
+      "link": "https://www.instagram.com/aseels_jewelry"
     },
     {
       "name": "VIRO by VIRUS",
-      "logo": "/media/clients/viro.webp"
+      "logo": "/media/clients/viro.webp",
+      "link": "https://www.instagram.com/viroo.iq"
     }
   ]
 }

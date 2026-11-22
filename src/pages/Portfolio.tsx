@@ -23,8 +23,10 @@ const Marquee = ({ items, seconds, reverse = false }: { items: ReactNode[]; seco
   return (
     <div className={`marquee${reverse ? " marquee--rev" : ""}`} style={{ ["--dur" as string]: `${seconds}s` }}>
       <div className="marquee__track">
-        {base.map((it, i) => <div key={`a${i}`} className="marquee__item">{it}</div>)}
-        {base.map((it, i) => <div key={`b${i}`} className="marquee__item dup" aria-hidden="true">{it}</div>)}
+        {base.map((it, i) => i < items.length
+          ? <div key={`a${i}`} className="marquee__item">{it}</div>
+          : <div key={`a${i}`} className="marquee__item" aria-hidden="true" {...{ inert: "" }}>{it}</div>)}
+        {base.map((it, i) => <div key={`b${i}`} className="marquee__item dup" aria-hidden="true" {...{ inert: "" }}>{it}</div>)}
       </div>
     </div>
   );
@@ -276,14 +278,13 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* 2. Stats */}
-        <section className="stats" aria-label={u.navAbout}>
-          {s.stats.map((st, i) => (
-            <div className="stat" key={i}>
-              <span className="stat__value">{st.value || <Ph>—</Ph>}</span>
-              <span className="stat__label">{t(st, "label")}</span>
-            </div>
-          ))}
+
+        {/* Posters: straight after the hero, the work speaks first */}
+        <section className="posters" aria-label={u.postersTitle}>
+          <Marquee
+            seconds={70}
+            items={posters.map((p, i) => <div className="poster" key={i}><img src={p.src} alt="" loading="lazy" /></div>)}
+          />
         </section>
 
         {/* 3. Clients */}
@@ -293,13 +294,14 @@ const Portfolio = () => {
             <div className="clients__rows">
               <Marquee
                 seconds={36}
-                items={clients.map((c, i) => (
-                  <div className="logo" key={i}>
-                    {c.logo
-                      ? <><img src={c.logo} alt="" loading="lazy" /><span className="logo__name">{c.name}</span></>
-                      : c.name ? <span className="logo__name">{c.name}</span> : <Ph>{u.ph.logo}</Ph>}
-                  </div>
-                ))}
+                items={clients.map((c, i) => {
+                  const inner = c.logo
+                    ? <><img src={c.logo} alt="" loading="lazy" /><span className="logo__name">{c.name}</span></>
+                    : c.name ? <span className="logo__name">{c.name}</span> : <Ph>{u.ph.logo}</Ph>;
+                  return c.link
+                    ? <a className="logo" key={i} href={c.link} target="_blank" rel="noopener noreferrer">{inner}</a>
+                    : <div className="logo" key={i}>{inner}</div>;
+                })}
               />
             </div>
           </section>
@@ -340,12 +342,14 @@ const Portfolio = () => {
           {visible.length === 0 && <p className="work__empty">{u.empty}</p>}
         </section>
 
-        {/* 5. Posters */}
-        <section className="posters" aria-label={u.postersTitle}>
-          <Marquee
-            seconds={70}
-            items={posters.map((p, i) => <div className="poster" key={i}><img src={p.src} alt="" loading="lazy" /></div>)}
-          />
+        {/* Stats: after the work, where they back it up */}
+        <section className="stats" aria-label={u.navAbout}>
+          {s.stats.map((st, i) => (
+            <div className="stat" key={i}>
+              <span className="stat__value">{st.value || <Ph>—</Ph>}</span>
+              <span className="stat__label">{t(st, "label")}</span>
+            </div>
+          ))}
         </section>
 
         {/* 6. Services */}
