@@ -42,6 +42,8 @@ collections:
             widget: list
             fields:
               - { name: value, label: الرقم (اتركه فارغاً إذا لم يكن جاهزاً), widget: string, required: false }
+              - { name: source, label: احسبه تلقائياً من, widget: select, required: false, default: "", options: [{ label: لا — استخدم الرقم المكتوب, value: "" }, { label: عدد العملاء, value: clients }, { label: عدد المشاريع, value: projects }, { label: عدد الشراكات, value: partners }] }
+              - { name: icon, label: الأيقونة, widget: select, required: false, options: [time, brand, frame, link, spark, pulse] }
               - { name: label_ar, label: الوصف بالعربي, widget: string }
               - { name: label_en, label: الوصف بالإنجليزي, widget: string }
           - { name: about_ar, label: نبذة عني بالعربي, widget: text }
@@ -51,6 +53,7 @@ collections:
             widget: list
             fields:
               - { name: years, label: السنوات (مثال 2022 – الآن), widget: string, required: false }
+              - { name: icon, label: الأيقونة, widget: select, required: false, options: [spark, link, pulse, time, brand, frame] }
               - { name: title_ar, label: المسمّى بالعربي, widget: string, required: false }
               - { name: title_en, label: المسمّى بالإنجليزي, widget: string, required: false }
               - { name: place_ar, label: الجهة بالعربي, widget: string, required: false }

@@ -2,12 +2,16 @@
 
 export interface Stat {
   value: string;
+  /** Count it from the site's own lists instead of typing it. */
+  source?: "" | "clients" | "projects" | "partners";
+  icon?: string;
   label_ar: string;
   label_en: string;
 }
 
 export interface Experience {
   years: string;
+  icon?: string;
   title_ar: string;
   title_en: string;
   place_ar: string;
