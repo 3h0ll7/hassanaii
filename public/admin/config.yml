@@ -32,9 +32,10 @@ collections:
           - { name: photo, label: صورتك في الواجهة (يفضل PNG بخلفية شفافة), widget: image, required: false }
           - { name: about_photo, label: صورتك في قسم عني, widget: image, required: false }
           - { name: contact_photo, label: صورة خلفية قسم التواصل, widget: image, required: false }
-          - { name: whatsapp, label: رقم الواتساب مع رمز الدولة (مثال 9647XXXXXXXXX), widget: string, required: false }
+          - { name: whatsapp, label: رقم الواتساب مع رمز الدولة (اختياري — يظهر فقط إذا كُتب), widget: string, required: false }
           - { name: phone, label: رقم الاتصال, widget: string, required: false }
-          - { name: instagram, label: حساب إنستغرام (بدون @), widget: string, required: false }
+          - { name: instagram, label: حساب إنستغرام (بدون @) — زر التواصل الرئيسي, widget: string, required: false }
+          - { name: github, label: رابط GitHub, widget: string, required: false }
           - { name: behance, label: رابط بيهانس أو أي رابط آخر, widget: string, required: false }
           - name: stats
             label: شريط الأرقام

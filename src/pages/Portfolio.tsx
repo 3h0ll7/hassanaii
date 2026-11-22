@@ -48,6 +48,9 @@ const Icons = {
   ig: (
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.6" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.6" /><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" /></svg>
   ),
+  gh: (
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z" /></svg>
+  ),
   be: (
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8.2 11.4c.8-.4 1.3-1.1 1.3-2.1C9.5 7.3 8 6.5 6 6.5H1.5v11H6.3c2 0 3.8-1 3.8-3.2 0-1.4-.7-2.5-1.9-2.9ZM3.9 8.4h1.8c.7 0 1.4.2 1.4 1s-.5 1.1-1.3 1.1H3.9V8.4Zm2 7.2h-2v-2.6h2.1c.9 0 1.5.4 1.5 1.3s-.7 1.3-1.6 1.3ZM18.9 9.2c-2.6 0-4.3 1.9-4.3 4.3 0 2.5 1.6 4.3 4.3 4.3 2 0 3.3-.9 4-2.8h-2.1c-.2.7-1.1 1.1-1.8 1.1-1.3 0-2-.8-2-2h6c.2-2.6-1.3-4.9-4.1-4.9Zm-1.9 3.4c.1-1 .8-1.7 1.9-1.7s1.6.6 1.8 1.7H17ZM16.4 6.9h4.8v1.2h-4.8z" /></svg>
   ),
@@ -241,12 +244,14 @@ const Portfolio = () => {
   const digits = (v: string) => String(v).replace(/[^\d+]/g, "");
   const ig = s.instagram?.replace(/^@/, "");
 
+  // Instagram is the main way to reach Hassan. WhatsApp, phone and Behance appear only once filled in.
   const contactItems = [
-    { href: s.whatsapp && `https://wa.me/${digits(s.whatsapp).replace(/^\+/, "")}`, label: u.whatsapp, icon: Icons.wa, sub: s.whatsapp, missing: !s.whatsapp && u.ph.whatsapp, primary: true },
-    { href: s.phone && `tel:${digits(s.phone)}`, label: u.call, icon: Icons.call, sub: s.phone, missing: !s.phone && u.ph.phone },
-    { href: ig && `https://instagram.com/${ig}`, label: u.instagram, icon: Icons.ig, sub: ig && `@${ig}`, missing: !ig && "@" },
-    { href: s.behance, label: u.behance, icon: Icons.be, sub: "", missing: !s.behance && u.ph.behance },
-  ];
+    { href: ig && `https://ig.me/m/${ig}`, label: u.dm, icon: Icons.ig, sub: ig && `@${ig}`, primary: true, show: !!ig },
+    { href: s.github, label: u.github, icon: Icons.gh, sub: s.github?.replace(/^https?:\/\/(www\.)?/, ""), show: !!s.github },
+    { href: s.whatsapp && `https://wa.me/${digits(s.whatsapp).replace(/^\+/, "")}`, label: u.whatsapp, icon: Icons.wa, sub: s.whatsapp, show: !!s.whatsapp },
+    { href: s.phone && `tel:${digits(s.phone)}`, label: u.call, icon: Icons.call, sub: s.phone, show: !!s.phone },
+    { href: s.behance, label: u.behance, icon: Icons.be, sub: "", show: !!s.behance },
+  ].filter((c) => c.show);
 
   const activeFilter = cats.some((c) => c.id === filter) ? filter : "all";
   const visible = projects.map((p, i) => ({ p, i })).filter(({ p }) => activeFilter === "all" || p.category === activeFilter);
@@ -461,12 +466,11 @@ const Portfolio = () => {
           <div className="contact__links" data-reveal>
             {contactItems.map((c) => (
               <div className="contact__item" key={c.label}>
-                {c.href && !c.missing
-                  ? <a className={`btn ${c.primary ? "btn--gold" : "btn--line"}`} href={c.href} target="_blank" rel="noopener noreferrer">{c.icon}{c.label}</a>
-                  : <span className={`btn ${c.primary ? "btn--gold" : "btn--line"}`} aria-disabled="true">{c.icon}{c.label}</span>}
-                {c.missing ? <Ph>{c.missing}</Ph> : c.sub ? <small>{c.sub}</small> : null}
+                <a className={`btn ${c.primary ? "btn--gold" : "btn--line"}`} href={c.href} target="_blank" rel="noopener noreferrer">{c.icon}{c.label}</a>
+                {c.sub ? <small>{c.sub}</small> : null}
               </div>
             ))}
+            {contactItems.length === 0 && <Ph>{u.ph.whatsapp}</Ph>}
           </div>
         </section>
       </main>
@@ -474,7 +478,11 @@ const Portfolio = () => {
       {/* 9. Footer */}
       <footer className="foot">
         <span>{t(s, "name")}</span>
-        <Link to="/space" className="foot__link">{u.apps}</Link>
+        <span className="foot__links">
+          {ig && <a className="foot__link" href={`https://instagram.com/${ig}`} target="_blank" rel="noopener noreferrer">{u.instagram} <bdi dir="ltr">@{ig}</bdi></a>}
+          {s.github && <a className="foot__link" href={s.github} target="_blank" rel="noopener noreferrer">{u.github}</a>}
+          <Link to="/space" className="foot__link">{u.apps}</Link>
+        </span>
         <span>{t(s, "copyright")} {new Date().getFullYear()}</span>
       </footer>
 
