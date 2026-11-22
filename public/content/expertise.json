@@ -1,0 +1,75 @@
+{
+  "intro_ar": "أعمل يومياً مع أحدث نماذج الذكاء الاصطناعي: أكتب وأخطط مع النماذج اللغوية، وأولّد الصور والفيديو بأغلب نماذج التوليد، وأبني المواقع والتطبيقات بنفسي.",
+  "intro_en": "I work with the newest Artificial Intelligence models every day: I write and plan with language models, generate images and video with most generation models, and build websites and apps myself.",
+  "groups": [
+    {
+      "title_ar": "النماذج اللغوية",
+      "title_en": "Language models",
+      "text_ar": "أكتب الأفكار والسيناريوهات وبريفات الحملات، وأبني أنظمة عمل كاملة مع Claude وبقية النماذج.",
+      "text_en": "I write ideas, scripts and campaign briefs, and build complete workflows with Claude and other models.",
+      "tools": "Claude, ChatGPT, Gemini",
+      "image": "/media/expertise/language-models.webp",
+      "link": "",
+      "link_ar": "",
+      "link_en": ""
+    },
+    {
+      "title_ar": "توليد الفيديو",
+      "title_en": "Video generation",
+      "text_ar": "إعلانات وأفلام قصيرة بإضاءة وحركة كاميرا سينمائية، بأغلب نماذج الفيديو.",
+      "text_en": "Ads and short films with cinematic lighting and camera movement, using most video models.",
+      "tools": "Seedance 2.5, Kling 4.0, MiniMax H3, Veo 3, Runway, Luma AI, Higgsfield",
+      "image": "/media/expertise/video-generation.webp",
+      "link": "",
+      "link_ar": "",
+      "link_en": ""
+    },
+    {
+      "title_ar": "توليد الصور",
+      "title_en": "Image generation",
+      "text_ar": "صور منتجات وحملات تبدو كجلسة تصوير حقيقية، مع الحفاظ على المنتج كما هو.",
+      "text_en": "Product and campaign images that look like a real shoot, with the product kept exactly as it is.",
+      "tools": "Nano Banana 2.1, Midjourney, Seedream 5 Pro, GPT Image, Adobe Firefly",
+      "image": "/media/expertise/image-generation.webp",
+      "link": "",
+      "link_ar": "",
+      "link_en": ""
+    },
+    {
+      "title_ar": "البرمجة بالذكاء الاصطناعي (Vibe coding)‏",
+      "title_en": "Vibe coding",
+      "text_ar": "أبني مواقع وتطبيقات كاملة بالذكاء الاصطناعي، ومنها هذا الموقع.",
+      "text_en": "I build complete websites and apps with Artificial Intelligence, this site included.",
+      "tools": "Claude Code, Lovable, React, Supabase",
+      "image": "/media/expertise/vibe-coding.webp",
+      "link": "/space",
+      "link_ar": "شاهد مشاريعي التقنية",
+      "link_en": "See my tech projects"
+    }
+  ],
+  "partners_title_ar": "شريك إبداعي في",
+  "partners_title_en": "Creative partner at",
+  "partners_text_ar": "أصنع محتوى ترويجياً لمنصات ذكاء اصطناعي ضمن برامج الشركاء الإبداعيين.",
+  "partners_text_en": "I create promotional content for Artificial Intelligence platforms through their creative partner programs.",
+  "partners_image": "/media/expertise/partnerships.webp",
+  "partners": [
+    {
+      "name": "YouArt",
+      "note_ar": "شريك إبداعي (CPP) وشريك تسويق",
+      "note_en": "Creative Partner Program member and affiliate",
+      "link": "https://youart.ai/creator/hassan"
+    },
+    {
+      "name": "Astorie AI",
+      "note_ar": "",
+      "note_en": "",
+      "link": "https://astorie.ai"
+    },
+    {
+      "name": "Reel AI",
+      "note_ar": "",
+      "note_en": "",
+      "link": ""
+    }
+  ]
+}

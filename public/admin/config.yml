@@ -138,3 +138,42 @@ collections:
                   - { label: حملات إعلانية, value: campaign }
                   - { label: سوشيال ميديا, value: social }
                   - { label: فيديو وموشن, value: video }
+
+      # ---------------- خبرتي بالذكاء الاصطناعي ----------------
+      - name: expertise
+        label: خبرتي بالذكاء الاصطناعي
+        file: public/content/expertise.json
+        format: json
+        fields:
+          - { name: intro_ar, label: المقدمة بالعربي, widget: text }
+          - { name: intro_en, label: المقدمة بالإنجليزي, widget: text }
+          - name: groups
+            label: المجالات
+            label_singular: مجال
+            widget: list
+            summary: "{{fields.title_ar}}"
+            fields:
+              - { name: title_ar, label: العنوان بالعربي, widget: string }
+              - { name: title_en, label: العنوان بالإنجليزي, widget: string }
+              - { name: text_ar, label: سطر قصير بالعربي, widget: text }
+              - { name: text_en, label: سطر قصير بالإنجليزي, widget: text }
+              - { name: tools, label: الأدوات (افصل بينها بفاصلة), widget: string }
+              - { name: image, label: الصورة, widget: image }
+              - { name: link, label: رابط (اختياري), widget: string, required: false }
+              - { name: link_ar, label: نص الرابط بالعربي, widget: string, required: false }
+              - { name: link_en, label: نص الرابط بالإنجليزي, widget: string, required: false }
+          - { name: partners_title_ar, label: عنوان الشراكات بالعربي, widget: string }
+          - { name: partners_title_en, label: عنوان الشراكات بالإنجليزي, widget: string }
+          - { name: partners_text_ar, label: سطر الشراكات بالعربي, widget: text }
+          - { name: partners_text_en, label: سطر الشراكات بالإنجليزي, widget: text }
+          - { name: partners_image, label: صورة الشراكات, widget: image }
+          - name: partners
+            label: الشركاء
+            label_singular: شريك
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: الاسم, widget: string }
+              - { name: note_ar, label: نوع الشراكة بالعربي, widget: string, required: false }
+              - { name: note_en, label: نوع الشراكة بالإنجليزي, widget: string, required: false }
+              - { name: link, label: الرابط, widget: string, required: false }

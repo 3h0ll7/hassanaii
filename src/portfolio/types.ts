@@ -80,8 +80,41 @@ export interface Service {
   category: string;
 }
 
+export interface ExpertiseGroup {
+  title_ar: string;
+  title_en: string;
+  text_ar: string;
+  text_en: string;
+  /** Comma-separated tool names, shown as chips. */
+  tools: string;
+  image: string;
+  link?: string;
+  link_ar?: string;
+  link_en?: string;
+}
+
+export interface Partner {
+  name: string;
+  note_ar?: string;
+  note_en?: string;
+  link?: string;
+}
+
+export interface Expertise {
+  intro_ar: string;
+  intro_en: string;
+  groups: ExpertiseGroup[];
+  partners_title_ar: string;
+  partners_title_en: string;
+  partners_text_ar: string;
+  partners_text_en: string;
+  partners_image: string;
+  partners: Partner[];
+}
+
 export interface Content {
   settings: Settings;
   work: Work;
   services: Service[];
+  expertise: Expertise;
 }
