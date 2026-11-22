@@ -301,18 +301,48 @@
       ]
     },
     {
-      "title_ar": "كولاج الغزال",
-      "title_en": "The fawn collage",
-      "brand": "",
+      "title_ar": "كرييتف كولاج",
+      "title_en": "Creative collage",
+      "brand": "Qilada، Qissa",
       "category": "social",
-      "summary_ar": "كولاج ثلاثي يربط قلادة الغزال بالغزال وزهر الزنبق بخيط لوني واحد.",
-      "summary_en": "A three-band collage tying the fawn necklace to a fawn and lilies with one colour thread.",
-      "cover": "/media/work/jewelry-deer-collage.webp",
+      "summary_ar": "كل الكولاجات في مكان واحد: عبّاد الشمس بحواف الورق الممزّق، والقهوة والعباءة، والرمان والسجاد، والزنبق الوردي، والغزال.",
+      "summary_en": "All the collages in one place: sunflowers with torn-paper edges, coffee and an embroidered abaya, pomegranates and carpets, pink lilies, and the fawn.",
+      "cover": "/media/work/qilada-sun-collage.webp",
       "focus": "50% 50%",
       "images": [
         {
-          "src": "/media/work/jewelry-deer-collage.webp"
+          "src": "/media/work/qilada-sun-collage.webp",
+          "caption_ar": "قلادة — قلادة الشمس",
+          "caption_en": "Qilada — the sun necklace"
+        },
+        {
+          "src": "/media/work/qissa-coffee-collage.webp",
+          "caption_ar": "قصة — قلادات الأسماء",
+          "caption_en": "Qissa — name necklaces"
+        },
+        {
+          "src": "/media/work/qissa-pomegranate-collage.webp",
+          "caption_ar": "قصة — قلادات الأسماء",
+          "caption_en": "Qissa — name necklaces"
+        },
+        {
+          "src": "/media/work/qilada-seasons-pink-collage.webp",
+          "caption_ar": "قلادة — قلادات الفصول",
+          "caption_en": "Qilada — the seasons necklaces"
+        },
+        {
+          "src": "/media/work/qilada-fawn-collage.webp",
+          "caption_ar": "قلادة — الغزال",
+          "caption_en": "Qilada — the fawn"
+        },
+        {
+          "src": "/media/work/jewelry-deer-collage.webp",
+          "caption_ar": "الغزال والزنبق",
+          "caption_en": "The fawn and lilies"
         }
+      ],
+      "tags": [
+        "campaign"
       ]
     }
   ],
