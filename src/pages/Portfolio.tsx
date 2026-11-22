@@ -122,6 +122,11 @@ const RotatingWords = ({ words }: { words: readonly string[] }) => {
 
 /* ---------------- Videos ---------------- */
 
+const ratioNum = (r?: string) => {
+  const [w, h] = (r || "9/16").split("/").map(Number);
+  return w && h ? w / h : 9 / 16;
+};
+
 /* Plays its silent loop only while it is on screen, and never for reduced motion or data saver. */
 const VideoCard = ({ v, title, label, onOpen, i }: { v: Video; title: string; label: string; onOpen: () => void; i: number }) => {
   const ref = useRef<HTMLVideoElement>(null);
@@ -138,14 +143,15 @@ const VideoCard = ({ v, title, label, onOpen, i }: { v: Video; title: string; la
     return () => io.disconnect();
   }, []);
   return (
-    <button type="button" className={`vcard${playing ? " is-playing" : ""}`} onClick={onOpen} data-reveal style={{ "--i": i } as React.CSSProperties}>
-      <span className="vcard__media">
+    <button type="button" className={`vcard${playing ? " is-playing" : ""}`} onClick={onOpen} data-reveal
+      style={{ "--i": i, "--r": ratioNum(v.ratio) } as React.CSSProperties}>
+      <span className="vcard__media" style={{ aspectRatio: v.ratio || "9/16" }}>
         <img src={v.poster} alt="" loading="lazy" />
         <video ref={ref} src={v.loop} muted loop playsInline preload="none" aria-hidden="true" tabIndex={-1} />
         <span className="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5Z" fill="currentColor" /></svg></span>
       </span>
       <span className="vcard__info">
-        <span className="vcard__brand"><bdi>{v.brand}</bdi></span>
+        {v.brand && <span className="vcard__brand"><bdi>{v.brand}</bdi></span>}
         <span className="vcard__title">{title}</span>
       </span>
       <span className="sr-only">{label}</span>
@@ -196,7 +202,7 @@ const VideoViewer = ({ videos, index, setIndex, titleOf, onClose, labels, client
       </div>
       <div className="vviewer__stage">
         <button type="button" className="vviewer__nav vviewer__nav--prev" onClick={() => setIndex((index - 1 + videos.length) % videos.length)} aria-label={labels.prev}><Arrow /></button>
-        <video key={v.src} className="vviewer__video" src={v.src} poster={v.poster} controls autoPlay playsInline />
+        <video key={v.src} className="vviewer__video" style={{ aspectRatio: v.ratio || "9/16" }} src={v.src} poster={v.poster} controls autoPlay playsInline />
         <button type="button" className="vviewer__nav vviewer__nav--next" onClick={() => setIndex((index + 1) % videos.length)} aria-label={labels.next}><Arrow /></button>
       </div>
       <div className="vviewer__count" aria-live="polite"><bdi dir="ltr">{index + 1} / {videos.length}</bdi></div>
@@ -413,7 +419,9 @@ const Portfolio = () => {
 
   const s = data.settings;
   const { projects, posters, clients } = data.work;
-  const videoList = data.videos?.videos || [];
+  const adList = data.videos?.videos || [];
+  const motionList = data.videos?.motion || [];
+  const videoList = [...adList, ...motionList];
   const catLabel = (id: string) => t(data.work.categories.find((c) => c.id === id), "label");
   const inCat = (p: Project, id: string) => p.category === id || !!p.tags?.includes(id);
   const hasWork = (id: string) => projects.some((p) => inCat(p, id));
@@ -594,7 +602,9 @@ const Portfolio = () => {
                     {g.tools.split(",").map((tool) => tool.trim()).filter(Boolean).map((tool) => <li key={tool}>{tool}</li>)}
                   </ul>
                   {g.link && t(g, "link") && (
-                    g.link.startsWith("/")
+                    g.link.startsWith("#")
+                      ? <a className="xp__link" href={g.link} onClick={(e) => { e.preventDefault(); scrollTo(g.link.slice(1)); }}>{t(g, "link")} <Arrow /></a>
+                      : g.link.startsWith("/")
                       ? <Link className="xp__link" to={g.link}>{t(g, "link")} <Arrow /></Link>
                       : <a className="xp__link" href={g.link} target="_blank" rel="noopener noreferrer">{t(g, "link")} <Arrow /></a>
                   )}
@@ -658,10 +668,26 @@ const Portfolio = () => {
               {t(data.videos, "intro") && <p className="videos__intro">{t(data.videos, "intro")}</p>}
             </div>
             <div className="videos__row">
-              {videoList.map((v, i) => (
+              {adList.map((v, i) => (
                 <VideoCard key={v.src} v={v} i={i} title={t(v, "title")} label={u.play} onOpen={() => setVideoOpen(i)} />
               ))}
             </div>
+            {motionList.length > 0 && (
+              <div className="videos__motion" id="motion">
+                <div className="videos__subhead" data-reveal>
+                  <h3>{t(data.videos, "motion_title")}</h3>
+                  {t(data.videos, "motion_intro") && <p className="videos__intro">{t(data.videos, "motion_intro")}</p>}
+                  {data.videos?.motion_link && t(data.videos, "motion_link") && (
+                    <a className="xp__link" href={data.videos.motion_link} target="_blank" rel="noopener noreferrer">{t(data.videos, "motion_link")} <Arrow /></a>
+                  )}
+                </div>
+                <div className="videos__row videos__row--motion">
+                  {motionList.map((v, i) => (
+                    <VideoCard key={v.src} v={v} i={i} title={t(v, "title")} label={u.play} onOpen={() => setVideoOpen(adList.length + i)} />
+                  ))}
+                </div>
+              </div>
+            )}
           </section>
         )}
 

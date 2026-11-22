@@ -52,5 +52,32 @@
       "loop": "/media/video/viro-mousse-loop.mp4",
       "src": "/media/video/viro-mousse.mp4"
     }
+  ],
+  "motion_title_ar": "موشن ديزاين",
+  "motion_title_en": "Motion design",
+  "motion_intro_ar": "فيديوهات موشن ديزاين: إعلان منتجات بنصوص عربية وأسعار متحركة، ومونتاج سريع على إيقاع الموسيقى.",
+  "motion_intro_en": "Motion design videos: a product ad with animated Arabic type and prices, and a fast cut timed to the music.",
+  "motion_link": "https://claude.ai/artifact/NH9dBfJFzXC7BmmrP5NAmj",
+  "motion_link_ar": "الأدوات التي أستخدمها في الموشن",
+  "motion_link_en": "The tools I use for motion",
+  "motion": [
+    {
+      "brand": "",
+      "title_ar": "هايبركت",
+      "title_en": "Hypercut",
+      "ratio": "16/9",
+      "poster": "/media/video/hypercut.webp",
+      "loop": "/media/video/hypercut-loop.mp4",
+      "src": "/media/video/hypercut.mp4"
+    },
+    {
+      "brand": "VIRUS PERFUME",
+      "title_ar": "بطاقات عطور فايروس",
+      "title_en": "VIRUS perfume cards",
+      "ratio": "9/16",
+      "poster": "/media/video/virus-motion.webp",
+      "loop": "/media/video/virus-motion-loop.mp4",
+      "src": "/media/video/virus-motion.mp4"
+    }
   ]
 }
