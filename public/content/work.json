@@ -295,12 +295,14 @@
     {
       "name": "Qilada",
       "logo": "/media/clients/qilada.webp",
-      "link": "https://www.instagram.com/qilada.iq"
+      "link": "https://www.instagram.com/qilada.iq",
+      "store": "https://qlada.rozenama.store/"
     },
     {
       "name": "VIRUS PERFUME",
       "logo": "/media/clients/virus.webp",
-      "link": "https://www.instagram.com/virus.rip"
+      "link": "https://www.instagram.com/virus.rip",
+      "store": "https://iqvirus.com/"
     },
     {
       "name": "Qissa",

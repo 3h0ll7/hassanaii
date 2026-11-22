@@ -61,6 +61,8 @@ export interface Client {
   logo: string;
   /** The brand's Instagram or website; the logo links to it. */
   link?: string;
+  /** The brand's online store, shown in the viewer of its projects. */
+  store?: string;
 }
 
 export interface Work {

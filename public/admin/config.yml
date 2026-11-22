@@ -111,6 +111,7 @@ collections:
               - { name: name, label: اسم العميل, widget: string, required: false }
               - { name: logo, label: اللوكو (PNG أو SVG بخلفية شفافة), widget: image, required: false }
               - { name: link, label: رابط حساب البراند (إنستغرام أو موقع), widget: string, required: false }
+              - { name: store, label: رابط متجر البراند (يظهر في عارض أعماله), widget: string, required: false }
 
       # ---------------- الخدمات ----------------
       - name: services

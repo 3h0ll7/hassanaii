@@ -262,3 +262,18 @@ html[lang="en"] .pf .about__bio{line-height:1.6;max-width:46ch}
 .pf a.logo{text-decoration:none;border-radius:999px}
 .pf a.logo:hover .logo__name{color:var(--ivory)}
 .pf .stats{margin-top:clamp(1rem,3vw,2rem)}
+.pf .lightbox__top{flex-wrap:wrap}
+.pf .lightbox__links{display:flex;gap:.5rem;order:3;flex-basis:100%}
+.pf .lightbox__title{flex:0 1 auto}
+.pf .lightbox__count{margin-inline-start:auto}
+@media (min-width:700px){
+  .pf .lightbox__links{order:0;flex-basis:auto;margin-inline-end:auto}
+  .pf .lightbox__count{margin-inline-start:0}
+}
+.pf .lightbox__link{
+  display:inline-flex;align-items:center;min-height:36px;padding:.3rem .9rem;border-radius:999px;
+  border:1px solid var(--line);font-size:.85rem;text-decoration:none;color:var(--ivory);white-space:nowrap;
+}
+.pf .lightbox__link:hover{border-color:var(--ivory)}
+.pf .lightbox__link--gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.pf .lightbox__link--gold:hover{background:var(--ivory);border-color:var(--ivory)}
