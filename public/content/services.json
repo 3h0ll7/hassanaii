@@ -1,0 +1,39 @@
+{
+  "services": [
+    {
+      "title_ar": "تصوير منتجات بالذكاء الاصطناعي",
+      "title_en": "Artificial Intelligence product photography",
+      "text_ar": "صورة إعلانية لمنتجك في مشهد جديد، والمنتج يبقى كما هو بالضبط.",
+      "text_en": "Your product in a new advertising scene, kept exactly as it is.",
+      "category": "product"
+    },
+    {
+      "title_ar": "حملات بعارضات",
+      "title_en": "Campaigns with models",
+      "text_ar": "عارضة ثابتة لعلامتك تظهر في كل الحملات بنفس الملامح.",
+      "text_en": "A consistent model for your brand, the same face across every campaign.",
+      "category": "campaign"
+    },
+    {
+      "title_ar": "هويات وتغليف",
+      "title_en": "Identity & packaging",
+      "text_ar": "شعار، أكياس، صناديق وأشرطة تتكلم بلغة واحدة.",
+      "text_en": "Logo, bags, boxes and ribbons that speak one language.",
+      "category": "identity"
+    },
+    {
+      "title_ar": "محتوى سوشيال ميديا",
+      "title_en": "Social media content",
+      "text_ar": "كولاجات، كاروسيلات وشخصيات تجعل حسابك مميزاً.",
+      "text_en": "Collages, carousels and characters that make your account stand out.",
+      "category": "social"
+    },
+    {
+      "title_ar": "إعلانات فيديو سينمائية",
+      "title_en": "Cinematic video ads",
+      "text_ar": "إعلانات قصيرة بإضاءة وحركة كاميرا سينمائية.",
+      "text_en": "Short ads with cinematic lighting and camera movement.",
+      "category": "video"
+    }
+  ]
+}

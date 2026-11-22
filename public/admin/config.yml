@@ -1,0 +1,138 @@
+# لوحة التحكم (Sveltia CMS) — كل حفظ يصبح commit في المستودع.
+backend:
+  name: github
+  repo: 3h0ll7/hassanaii
+  branch: main
+  commit_messages:
+    update: "تحديث {{slug}} من لوحة التحكم"
+
+media_folder: public/media/uploads
+public_folder: /media/uploads
+
+collections:
+  - name: site
+    label: محتوى الموقع
+    editor: { preview: false }
+    files:
+
+      # ---------------- الإعدادات ----------------
+      - name: settings
+        label: الواجهة والتواصل وعني
+        file: public/content/settings.json
+        format: json
+        fields:
+          - { name: name_ar, label: الاسم بالعربي, widget: string }
+          - { name: name_en, label: الاسم بالإنجليزي, widget: string }
+          - { name: role_ar, label: المسمّى بالعربي, widget: string }
+          - { name: role_en, label: المسمّى بالإنجليزي, widget: string }
+          - { name: city_ar, label: المدينة بالعربي, widget: string }
+          - { name: city_en, label: المدينة بالإنجليزي, widget: string }
+          - { name: headline_ar, label: جملة الواجهة بالعربي, widget: text }
+          - { name: headline_en, label: جملة الواجهة بالإنجليزي, widget: text }
+          - { name: photo, label: صورتك في الواجهة (يفضل PNG بخلفية شفافة), widget: image, required: false }
+          - { name: about_photo, label: صورتك في قسم عني, widget: image, required: false }
+          - { name: contact_photo, label: صورة خلفية قسم التواصل, widget: image, required: false }
+          - { name: whatsapp, label: رقم الواتساب مع رمز الدولة (مثال 9647XXXXXXXXX), widget: string, required: false }
+          - { name: phone, label: رقم الاتصال, widget: string, required: false }
+          - { name: instagram, label: حساب إنستغرام (بدون @), widget: string, required: false }
+          - { name: behance, label: رابط بيهانس أو أي رابط آخر, widget: string, required: false }
+          - name: stats
+            label: شريط الأرقام
+            widget: list
+            fields:
+              - { name: value, label: الرقم (اتركه فارغاً إذا لم يكن جاهزاً), widget: string, required: false }
+              - { name: label_ar, label: الوصف بالعربي, widget: string }
+              - { name: label_en, label: الوصف بالإنجليزي, widget: string }
+          - { name: about_ar, label: نبذة عني بالعربي, widget: text }
+          - { name: about_en, label: نبذة عني بالإنجليزي, widget: text }
+          - name: experience
+            label: الخبرات
+            widget: list
+            fields:
+              - { name: years, label: السنوات (مثال 2022 – الآن), widget: string, required: false }
+              - { name: title_ar, label: المسمّى بالعربي, widget: string, required: false }
+              - { name: title_en, label: المسمّى بالإنجليزي, widget: string, required: false }
+              - { name: place_ar, label: الجهة بالعربي, widget: string, required: false }
+              - { name: place_en, label: الجهة بالإنجليزي, widget: string, required: false }
+          - { name: copyright_ar, label: نص الحقوق بالعربي, widget: string }
+          - { name: copyright_en, label: نص الحقوق بالإنجليزي, widget: string }
+
+      # ---------------- الأعمال ----------------
+      - name: work
+        label: الأعمال والبوسترات والعملاء
+        file: public/content/work.json
+        format: json
+        fields:
+          - name: categories
+            label: أنواع الأعمال (أسماء الفلتر)
+            widget: list
+            allow_add: false
+            fields:
+              - { name: id, label: المعرّف (لا تغيّره), widget: hidden }
+              - { name: label_ar, label: الاسم بالعربي, widget: string }
+              - { name: label_en, label: الاسم بالإنجليزي, widget: string }
+          - name: projects
+            label: المشاريع
+            label_singular: مشروع
+            widget: list
+            summary: "{{fields.title_ar}}"
+            fields:
+              - { name: title_ar, label: العنوان بالعربي, widget: string }
+              - { name: title_en, label: العنوان بالإنجليزي, widget: string }
+              - { name: brand, label: اسم العلامة, widget: string, required: false }
+              - name: category
+                label: النوع
+                widget: select
+                options:
+                  - { label: هويات وتغليف, value: identity }
+                  - { label: تصوير منتجات, value: product }
+                  - { label: حملات إعلانية, value: campaign }
+                  - { label: سوشيال ميديا, value: social }
+                  - { label: فيديو وموشن, value: video }
+              - { name: summary_ar, label: وصف قصير بالعربي, widget: text }
+              - { name: summary_en, label: وصف قصير بالإنجليزي, widget: text }
+              - { name: cover, label: صورة الغلاف (تُقص بقياس غلاف فيسبوك), widget: image }
+              - { name: focus, label: نقطة التركيز في الغلاف (مثال 50% 30% — الرقم الثاني يحرك القص للأعلى والأسفل), widget: string, default: "50% 50%", required: false }
+              - name: images
+                label: صور المشروع (تظهر في العارض)
+                widget: list
+                fields:
+                  - { name: src, label: الصورة, widget: image }
+          - name: posters
+            label: شريط البوسترات المتحرك
+            widget: list
+            fields:
+              - { name: src, label: البوستر, widget: image }
+          - name: clients
+            label: لوكوات العملاء
+            label_singular: عميل
+            widget: list
+            fields:
+              - { name: name, label: اسم العميل, widget: string, required: false }
+              - { name: logo, label: اللوكو (PNG أو SVG بخلفية شفافة), widget: image, required: false }
+
+      # ---------------- الخدمات ----------------
+      - name: services
+        label: الخدمات
+        file: public/content/services.json
+        format: json
+        fields:
+          - name: services
+            label: الخدمات
+            label_singular: خدمة
+            widget: list
+            summary: "{{fields.title_ar}}"
+            fields:
+              - { name: title_ar, label: الاسم بالعربي, widget: string }
+              - { name: title_en, label: الاسم بالإنجليزي, widget: string }
+              - { name: text_ar, label: سطر قصير بالعربي, widget: string }
+              - { name: text_en, label: سطر قصير بالإنجليزي, widget: string }
+              - name: category
+                label: تودّي إلى أعمال من نوع
+                widget: select
+                options:
+                  - { label: هويات وتغليف, value: identity }
+                  - { label: تصوير منتجات, value: product }
+                  - { label: حملات إعلانية, value: campaign }
+                  - { label: سوشيال ميديا, value: social }
+                  - { label: فيديو وموشن, value: video }
