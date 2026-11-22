@@ -405,3 +405,16 @@ html:not([dir="rtl"]) .pf .vviewer__nav--prev svg,html[dir="rtl"] .pf .vviewer__
   .pf .vviewer__stage{padding-bottom:3.6rem}
   .pf .vviewer__count{position:absolute;bottom:.55rem;inset-inline:0;pointer-events:none}}
 @media (prefers-reduced-motion:reduce){.pf .vcard__media video{display:none}}
+
+/* contact title: the last words rotate, each one slides up into place */
+.pf .contact__title{display:grid;justify-items:center;gap:.1em}
+.pf .rotor{display:grid;justify-items:center;overflow:hidden;padding-block:.08em .18em}
+.pf .rotor__word{grid-area:1/1;white-space:nowrap;opacity:0;transform:translateY(70%);filter:blur(6px);
+  background:linear-gradient(100deg,var(--gold),#F1DDB0 45%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;
+  transition:opacity .6s var(--ease),transform .7s var(--ease),filter .6s var(--ease)}
+.pf .rotor__word.is-on{opacity:1;transform:none;filter:none}
+.pf .contact__lead{max-width:46ch;margin-inline:auto;line-height:1.9;text-wrap:balance}
+@media (prefers-reduced-motion:reduce){
+  .pf .rotor__word{display:none}
+  .pf .rotor__word:first-child{display:block;opacity:1;transform:none;filter:none}
+}

@@ -103,6 +103,23 @@ const Icons = {
   ),
 };
 
+/* Cycles through what the product could get: an image, a video, an ad. Static for reduced motion. */
+const RotatingWords = ({ words }: { words: readonly string[] }) => {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (reducedMotion() || words.length < 2) return;
+    const id = window.setInterval(() => setI((n) => (n + 1) % words.length), 2600);
+    return () => window.clearInterval(id);
+  }, [words]);
+  return (
+    <span className="rotor" aria-hidden="true">
+      {words.map((w, k) => (
+        <span key={w} className={`rotor__word${k === i ? " is-on" : ""}`}>{w}</span>
+      ))}
+    </span>
+  );
+};
+
 /* ---------------- Videos ---------------- */
 
 /* Plays its silent loop only while it is on screen, and never for reduced motion or data saver. */
@@ -629,7 +646,11 @@ const Portfolio = () => {
         {/* 8. Contact */}
         <section className="contact" id="contact" aria-labelledby="contactTitle">
           <div className="contact__bg" aria-hidden="true" style={{ backgroundImage: s.contact_photo ? `url("${encodeURI(s.contact_photo)}")` : "none" }} />
-          <h2 className="contact__title" id="contactTitle" data-reveal>{u.contactTitle}</h2>
+          <h2 className="contact__title" id="contactTitle" data-reveal>
+            <span className="sr-only">{u.contactTitle} {u.contactWords.join("، ")}</span>
+            <span aria-hidden="true">{u.contactTitle}</span>
+            <RotatingWords words={u.contactWords} />
+          </h2>
           <p className="contact__lead" data-reveal>{u.contactLead}</p>
           <div className="contact__links" data-reveal>
             {contactItems.map((c) => (
