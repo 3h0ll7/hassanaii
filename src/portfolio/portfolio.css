@@ -435,10 +435,15 @@ html:not([dir="rtl"]) .pf .vviewer__nav--prev svg,html[dir="rtl"] .pf .vviewer__
 .pf .videos__motion{max-width:var(--max);margin:clamp(3rem,7vw,5rem) auto 0;scroll-margin-top:5rem}
 .pf .videos__subhead{display:grid;gap:.6rem;justify-items:start;padding-inline:var(--pad);margin-bottom:1.5rem}
 .pf .videos__subhead h3{font-size:clamp(1.6rem,4.5vw,2.4rem);font-weight:600;line-height:1.15}
-.pf .videos__row--motion{display:grid;grid-auto-flow:row;grid-template-columns:1fr;overflow:visible;contain:none;gap:1.5rem}
-.pf .videos__row--motion .vcard:nth-child(even){width:min(64vw,320px)}
+.pf .videos__row--motion{display:grid;grid-auto-flow:row;grid-template-columns:1fr;overflow:visible;contain:none;gap:1.5rem;padding-inline:0}
+.pf .videos__row--motion > .vcard{margin-inline:var(--pad)}
+.pf .motion-tall{display:grid;grid-auto-flow:column;grid-auto-columns:min(62vw,300px);gap:.9rem;overflow-x:auto;
+  scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding:.3rem var(--pad) .5rem;scrollbar-width:none;contain:paint}
+.pf .motion-tall::-webkit-scrollbar{display:none}
 @media (min-width:700px){
-  .pf .videos__row--motion{display:flex;align-items:flex-start;gap:1.25rem}
-  .pf .videos__row--motion .vcard,.pf .videos__row--motion .vcard:nth-child(even){flex:var(--r) 1 0;width:auto;min-width:0}
+  .pf .videos__row--motion{display:flex;align-items:flex-start;gap:1.25rem;padding-inline:var(--pad)}
+  .pf .videos__row--motion > .vcard{margin-inline:0}
+  .pf .motion-tall{display:contents}
+  .pf .videos__row--motion .vcard{flex:var(--r) 1 0;width:auto;min-width:0}
 }
 @media (max-width:699px){.pf .vviewer__video{max-height:calc(100svh - 13rem)}}
